@@ -13,4 +13,7 @@ public class DoIGetBonus {
     public static String bonusTime(final int salary, final boolean bonus) {
         return bonus ? "\u00A3" + String.valueOf(salary * 10) : "\u00A3" + String.valueOf(salary);
     }
+    //    return "\u00A3" + (bonus ? 10 : 1) * salary;
+    //      return "£" + salary * (bonus ? 10 : 1);
+    //    return "£" + salary + (bonus ? '0' : "");
 }
