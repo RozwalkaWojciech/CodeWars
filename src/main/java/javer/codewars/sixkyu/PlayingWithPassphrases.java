@@ -23,6 +23,8 @@ public class PlayingWithPassphrases {
 
     public static String playPass(String s, int n) {
 
+        s = s.toLowerCase();
+
         for (int i = 0; i < s.length(); i++) {
             if (Character.isLetter(s.charAt(i))) {
                 if (i % 2 == 0) {
@@ -32,10 +34,16 @@ public class PlayingWithPassphrases {
                 }
             }
             if (Character.isDigit(s.charAt(i))) {
-                s = s.replace(s.charAt(i), (char) (9 - s.charAt(i)));
+                int digit = s.charAt(i);
+                s = s.replace(s.charAt(i), (char) (57-digit));
             }
         }
         return new StringBuilder(s).reverse().toString();
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(playPass("APRIL 2015", 2));
     }
 }
 
