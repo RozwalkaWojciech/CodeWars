@@ -22,9 +22,20 @@ With longer passphrases it's better to have a small and easy program. Would you 
 public class PlayingWithPassphrases {
 
     public static String playPass(String s, int n) {
-        // your code
-        return "";
-    }
 
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isLetter(s.charAt(i))) {
+                if (i % 2 == 0) {
+                    s = s.replace(s.charAt(i), (char) Character.toUpperCase(s.charAt(i) + n));
+                } else {
+                    s = s.replace(s.charAt(i), (char) Character.toLowerCase(s.charAt(i) + n));
+                }
+            }
+            if (Character.isDigit(s.charAt(i))) {
+                s = s.replace(s.charAt(i), (char) (9 - s.charAt(i)));
+            }
+        }
+        return new StringBuilder(s).reverse().toString();
+    }
 }
 
