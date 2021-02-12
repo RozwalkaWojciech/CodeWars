@@ -23,26 +23,36 @@ public class PlayingWithPassphrases {
 
     public static String playPass(String s, int n) {
 
-        s = s.toLowerCase();
+        char[] arr = s.toLowerCase().toCharArray();
+        var sb = new StringBuilder();
 
-        for (int i = 0; i < s.length(); i++) {
-            if (Character.isLetter(s.charAt(i))) {
+        for (int i = 0; i < arr.length; i++) {
+            if (Character.isLetter(arr[i])) {
                 if (i % 2 == 0) {
-                    s = s.replace(s.charAt(i), (char) Character.toUpperCase(s.charAt(i) + n));
+                    if ((arr[i] + n) > 122) {
+                        sb.append((char) Character.toUpperCase((97 + (arr[i] - 122) + (n - 1))));
+                    } else {
+                        sb.append((char) Character.toUpperCase(arr[i] + n));
+                    }
                 } else {
-                    s = s.replace(s.charAt(i), (char) Character.toLowerCase(s.charAt(i) + n));
+                    if ((arr[i] + n) > 122) {
+                        sb.append((char) Character.toLowerCase((97 + (arr[i] - 122) + (n - 1))));
+                    } else {
+                        sb.append((char) Character.toLowerCase(arr[i] + n));
+                    }
                 }
-            }
-            if (Character.isDigit(s.charAt(i))) {
-                int digit = s.charAt(i);
-                s = s.replace(s.charAt(i), (char) (57-digit));
+            } else if (Character.isDigit(s.charAt(i))) {
+                sb.append((char) (48 + (57 - s.charAt(i))));
+            } else {
+                sb.append(arr[i]);
             }
         }
-        return new StringBuilder(s).reverse().toString();
+        return sb.reverse().toString();
     }
 
 
     public static void main(String[] args) {
+        System.out.println(playPass("I LOVE YOU Z!!!", 1));
         System.out.println(playPass("APRIL 2015", 2));
     }
 }
