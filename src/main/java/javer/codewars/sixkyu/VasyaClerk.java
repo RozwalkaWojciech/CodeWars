@@ -9,9 +9,34 @@ Can Vasya sell a ticket to every person and give change if he initially has no m
 Return YES, if Vasya can sell a ticket to every person and give change with the bills he has at hand at that moment. Otherwise return NO.*/
 
 public class VasyaClerk {
-    public static String Tickets(int[] peopleInLine)
-    {
-        //Your code is here...
-    return "";
+    public static String Tickets(int[] peopleInLine) {
+
+        int value25 = 0;
+        int value50 = 0;
+
+        for (int i = 0; i < peopleInLine.length; i++) {
+            if (peopleInLine[i] == 25) {
+                value25++;
+            } else if (peopleInLine[i] == 50 && value25 > 0) {
+                value50++;
+                value25--;
+            } else if (peopleInLine[i] == 100) {
+                if (value50 > 0 && value25 > 0) {
+                    value25--;
+                    value50--;
+                } else if (value25 >= 3) {
+                    value25 -= 3;
+                } else {
+                    return "NO";
+                }
+            } else {
+                return "NO";
+            }
+        }
+        return "YES";
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Tickets(new int[]{25, 25, 25, 25, 50, 100, 50}));
     }
 }
