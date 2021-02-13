@@ -41,4 +41,9 @@ public class WhoLikesIt {
                 return String.format("%s, %s and %d others like this", nms[0], nms[1], nms.length - 2);
         }
     }
+    public static String whoLikesIt3(String... names) {
+        //Do your magic here
+        return names.length == 0 ? "no one likes this" : names.length == 1 ? names[0] + " likes this" : names.length == 2 ? names[0] + " and " + names[1] + " like this" : names.length == 3 ? names[0] + ", " + names[1] + " and " + names[2] + " like this" : names[0] + ", " + names[1] + " and " + (names.length - 2) + " others like this";
+
+    }
 }
