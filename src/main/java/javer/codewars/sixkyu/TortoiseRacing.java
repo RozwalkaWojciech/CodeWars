@@ -45,6 +45,16 @@ public class TortoiseRacing {
         return new int[]{h, min, sec};
     }
 
+    public static int[] race2(int v1, int v2, int g) {
+        int totalSecondsTaken = 0;
+        if (v2 > v1 ) {
+            totalSecondsTaken = (g*3600) / (v2-v1) ;
+        } else {
+            return null;
+        }
+        return new int[] {totalSecondsTaken/3600, (totalSecondsTaken % 3600)/60, totalSecondsTaken % 60};
+    }
+
     public static void main(String[] args) {
         System.out.println(Arrays.toString(race(720, 850, 70)));
     }
