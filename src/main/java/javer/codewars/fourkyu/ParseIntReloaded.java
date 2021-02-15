@@ -80,3 +80,48 @@ public class ParseIntReloaded {
         System.out.println(parseInt("two hundred forty-six"));
     }
 }
+
+/*
+public class Parser {
+
+     private static HashMap<String, Integer> digits = new HashMap<>();
+    static {
+        digits.put("zero", 0);
+        digits.put("one", 1);   digits.put("eleven", 11);   digits.put("ten", 10);
+        digits.put("two", 2);   digits.put("twelve", 12);   digits.put("twenty", 20);
+        digits.put("three", 3); digits.put("thirteen", 13); digits.put("thirty", 30);
+        digits.put("four", 4);  digits.put("fourteen", 14); digits.put("forty", 40);
+        digits.put("five", 5);  digits.put("fifteen", 15);  digits.put("fifty", 50);
+        digits.put("six", 6);   digits.put("sixteen", 16);  digits.put("sixty", 60);
+        digits.put("seven", 7); digits.put("seventeen", 17);digits.put("seventy", 70);
+        digits.put("eight", 8); digits.put("eighteen", 18); digits.put("eighty", 80);
+        digits.put("nine", 9);  digits.put("nineteen", 19); digits.put("ninety", 90);
+    }
+
+    public static int parseInt(String numStr) {
+
+        int res = 0;
+        int temp = 0;
+
+        for ( String num:
+                numStr.replaceAll("-|( and )", " ").split(" ")
+        ) {
+            switch (num) {
+                case "million":
+                    return 1000000;
+                case "thousand":
+                    res += temp * 1000;
+                    temp = 0;
+                    break;
+                case "hundred":
+                    temp *= 100;
+                    break;
+                default: temp += digits.get(num);
+            }
+        }
+
+        return res + temp;
+
+    }
+}
+*/
