@@ -24,6 +24,7 @@ public class ParseIntReloaded {
     public static int parseInt(String numStr) {
 
         int result = 0;
+        int temp = 0;
 
         Map<String, Integer> words = Map.ofEntries(
                 Map.entry("zero", 0),
@@ -64,10 +65,15 @@ public class ParseIntReloaded {
                 result += words.get(word);
             }
             if (mult.containsKey(word)) {
-                result *= mult.get(word);
+                if (word.equals("thousand")) {
+                    temp = result * 1000;
+                    result = 0;
+                } else {
+                    result *= mult.get(word);
+                }
             }
         }
-        return result;
+        return result +temp;
     }
 
     public static void main(String[] args) {
