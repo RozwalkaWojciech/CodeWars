@@ -1,6 +1,7 @@
 package javer.codewars.sixkyu;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class DetermineTheDateByTheDayNumber {
 
@@ -9,5 +10,10 @@ public class DetermineTheDateByTheDayNumber {
         return date.getMonth().toString().charAt(0)
                 + date.getMonth().toString().substring(1).toLowerCase()
                 + ", " + date.getDayOfMonth();
+    }
+
+    public static String getDay2(int day, boolean isLeap) {
+        return DateTimeFormatter.ofPattern("MMMM, d")
+                .format(LocalDate.ofYearDay(isLeap ? 2020 : 2019, day));
     }
 }
