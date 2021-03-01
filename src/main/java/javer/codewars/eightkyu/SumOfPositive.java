@@ -1,6 +1,9 @@
 package javer.codewars.eightkyu;
 
+import java.util.Arrays;
+
 public class SumOfPositive {
+
     public static int sum(int[] arr) {
 
         int result = 0;
@@ -11,5 +14,9 @@ public class SumOfPositive {
             }
         }
         return result;
+    }
+
+    public static int sum2(int[] arr) {
+        return Arrays.stream(arr).filter(value -> value > 0).sum();
     }
 }
