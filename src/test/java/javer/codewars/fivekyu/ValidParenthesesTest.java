@@ -11,7 +11,7 @@ public class ValidParenthesesTest {
         // assertEquals("expected", "actual");
         assertTrue(ValidParentheses.validParentheses("()"));
         assertFalse(ValidParentheses.validParentheses("())"));
-        assertFalse(ValidParentheses.validParentheses("32423(sgsdg)"));
+        assertTrue(ValidParentheses.validParentheses("32423(sgsdg)"));
         assertFalse(ValidParentheses.validParentheses("(dsgdsg))2432"));
         assertTrue(ValidParentheses.validParentheses("adasdasfa"));
     }
