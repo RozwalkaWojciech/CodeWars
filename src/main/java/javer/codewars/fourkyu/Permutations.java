@@ -1,5 +1,6 @@
 package javer.codewars.fourkyu;
 
+import java.util.HashSet;
 import java.util.List;
 
 /*
@@ -14,7 +15,27 @@ The order of the permutations doesn't matter.
 */
 public class Permutations {
     public static List<String> singlePermutations(String s) {
-        // Your code here!
-        return null;
+
+        var set = new HashSet<String>();
+
+        if (s.length() == 0) {
+            set.add(s);
+            return List.copyOf(set);
+        }
+        for (int i = 0; i < s.length(); i++) {
+
+            List<String> temp = singlePermutations(s.substring(0, i) + s.substring(i + 1));
+
+            for (String str : temp) {
+                set.add(s.charAt(i) + str);
+            }
+        }
+        return List.copyOf(set);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(singlePermutations("ab"));
+        System.out.println(singlePermutations("abcd"));
+        System.out.println(singlePermutations("car"));
     }
 }
