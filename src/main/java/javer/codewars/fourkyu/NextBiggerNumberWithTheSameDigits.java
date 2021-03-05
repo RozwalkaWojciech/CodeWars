@@ -19,9 +19,15 @@ public class NextBiggerNumberWithTheSameDigits {
 
         for (int i = strNum.length() - 1; i > 0; i--) {
             if (strNum.charAt(i) == '0' && strNum.charAt(i - 1) != '0') {
-                sb.setCharAt(i - 1, strNum.charAt(i));
-                sb.setCharAt(i, strNum.charAt(i - 1));
-                i--;
+                if ((i - 2) >= (strNum.length() - i) && strNum.charAt(i - 2) < strNum.charAt(i - 1)) {
+                    sb.setCharAt(i - 2, strNum.charAt(i));
+                    sb.setCharAt(i, strNum.charAt(i - 2));
+                    sb.setCharAt(i-1, '0');
+                } else {
+                    sb.setCharAt(i - 1, strNum.charAt(i));
+                    sb.setCharAt(i, strNum.charAt(i - 1));
+                    i--;
+                }
             } else if (strNum.charAt(i) > strNum.charAt(i - 1)) {
                 sb.setCharAt(i - 1, strNum.charAt(i));
                 sb.setCharAt(i, strNum.charAt(i - 1));
@@ -33,7 +39,6 @@ public class NextBiggerNumberWithTheSameDigits {
     }
 
     public static void main(String[] args) {
-        System.out.println(nextBiggerNumber(311));
         //expected:<19009> but was:<10909>
         System.out.println(nextBiggerNumber(10990));
         //expected:<154983735> but was:<154983753>
