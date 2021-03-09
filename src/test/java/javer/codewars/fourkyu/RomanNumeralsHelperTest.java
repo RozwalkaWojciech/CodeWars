@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-class RomanNumeralsHelperTest {
+public class RomanNumeralsHelperTest {
     @Test
     public void testToRoman() throws Exception {
         assertThat("1 converts to 'I'", RomanNumeralsHelper.toRoman(1), is("I"));
