@@ -1,5 +1,6 @@
 package javer.codewars.fourkyu;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -64,10 +65,24 @@ public class RomanNumeralsHelper {
     }
 
     public static int fromRoman(String romanNumeral) {
-        return 1;
+
+        Map<Integer, String> reverseMap = new TreeMap<>(Collections.reverseOrder());
+        reverseMap.putAll(map);
+        int result = 0;
+
+        while (!romanNumeral.isEmpty()) {
+            for (Map.Entry<Integer, String> current : reverseMap.entrySet()) {
+                if (romanNumeral.startsWith(current.getValue())) {
+                    romanNumeral = romanNumeral.substring(current.getValue().length(), romanNumeral.length());
+                    result += current.getKey();
+                }
+            }
+        }
+        return result;
     }
 
     public static void main(String[] args) {
+        System.out.println(fromRoman("MMMCMXLII"));
         System.out.println(toRoman(3942));
     }
 }
