@@ -50,7 +50,17 @@ public class RomanNumeralsHelper {
 
         var sb = new StringBuilder();
 
-        return "I";
+        while (n != 0) {
+            int highestNumb = 0;
+            for (Map.Entry<Integer, String> current : map.entrySet()) {
+                if (current.getKey() <= n) {
+                    highestNumb = current.getKey();
+                }
+            }
+            sb.append(map.get(highestNumb));
+            n -= highestNumb;
+        }
+        return sb.toString();
     }
 
     public static int fromRoman(String romanNumeral) {
@@ -58,6 +68,6 @@ public class RomanNumeralsHelper {
     }
 
     public static void main(String[] args) {
-        System.out.println(toRoman(2000));
+        System.out.println(toRoman(3942));
     }
 }
