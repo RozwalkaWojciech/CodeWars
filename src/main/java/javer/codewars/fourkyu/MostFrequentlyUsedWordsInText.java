@@ -1,6 +1,7 @@
 package javer.codewars.fourkyu;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /*
 Write a function that, given a string of text (possibly with punctuation and line-breaks),
@@ -31,8 +32,43 @@ For java users, the calls will actually be in the form: TopWords.top3(String s),
 public class MostFrequentlyUsedWordsInText {
 
     public static List<String> top3(String s) {
-        // Your code here
-        return null;
+
+        Map<String, Integer> map = new TreeMap<>();
+        String toLowerCase = s.replaceAll("[^a-zA-Z']", " ").trim().toLowerCase();
+        List<String> result = new ArrayList<>();
+
+        for (String str : toLowerCase.split(" ")) {
+            if (map.containsKey(str)) {
+                map.put(str, map.get(str) + 1);
+            } else {
+                map.put(str, 1);
+            }
+        }
+
+        List<Map.Entry<String, Integer>> collect = map.entrySet().stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(Collectors.toList());
+
+        int count = 3;
+
+        for (Map.Entry<String, Integer> entry : collect) {
+            if (count == 0) {
+                break;
+            }
+            if (entry.getKey().isEmpty()) {
+                continue;
+            }
+            if (Character.isLetter(entry.getKey().charAt(0))) {
+                result.add(entry.getKey());
+                count--;
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(top3("  '  "));
+        System.out.println(top3("a a a  b  c c  d d d d  e e e e e"));
+        System.out.println(top3("  //wOnt won't won't "));
     }
 }
 
