@@ -1,5 +1,7 @@
 package javer.codewars.fourkyu;
 
+import java.util.Arrays;
+
 /*
 Given two strings s1 and s2, we want to visualize how different the two strings are.
 We will only take into account the lowercase letters (a to z).
@@ -33,6 +35,20 @@ mix(s1, s2) --> "=:aaaaaa/2:eeeee/=:fffff/1:tt/2:rr/=:hh"
 public class StringsMix {
 
     public static String mix(String s1, String s2) {
+
+        char[] arr1 = s1.replaceAll("[^a-z]", "").toCharArray();
+        char[] arr2 = s2.replaceAll("[^a-z]", "").toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        System.out.println(new String(arr1));
+        System.out.println(new String(arr2));
+
         return "";
+    }
+
+    public static void main(String[] args) {
+        mix("bbaAA d faFh 854 :;.,DSAKppp", "zzzbbaaa ss d ff GG gg ;; pp");
     }
 }
