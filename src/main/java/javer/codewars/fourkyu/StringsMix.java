@@ -1,6 +1,7 @@
 package javer.codewars.fourkyu;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /*
 Given two strings s1 and s2, we want to visualize how different the two strings are.
@@ -37,10 +38,6 @@ public class StringsMix {
     public static String mix(String s1, String s2) {
 
         var sb = new StringBuilder();
-        char c1 = ' ';
-        char c2 = ' ';
-        String temp1 = "";
-        String temp2 = "";
 
         char[] arr1 = s1.replaceAll("[^a-z]", "").toCharArray();
         char[] arr2 = s2.replaceAll("[^a-z]", "").toCharArray();
@@ -51,28 +48,96 @@ public class StringsMix {
         s1 = new String(arr1);
         s2 = new String(arr2);
 
-        while (s1.length() != 0 && s2.length() != 0) {
+        Map<Character, Integer> map1 = setMap(s1);
+        Map<Character, Integer> map2 = setMap(s2);
 
-            if (s1.length() != 0) {
+        //test ok
+        System.out.println(map1);
+        System.out.println(map2);
 
-                c1 = s1.charAt(0);
+        //do method to concatenation maps!!!!!!
+        Map<Character, Integer> fusionMap = concatenateMaps(map1, map2);
 
-                if (c1 == s1.charAt(0)) {
-                    temp1 += String.valueOf(s1.charAt(0));
-                    s1 = s1.substring(1);
+        //before sort
+        System.out.println("Fusion " + fusionMap);
+
+        List<Map.Entry<Character, Integer>> sortedListByValue = fusionMap.entrySet().stream()
+                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(Collectors.toList());
+
+        //after sort
+        System.out.println("Sort fusion " + sortedListByValue);
+
+        for (Map.Entry<Character, Integer> entry : sortedListByValue) {
+            if (map1.containsKey(entry.getKey()) && map2.containsKey(entry.getKey())) {
+                if (map1.get(entry.getKey()) > map2.get(entry.getKey())) {
+                    sb.append("1:").append(charsToString(entry.getKey(), entry.getValue()));
+                } else if (map1.get(entry.getKey()) < map2.get(entry.getKey())) {
+                    sb.append("2:").append(charsToString(entry.getKey(), entry.getValue()));
+                } else {
+                    sb.append("=:").append(charsToString(entry.getKey(), entry.getValue()));
+                }
+            } else if (map1.containsKey(entry.getKey())) {
+                sb.append("1:").append(charsToString(entry.getKey(), entry.getValue()));
+            } else {
+                sb.append("2:").append(charsToString(entry.getKey(), entry.getValue()));
+            }
+            sb.append('/');
+        }
+        return sb.toString();
+    }
+
+    private static Map<Character, Integer> setMap(String str) {
+
+        Map<Character, Integer> map = new TreeMap<>();
+        int count = 1;
+
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) != str.charAt(i - 1)) {
+                map.put(str.charAt(i - 1), count);
+                count = 1;
+            } else {
+                count++;
+            }
+        }
+        if (!map.containsKey(str.charAt(str.length() - 1))) {
+            map.put(str.charAt(str.length() - 1), count);
+        }
+        return map;
+    }
+
+    private static Map<Character, Integer> concatenateMaps(Map<Character, Integer> map1, Map<Character, Integer> map2) {
+
+        Map<Character, Integer> concatMap = new HashMap<>();
+        Map<Character, Integer> smallerMap;
+
+        if (map1.size() > map2.size()) {
+            smallerMap = map2;
+            concatMap.putAll(map1);
+        } else {
+            smallerMap = map1;
+            concatMap.putAll(map2);
+        }
+        for (Map.Entry<Character, Integer> entry : smallerMap.entrySet()) {
+            if (!concatMap.containsKey(entry.getKey())) {
+                concatMap.put(entry.getKey(), entry.getValue());
+            } else {
+                for (Map.Entry<Character, Integer> entry2 : concatMap.entrySet()) {
+                    if (entry.getValue() > entry2.getValue()) {
+                        concatMap.put(entry.getKey(), entry.getValue());
+                    }
                 }
             }
-
         }
+        return concatMap;
+    }
 
-
-        System.out.println(new String(arr1));
-        System.out.println(new String(arr2));
-
-        return "";
+    private static String charsToString(char c, int num) {
+        return String.valueOf(c).repeat(num);
     }
 
     public static void main(String[] args) {
-        mix("bbaAA d faFh 854 :;.,DSAKppp", "zzzbbaaa ss d ff GG gg ;; pp");
+        System.out.println(mix("aaaabbbcccccc", "aacccffggggg"));
+        System.out.println(mix("aabbcc", "aabbcc"));
     }
 }
