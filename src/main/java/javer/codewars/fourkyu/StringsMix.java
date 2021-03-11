@@ -36,11 +36,35 @@ public class StringsMix {
 
     public static String mix(String s1, String s2) {
 
+        var sb = new StringBuilder();
+        char c1 = ' ';
+        char c2 = ' ';
+        String temp1 = "";
+        String temp2 = "";
+
         char[] arr1 = s1.replaceAll("[^a-z]", "").toCharArray();
         char[] arr2 = s2.replaceAll("[^a-z]", "").toCharArray();
 
         Arrays.sort(arr1);
         Arrays.sort(arr2);
+
+        s1 = new String(arr1);
+        s2 = new String(arr2);
+
+        while (s1.length() != 0 && s2.length() != 0) {
+
+            if (s1.length() != 0) {
+
+                c1 = s1.charAt(0);
+
+                if (c1 == s1.charAt(0)) {
+                    temp1 += String.valueOf(s1.charAt(0));
+                    s1 = s1.substring(1);
+                }
+            }
+
+        }
+
 
         System.out.println(new String(arr1));
         System.out.println(new String(arr2));
