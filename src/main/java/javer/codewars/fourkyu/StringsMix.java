@@ -38,6 +38,7 @@ public class StringsMix {
     public static String mix(String s1, String s2) {
 
         var sb = new StringBuilder();
+        var end = new ArrayList<String>();
 
         char[] arr1 = s1.replaceAll("[^a-z]", "").toCharArray();
         char[] arr2 = s2.replaceAll("[^a-z]", "").toCharArray();
@@ -51,40 +52,33 @@ public class StringsMix {
         Map<Character, Integer> map1 = setMap(s1);
         Map<Character, Integer> map2 = setMap(s2);
 
-        //test ok
-        System.out.println(map1);
-        System.out.println(map2);
-
-        //do method to concatenation maps!!!!!!
         Map<Character, Integer> fusionMap = concatenateMaps(map1, map2);
-
-        //before sort
-        System.out.println("Fusion " + fusionMap);
 
         List<Map.Entry<Character, Integer>> sortedListByValue = fusionMap.entrySet().stream()
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .filter(c -> c.getValue() > 1)
                 .collect(Collectors.toList());
-
-        //after sort
-        System.out.println("Sort fusion " + sortedListByValue);
 
         for (Map.Entry<Character, Integer> entry : sortedListByValue) {
             if (map1.containsKey(entry.getKey()) && map2.containsKey(entry.getKey())) {
                 if (map1.get(entry.getKey()) > map2.get(entry.getKey())) {
-                    sb.append("1:").append(charsToString(entry.getKey(), entry.getValue()));
+                    sb.append('/').append("1:").append(charsToString(entry.getKey(), entry.getValue()));
                 } else if (map1.get(entry.getKey()) < map2.get(entry.getKey())) {
-                    sb.append("2:").append(charsToString(entry.getKey(), entry.getValue()));
+                    sb.append('/').append("2:").append(charsToString(entry.getKey(), entry.getValue()));
                 } else {
-                    sb.append("=:").append(charsToString(entry.getKey(), entry.getValue()));
+                    end.add("/=:" + charsToString(entry.getKey(), entry.getValue()));
                 }
             } else if (map1.containsKey(entry.getKey())) {
-                sb.append("1:").append(charsToString(entry.getKey(), entry.getValue()));
+                sb.append('/').append("1:").append(charsToString(entry.getKey(), entry.getValue()));
             } else {
-                sb.append("2:").append(charsToString(entry.getKey(), entry.getValue()));
+                sb.append('/').append("2:").append(charsToString(entry.getKey(), entry.getValue()));
             }
-            sb.append('/');
         }
-        return sb.toString();
+        Collections.sort(end);
+        for (String str : end){
+            sb.append(str);
+        }
+        return sb.substring(1);
     }
 
     private static Map<Character, Integer> setMap(String str) {
@@ -122,10 +116,8 @@ public class StringsMix {
             if (!concatMap.containsKey(entry.getKey())) {
                 concatMap.put(entry.getKey(), entry.getValue());
             } else {
-                for (Map.Entry<Character, Integer> entry2 : concatMap.entrySet()) {
-                    if (entry.getValue() > entry2.getValue()) {
-                        concatMap.put(entry.getKey(), entry.getValue());
-                    }
+                if (entry.getValue() > concatMap.get(entry.getKey())) {
+                    concatMap.put(entry.getKey(), entry.getValue());
                 }
             }
         }
@@ -137,7 +129,11 @@ public class StringsMix {
     }
 
     public static void main(String[] args) {
+
+        //expected 2:eeeee/2:yy/=:hh/=:rr
+        System.out.println(mix("Are they here", "yes, they are here"));
+
         System.out.println(mix("aaaabbbcccccc", "aacccffggggg"));
-        System.out.println(mix("aabbcc", "aabbcc"));
+        System.out.println(mix("bbaabbccaa", "bbaabbacca"));
     }
 }
