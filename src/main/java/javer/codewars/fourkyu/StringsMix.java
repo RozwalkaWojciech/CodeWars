@@ -38,7 +38,7 @@ public class StringsMix {
     public static String mix(String s1, String s2) {
 
         var sb = new StringBuilder();
-        var end = new ArrayList<String>();
+        var result = new ArrayList<String>();
 
         char[] arr1 = s1.replaceAll("[^a-z]", "").toCharArray();
         char[] arr2 = s2.replaceAll("[^a-z]", "").toCharArray();
@@ -62,20 +62,20 @@ public class StringsMix {
         for (Map.Entry<Character, Integer> entry : sortedListByValue) {
             if (map1.containsKey(entry.getKey()) && map2.containsKey(entry.getKey())) {
                 if (map1.get(entry.getKey()) > map2.get(entry.getKey())) {
-                    sb.append('/').append("1:").append(charsToString(entry.getKey(), entry.getValue()));
+                    result.add("/1:" + charsToString(entry.getKey(), entry.getValue()));
                 } else if (map1.get(entry.getKey()) < map2.get(entry.getKey())) {
-                    sb.append('/').append("2:").append(charsToString(entry.getKey(), entry.getValue()));
+                    result.add("/2:" + charsToString(entry.getKey(), entry.getValue()));
                 } else {
-                    end.add("/=:" + charsToString(entry.getKey(), entry.getValue()));
+                    result.add(("/=:" + charsToString(entry.getKey(), entry.getValue())));
                 }
             } else if (map1.containsKey(entry.getKey())) {
-                sb.append('/').append("1:").append(charsToString(entry.getKey(), entry.getValue()));
+                result.add("/1:" + charsToString(entry.getKey(), entry.getValue()));
             } else {
-                sb.append('/').append("2:").append(charsToString(entry.getKey(), entry.getValue()));
+                result.add("/2:" + charsToString(entry.getKey(), entry.getValue()));
             }
         }
-        Collections.sort(end);
-        for (String str : end){
+        Collections.sort(result);
+        for (String str : result) {
             sb.append(str);
         }
         return sb.substring(1);
