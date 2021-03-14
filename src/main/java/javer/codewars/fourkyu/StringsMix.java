@@ -150,6 +150,35 @@ public class StringsMix {
         return String.valueOf(c).repeat(num);
     }
 
+    public static String mix2(String s1, String s2) {
+
+        List<String> finalStr = new ArrayList();
+
+        for (char c = 'a'; c <= 'z'; c++) {
+            String s1Char = s1.replaceAll("[^" + c + "]+", "");
+            String s2Char = s2.replaceAll("[^" + c + "]+", "");
+
+            int s1Length = s1Char.length();
+            int s2Length = s2Char.length();
+
+            if (s1Length > 1 || s2Length > 1) {
+                if (s1Length == s2Length) {
+                    finalStr.add("=:" + s1Char);
+                }
+                if (s1Length > s2Length) {
+                    finalStr.add("1:" + s1Char);
+                }
+                if (s1Length < s2Length) {
+                    finalStr.add("2:" + s2Char);
+                }
+            }
+        }
+        Comparator<String> length = (x, y) -> y.length() - x.length();
+        Comparator<String> typeValue = (x, y) -> Character.compare(x.charAt(0), y.charAt(0));
+
+        return finalStr.stream().sorted(length.thenComparing(typeValue)).collect(Collectors.joining("/"));
+    }
+
     public static void main(String[] args) {
 
         System.out.println(mix("Are they here", "yes, they are here"));
