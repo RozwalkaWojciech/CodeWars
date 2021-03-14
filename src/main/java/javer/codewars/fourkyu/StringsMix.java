@@ -74,9 +74,31 @@ public class StringsMix {
                 result.add("/2:" + charsToString(entry.getKey(), entry.getValue()));
             }
         }
-        Collections.sort(result);
-        for (String str : result) {
-            sb.append(str);
+        result.sort((str1, str2) -> str2.length() - str1.length());
+
+        var temp = new ArrayList<String>();
+
+        for (int i = 1; i <= result.size() - 1; i++) {
+            if (result.get(i).length() < result.get(i - 1).length() || i == result.size() - 1) {
+                if (temp.isEmpty()) {
+                    sb.append(result.get(i - 1));
+                } else {
+                    temp.add(result.get(i - 1));
+                    if (i == result.size() - 1) {
+                        temp.add(result.get(i));
+                    }
+                    Collections.sort(temp);
+                    for (String str : temp) {
+                        sb.append(str);
+                    }
+                    temp.clear();
+                }
+            } else {
+                temp.add(result.get(i - 1));
+            }
+        }
+        if (sb.toString().isEmpty()) {
+            return "";
         }
         return sb.substring(1);
     }
@@ -130,9 +152,7 @@ public class StringsMix {
 
     public static void main(String[] args) {
 
-        //expected 2:eeeee/2:yy/=:hh/=:rr
         System.out.println(mix("Are they here", "yes, they are here"));
-
         System.out.println(mix("aaaabbbcccccc", "aacccffggggg"));
         System.out.println(mix("bbaabbccaa", "bbaabbacca"));
     }
