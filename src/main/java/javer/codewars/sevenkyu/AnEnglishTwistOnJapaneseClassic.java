@@ -2,6 +2,7 @@ package javer.codewars.sevenkyu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class AnEnglishTwistOnJapaneseClassic {
@@ -51,4 +52,11 @@ public class AnEnglishTwistOnJapaneseClassic {
         return words.subList(0, x);
     }
 
+    public static List<String> theGame4(List<String> words) {
+        return IntStream.range(0, words.size())
+                .takeWhile(i -> !words.get(i).isEmpty() &&
+                        (i == 0 || words.get(i).charAt(0) == words.get(i - 1).charAt(words.get(i - 1).length() - 1)))
+                .mapToObj(i -> words.get(i))
+                .collect(Collectors.toList());
+    }
 }
