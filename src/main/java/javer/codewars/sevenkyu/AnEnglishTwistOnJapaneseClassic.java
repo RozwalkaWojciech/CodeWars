@@ -27,4 +27,11 @@ public class AnEnglishTwistOnJapaneseClassic {
         }
         return result;
     }
+
+    public static List<String> theGame2(List<String> words) {
+        final List<String> list = new ArrayList<>();
+        String prev = words.isEmpty() || words.get(0).isEmpty() ? "" : "" + words.get(0).charAt(0);
+        for (String w : words) if (!w.isEmpty() && prev.endsWith(""+w.charAt(0))) list.add(prev = w); else break;
+        return list;
+    }
 }
