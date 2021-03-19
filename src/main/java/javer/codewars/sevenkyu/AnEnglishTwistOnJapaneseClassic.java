@@ -42,7 +42,7 @@ public class AnEnglishTwistOnJapaneseClassic {
     public static List<String> theGame3(List<String> words) {
 
         if (words.isEmpty() || words.get(0).isEmpty())
-            return new ArrayList<String>();
+            return new ArrayList<>();
 
         int x = IntStream.range(1, words.size())
                 .filter(i -> words.get(i).isEmpty()
@@ -56,7 +56,7 @@ public class AnEnglishTwistOnJapaneseClassic {
         return IntStream.range(0, words.size())
                 .takeWhile(i -> !words.get(i).isEmpty() &&
                         (i == 0 || words.get(i).charAt(0) == words.get(i - 1).charAt(words.get(i - 1).length() - 1)))
-                .mapToObj(i -> words.get(i))
+                .mapToObj(words::get)
                 .collect(Collectors.toList());
     }
 }
