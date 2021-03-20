@@ -11,7 +11,7 @@ Return the total figure the individual will receive as a string prefixed with "Â
 
 public class DoIGetBonus {
     public static String bonusTime(final int salary, final boolean bonus) {
-        return bonus ? "\u00A3" + String.valueOf(salary * 10) : "\u00A3" + String.valueOf(salary);
+        return bonus ? "\u00A3" + salary * 10 : "\u00A3" + salary;
     }
     //    return "\u00A3" + (bonus ? 10 : 1) * salary;
     //      return "Â£" + salary * (bonus ? 10 : 1);
