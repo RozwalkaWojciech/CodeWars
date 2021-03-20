@@ -1,4 +1,5 @@
 package javer.codewars.eightkyu;
+
 /*
 Your goal is to return multiplication table for number that is always an integer from 1 to 10.
 For example, a multiplication table (string) for number == 5 looks like below:
@@ -18,6 +19,10 @@ Note: newlines should be added between rows, but there should be no trailing new
 public class MultiplicationTableForNumber {
 
     public static String multiTable(int num) {
-        return "";
+        var sb = new StringBuilder();
+        for (int i = 1; i <= 10; i++) {
+            sb.append(i).append(" * ").append(num).append(" = ").append(i * num).append("\n");
+        }
+        return sb.substring(0, sb.toString().length() - 1);
     }
 }
