@@ -61,6 +61,17 @@ public class Meeting {
                 .collect(Collectors.joining(""));
     }
 
+    public static String meeting3(String s) {
+        String[] guests = s.split(";");
+        for (int i = 0; i < guests.length; i++) {
+            int index = guests[i].indexOf(":");
+            guests[i] = "(" + guests[i].substring(index + 1).toUpperCase() + ", " + guests[i].substring(0, index).toUpperCase() + ")";
+        }
+        Arrays.sort(guests);
+
+        return String.join("", guests);
+    }
+
     public static void main(String[] args) {
         meeting("Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill");
     }
