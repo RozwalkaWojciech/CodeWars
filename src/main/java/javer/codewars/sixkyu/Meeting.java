@@ -16,9 +16,44 @@ So the result of function meeting(s) will be:
 It can happen that in two distinct families with the same family name two people have the same first name too.
  */
 
+import java.util.*;
+
 public class Meeting {
 
     public static String meeting(String s) {
-        return "";
+
+        TreeMap<String, List<String>> people = new TreeMap<>();
+        String[] persons = s.split(";");
+        var sb = new StringBuilder();
+
+        for (String person : persons) {
+            String[] fullName = person.split(":");
+            String firstName = fullName[1].toUpperCase();
+            String lastName = fullName[0].toUpperCase();
+
+            if (!people.containsKey(firstName)) {
+                List<String> names = new ArrayList<>();
+                names.add(lastName);
+                people.put(firstName, names);
+            } else if (people.containsKey(firstName)) {
+                List<String> names = people.get(firstName);
+                names.add(lastName);
+                Collections.sort(names);
+                people.put(firstName, names);
+            }
+        }
+        Set<String> lastNames = people.keySet();
+
+        for (String secondName : lastNames) {
+            List<String> names = people.get(secondName);
+            for (String name : names) {
+                sb.append("(").append(secondName.toUpperCase()).append(", ").append(name.toUpperCase()).append(")");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        meeting("Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill");
     }
 }
