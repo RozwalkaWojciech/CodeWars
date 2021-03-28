@@ -27,7 +27,20 @@ consecutive strings : follow one after another without an interruption
  */
 
 public class ConsecutiveStrings {
+
     public static String longestConsec(String[] strarr, int k) {
-        return "";
+        if (strarr.length == 0 || k > strarr.length || k <= 0) {
+            return "";
+        }
+        var longestStr = "";
+        var newStr = "";
+
+        for (int i = 0; i < strarr.length - k; i++) {
+            newStr = strarr[i].concat(strarr[i + k - 1]);
+            if (newStr.length() > longestStr.length()) {
+                longestStr = newStr;
+            }
+        }
+        return longestStr;
     }
 }
