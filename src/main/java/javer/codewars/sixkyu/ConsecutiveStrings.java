@@ -35,8 +35,8 @@ public class ConsecutiveStrings {
         var longestStr = "";
         var newStr = "";
 
-        for (int i = 0; i < strarr.length - k; i++) {
-            newStr = strarr[i].concat(strarr[i + k - 1]);
+        for (int i = 0; i <= strarr.length - k; i++) {
+            newStr = k == 1 ? strarr[i] : strarr[i].concat(strarr[i + k - 1]);
             if (newStr.length() > longestStr.length()) {
                 longestStr = newStr;
             }
