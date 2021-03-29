@@ -34,10 +34,20 @@ public class ConsecutiveStrings {
         }
         var longestStr = "";
         var newStr = "";
+        var stop = false;
 
-        for (int i = 0; i <= strarr.length - k; i++) {
-            newStr = k == 1 ? strarr[i] : strarr[i].concat(strarr[i + k - 1]);
-            if (newStr.length() > longestStr.length()) {
+        for (int i = 0; i <= strarr.length; i++) {
+            newStr = "";
+            for (int j = 0; j < k; j++) {
+                if (i + j >= strarr.length) {
+                    stop = true;
+                    break;
+                }
+                newStr += strarr[i + j];
+            }
+            if (stop) {
+                break;
+            } else if (newStr.length() > longestStr.length()) {
                 longestStr = newStr;
             }
         }
