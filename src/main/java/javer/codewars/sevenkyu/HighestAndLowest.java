@@ -14,10 +14,25 @@ There will always be at least one number in the input string.
 Output string must be two numbers separated by a single space, and highest number is first.
  */
 
+import java.util.Arrays;
+
 public class HighestAndLowest {
 
     public static String highAndLow(String numbers) {
-        // Code here or
-        return "throw towel";
+        int min = Arrays.stream(numbers.split(" "))
+                .mapToInt(Integer::parseInt)
+                .min()
+                .getAsInt();
+
+        int max = Arrays.stream(numbers.split(" "))
+                .mapToInt(Integer::parseInt)
+                .max()
+                .getAsInt();
+
+        return String.format("%d %d", max, min);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(highAndLow("-1 3 2 -4 5"));
     }
 }
