@@ -15,6 +15,8 @@ Output string must be two numbers separated by a single space, and highest numbe
  */
 
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
+import java.util.stream.Stream;
 
 public class HighestAndLowest {
 
@@ -30,6 +32,11 @@ public class HighestAndLowest {
                 .getAsInt();
 
         return String.format("%d %d", max, min);
+    }
+
+    public static String HighAndLow2(String numbers) {
+        IntSummaryStatistics stat = Stream.of(numbers.split(" ")).mapToInt(Integer::parseInt).summaryStatistics();
+        return stat.getMax() + " " + stat.getMin();
     }
 
     public static void main(String[] args) {
