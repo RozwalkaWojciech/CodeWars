@@ -14,9 +14,11 @@ UniqueArray.unique([1, 5, 2, 0, 2, -3, 1, 10])
 // -> [1, 5, 2, 0, -3, 10]
  */
 
+import java.util.Arrays;
+
 public class RemoveDuplicates {
 
     public static int[] unique(int[] integers) {
-        return null;
+        return Arrays.stream(integers).distinct().toArray();
     }
 }
