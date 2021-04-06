@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class StopGinnipSMySdroWTest {
     @Test
     public void test() {
-        assertEquals("emocleW", new StopGinnipSMySdroW().spinWords("Welcome"));
-        assertEquals("Hey wollef sroirraw", new StopGinnipSMySdroW().spinWords("Hey fellow warriors"));
+        assertEquals("emocleW", new StopGinnipSMySdroW().spinWords2("Welcome"));
+        assertEquals("Hey wollef sroirraw", new StopGinnipSMySdroW().spinWords2("Hey fellow warriors"));
     }
 }
