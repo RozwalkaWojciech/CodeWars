@@ -15,6 +15,12 @@ spinWords("This is another test") => "This is rehtona test"
 public class StopGinnipSMySdroW {
 
     public String spinWords(String sentence) {
-        return "";
+        String[] arr = sentence.split(" ");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length() > 4) {
+                arr[i] = new StringBuilder(arr[i]).reverse().toString();
+            }
+        }
+        return String.join(" ", arr);
     }
 }
