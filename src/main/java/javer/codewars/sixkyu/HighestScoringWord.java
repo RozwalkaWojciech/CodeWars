@@ -8,9 +8,31 @@ If two words score the same, return the word that appears earliest in the origin
 All letters will be lowercase and all inputs will be valid.
  */
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class HighestScoringWord {
 
     public static String high(String s) {
-        return "";
+
+        int wordValue;
+        int maxValue = 0;
+        String result = "";
+
+        for (String str : s.split(" ")) {
+            wordValue = 0;
+            for (char ch : str.toCharArray()) {
+                wordValue += (ch - 96);
+            }
+            if (wordValue > maxValue) {
+                maxValue = wordValue;
+                result = str;
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(high("man i need a taxi up to ubud"));
     }
 }
