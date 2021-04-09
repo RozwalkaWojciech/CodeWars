@@ -32,6 +32,12 @@ public class HighestScoringWord {
         return result;
     }
 
+    public static String high2(String s) {
+        return Arrays.stream(s.split(" "))
+                .max(Comparator.comparingInt(w -> w.chars().map(c -> c - 96).sum()))
+                .get();
+    }
+
     public static void main(String[] args) {
         System.out.println(high("man i need a taxi up to ubud"));
     }
