@@ -16,9 +16,13 @@ grapes
 bananas
  */
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class StripComments {
 
     public static String stripComments(String text, String[] commentSymbols) {
-        return "";
+        String format = String.format("[ ]*([%s].*)?$", String.join("", commentSymbols));
+        return Stream.of(text.split("\n")).map(s -> s.replaceAll(format, "")).collect(Collectors.joining("\n"));
     }
 }
