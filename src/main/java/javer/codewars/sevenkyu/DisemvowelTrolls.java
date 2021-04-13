@@ -11,6 +11,6 @@ Note: for this kata y isn't considered a vowel.
 public class DisemvowelTrolls {
 
     public static String disemvowel(String str) {
-        return "";
+        return str.replaceAll("[aeouiAEOUI]", "");
     }
 }
