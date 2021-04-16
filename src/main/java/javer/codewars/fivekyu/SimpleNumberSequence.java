@@ -16,6 +16,27 @@ The sequence will always be in ascending order.
 public class SimpleNumberSequence {
 
     public static int missing(String s) {
-        return 0;
+        int result = 0;
+        for (int i = 1; i < Math.min(8, s.length() / 2); i++) {
+            int temp = 1;
+            int m = Integer.parseInt(s.substring(0, i));
+            int hold = i;
+            while (hold < s.length()) {
+                m++;
+                String n = String.valueOf(m);
+                if (!n.equals(s.substring(hold, hold + n.length()))) {
+                    result = m;
+                    temp--;
+                    if (temp < 0) break;
+                } else hold += n.length();
+            }
+            if (temp == 0 && hold == s.length()) return result;
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(missing("899091939495"));
+        System.out.println(missing("900001900002900004900005900006"));
     }
 }
