@@ -17,6 +17,16 @@ Example
 public class CountingDuplicates {
 
     public static int duplicateCount(String text) {
-        return 0;
+        int result = 0;
+        text = text.toLowerCase();
+        while (text.length() > 0) {
+            String firstLetter = text.substring(0, 1);
+            text = text.substring(1);
+            if (text.contains(firstLetter)) {
+                result++;
+            }
+            text = text.replace(firstLetter, "");
+        }
+        return result;
     }
 }
