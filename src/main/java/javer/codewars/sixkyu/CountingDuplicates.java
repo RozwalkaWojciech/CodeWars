@@ -14,6 +14,8 @@ Example
 "ABBA" -> 2 # 'A' and 'B' each occur twice
  */
 
+import java.util.stream.Collectors;
+
 public class CountingDuplicates {
 
     public static int duplicateCount(String text) {
@@ -28,5 +30,16 @@ public class CountingDuplicates {
             text = text.replace(firstLetter, "");
         }
         return result;
+    }
+
+    public static int duplicateCount2(String text) {
+        return (int) text.toLowerCase()
+                .chars()
+                .boxed()
+                .collect(Collectors.groupingBy(k -> k, Collectors.counting()))
+                .values()
+                .stream()
+                .filter(e -> e > 1)
+                .count();
     }
 }
