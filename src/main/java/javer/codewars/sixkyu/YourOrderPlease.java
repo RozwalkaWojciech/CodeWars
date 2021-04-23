@@ -16,6 +16,18 @@ Examples
 public class YourOrderPlease {
 
     public static String order(String words) {
-        return "";
+        if (words.length() == 0) {
+            return "";
+        }
+        int length = words.split(" ").length;
+        var sb = new StringBuilder();
+        for (int i = 1; i <= length; i++) {
+            for (String str : words.split(" ")) {
+                if (str.contains(Integer.toString(i))) {
+                    sb.append(str).append(" ");
+                }
+            }
+        }
+        return sb.substring(0, sb.length() - 1);
     }
 }
