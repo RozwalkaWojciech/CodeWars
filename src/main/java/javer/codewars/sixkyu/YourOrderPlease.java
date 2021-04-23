@@ -13,6 +13,9 @@ Examples
 ""  -->  ""
  */
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class YourOrderPlease {
 
     public static String order(String words) {
@@ -29,5 +32,15 @@ public class YourOrderPlease {
             }
         }
         return sb.substring(0, sb.length() - 1);
+    }
+
+    public static String order2(String words) {
+        return Arrays.stream(words.split(" "))
+                .sorted((s1, s2) -> {
+                    int num1 = Integer.parseInt(s1.replaceAll("\\D+", ""));
+                    int num2 = Integer.parseInt(s2.replaceAll("\\D+", ""));
+                    return Integer.compare(num1, num2);
+                })
+                .collect(Collectors.joining(" "));
     }
 }
