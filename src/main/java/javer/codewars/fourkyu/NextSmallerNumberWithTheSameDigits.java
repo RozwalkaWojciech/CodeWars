@@ -20,4 +20,8 @@ The function you write for this challenge is the inverse of this kata: "Next big
  */
 
 public class NextSmallerNumberWithTheSameDigits {
+
+    public static long nextSmaller(long n) {
+        return n;
+    }
 }
