@@ -115,8 +115,24 @@ public class HumanReadableDurationFormat {
         return res;
     }
 
+    public static String formatDuration4(int seconds) {
+        return seconds == 0 ? "now" :
+                (
+                        java.time.Duration.ofSeconds(seconds).toDays() / 365 + " years, " +
+                                java.time.Duration.ofSeconds(seconds).toDays() % 365 + " days, " +
+                                java.time.Duration.ofSeconds(seconds).toHours() % 24 + " hours, " +
+                                java.time.Duration.ofSeconds(seconds).toMinutes() % 60 + " minutes, " +
+                                seconds % 60 + " seconds"
+                )
+                        .replaceAll("\\b0 \\w+\\, \\b", "")
+                        .replaceAll("\\, 0 \\w+$", "")
+                        .replaceAll("\\b1 (\\w+)s\\b", "1 $1")
+                        .replaceFirst("(\\, (\\d+) (\\w+))$", " and $2 $3")
+                ;
+    }
+
     public static void main(String[] args) {
-        System.out.println(formatDuration(3606));
+        System.out.println(formatDuration4(3662));
     }
 }
 
