@@ -131,6 +131,34 @@ public class HumanReadableDurationFormat {
                 ;
     }
 
+    public static String formatDuration5(int seconds) {
+        if (seconds == 0) return "now";
+        int[] maxUnit = {60, 60, 24, 365, 1000};
+        String[] units = {"second", "minute", "hour", "day", "year"};
+        String result = "";
+        int total = 0;
+        for (int i = 0; i < maxUnit.length; i++) {
+            int val = seconds % maxUnit[i];
+            seconds /= maxUnit[i];
+            if (val > 0) {
+                String unit = val > 1 ? units[i] + "s" : units[i];
+                String newResult = String.format("%d %s", val, unit);
+                switch (total) {
+                    case 0:
+                        result = newResult;
+                        break;
+                    case 1:
+                        result = newResult + " and " + result;
+                        break;
+                    default:
+                        result = newResult + ", " + result;
+                }
+                total++;
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         System.out.println(formatDuration4(3662));
     }
