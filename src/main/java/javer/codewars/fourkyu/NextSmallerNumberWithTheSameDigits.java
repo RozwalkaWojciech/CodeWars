@@ -19,9 +19,29 @@ test data only employs positive integers.
 The function you write for this challenge is the inverse of this kata: "Next bigger number with the same digits."
  */
 
+import java.util.Arrays;
+
 public class NextSmallerNumberWithTheSameDigits {
 
     public static long nextSmaller(long n) {
-        return n;
+        char[] s = String.valueOf(n).toCharArray();
+        for (int i = s.length - 1; i >= 0; i--) {
+            for (int j = s.length - 2; j >= 0; j--) {
+                if (s[i] < s[j]) {
+                    char tmp = s[i];
+                    s[i] = s[j];
+                    s[j] = tmp;
+                    Arrays.sort(s, i + 1, s.length);
+//                    Arrays.sort(s, i + 1, s.length, Collections.reverseOrder());
+                    return Long.parseLong(String.valueOf(s));
+                }
+            }
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(nextSmaller(123456798));
     }
 }
