@@ -4,7 +4,6 @@ package javer.codewars.fourkyu;
 Write a function that takes a positive integer and returns the next smaller positive integer containing the same digits.
 
 For example:
-
 nextSmaller(21) == 12
 nextSmaller(531) == 513
 nextSmaller(2071) == 2017
@@ -20,28 +19,42 @@ The function you write for this challenge is the inverse of this kata: "Next big
  */
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class NextSmallerNumberWithTheSameDigits {
 
     public static long nextSmaller(long n) {
+
         char[] s = String.valueOf(n).toCharArray();
-        for (int i = s.length - 1; i >= 0; i--) {
-            for (int j = s.length - 2; j >= 0; j--) {
-                if (s[i] < s[j]) {
+        Character[] digitArr = new Character[s.length];
+
+        for (int i = s.length - 2; i >= 0; i--) {
+            for (int j = s.length - 1; j > i; j--) {
+                if (s[i] > s[j]) {
                     char tmp = s[i];
                     s[i] = s[j];
                     s[j] = tmp;
-                    Arrays.sort(s, i + 1, s.length);
-//                    Arrays.sort(s, i + 1, s.length, Collections.reverseOrder());
-                    return Long.parseLong(String.valueOf(s));
+                    if (s[0] == '0') {
+                        return -1;
+                    }
+                    for (int k = 0; k < s.length; k++) {
+                        digitArr[k] = s[k];
+                    }
+                    Arrays.sort(digitArr, i + 1, digitArr.length, Collections.reverseOrder());
+                    StringBuilder result = new StringBuilder();
+                    for (char c : digitArr) {
+                        result.append(c);
+                    }
+                    return Long.parseLong(result.toString());
                 }
             }
         }
         return -1;
     }
 
-
     public static void main(String[] args) {
+        System.out.println(nextSmaller(1027));
+        System.out.println(nextSmaller(907));
         System.out.println(nextSmaller(123456798));
     }
 }
