@@ -20,32 +20,28 @@ The function you write for this challenge is the inverse of this kata: "Next big
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class NextSmallerNumberWithTheSameDigits {
 
     public static long nextSmaller(long n) {
 
-        char[] s = String.valueOf(n).toCharArray();
-        Character[] digitArr = new Character[s.length];
+        Character[] digitArr = String.valueOf(n)
+                .chars()
+                .mapToObj(c -> (char) c)
+                .toArray(Character[]::new);
 
-        for (int i = s.length - 2; i >= 0; i--) {
-            for (int j = s.length - 1; j > i; j--) {
-                if (s[i] > s[j]) {
-                    char tmp = s[i];
-                    s[i] = s[j];
-                    s[j] = tmp;
-                    if (s[0] == '0') {
+        for (int i = digitArr.length - 2; i >= 0; i--) {
+            for (int j = digitArr.length - 1; j > i; j--) {
+                if (digitArr[i] > digitArr[j]) {
+                    char tmp = digitArr[i];
+                    digitArr[i] = digitArr[j];
+                    digitArr[j] = tmp;
+                    if (digitArr[0] == '0') {
                         return -1;
                     }
-                    for (int k = 0; k < s.length; k++) {
-                        digitArr[k] = s[k];
-                    }
                     Arrays.sort(digitArr, i + 1, digitArr.length, Collections.reverseOrder());
-                    StringBuilder result = new StringBuilder();
-                    for (char c : digitArr) {
-                        result.append(c);
-                    }
-                    return Long.parseLong(result.toString());
+                    return Long.parseLong(Arrays.stream(digitArr).map(String::valueOf).collect(Collectors.joining()));
                 }
             }
         }
@@ -53,6 +49,7 @@ public class NextSmallerNumberWithTheSameDigits {
     }
 
     public static void main(String[] args) {
+
         System.out.println(nextSmaller(1027));
         System.out.println(nextSmaller(907));
         System.out.println(nextSmaller(123456798));
