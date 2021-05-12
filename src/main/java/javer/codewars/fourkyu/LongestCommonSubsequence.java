@@ -29,6 +29,16 @@ lcs( string0, string1 ) === lcs( string1, string0 )
 public class LongestCommonSubsequence {
 
     static String lcs(String a, String b) {
-        return "";
+
+        String result = "";
+
+        for (char charA : a.toCharArray()) {
+            for (char charB : b.toCharArray()) {
+                if (charA == charB) {
+
+                }
+            }
+        }
+        return result;
     }
 }
