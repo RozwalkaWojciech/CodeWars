@@ -26,9 +26,30 @@ Two strings may have more than one longest common subsequence. When this occurs,
 lcs( string0, string1 ) === lcs( string1, string0 )
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LongestCommonSubsequence {
 
-    static String lcs(String a, String b) {
+    static String lcs (String a, String b){
+
+        Map<Character, Integer> characterIntegerMap = new HashMap<>();
+
+        for (int i = 0; i < a.length(); i++) {
+            for (int j = 0; j < b.length(); j++) {
+                if (a.charAt(i) == b.charAt(j)){
+                    if (characterIntegerMap.containsKey(a.charAt(i))){
+                        if (characterIntegerMap.get(a.charAt(i))>i){
+                            characterIntegerMap.put(a.charAt(i),i);
+                        }
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    static String lcs2(String a, String b) {
         String result = "";
         int jump = 0;
         outLoop:
@@ -44,18 +65,17 @@ public class LongestCommonSubsequence {
         return result;
     }
 
-    static String lcs2(String a, String b) {
+    static String lcs3(String a, String b) {
         String result = "";
         String temp = "";
         for (int i = 0; i < a.length(); i++) {
-            temp = "";
             for (int j = 0; j < b.length(); j++) {
                 if (a.charAt(i) == b.charAt(j)) {
                     temp += a.charAt(i);
                 }
             }
             if (temp.length() > result.length()) {
-                result += temp;
+                result = temp;
                 temp = "";
             }
         }
@@ -63,7 +83,7 @@ public class LongestCommonSubsequence {
     }
 
     public static void main(String[] args) {
-        System.out.println(lcs2("abcdefghijklmnopq", "apcdefghijklmnobq"));
+        System.out.println(lcs("abcdefghijklmnopq", "apcdefghijklmnobq"));
         System.out.println(lcs("nothardlythefinaltest", "zzzfinallyzzz"));
         System.out.println(lcs("anothertest", "notatest"));
     }
