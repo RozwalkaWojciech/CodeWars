@@ -26,27 +26,22 @@ Two strings may have more than one longest common subsequence. When this occurs,
 lcs( string0, string1 ) === lcs( string1, string0 )
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class LongestCommonSubsequence {
 
-    static String lcs (String a, String b){
-
-        Map<Character, Integer> characterIntegerMap = new HashMap<>();
-
+    static String lcs(String a, String b) {
+        char[] charArrayA = a.toCharArray();
+        int[] positionA = new int[a.length()];
+        char[] charArrayB = b.toCharArray();
+        int[] positionB = new int[b.length()];
+        String result = "";
         for (int i = 0; i < a.length(); i++) {
             for (int j = 0; j < b.length(); j++) {
-                if (a.charAt(i) == b.charAt(j)){
-                    if (characterIntegerMap.containsKey(a.charAt(i))){
-                        if (characterIntegerMap.get(a.charAt(i))>i){
-                            characterIntegerMap.put(a.charAt(i),i);
-                        }
-                    }
+                if (a.charAt(i) == b.charAt(j)) {
+
                 }
             }
         }
-        return "";
+        return result;
     }
 
     static String lcs2(String a, String b) {
