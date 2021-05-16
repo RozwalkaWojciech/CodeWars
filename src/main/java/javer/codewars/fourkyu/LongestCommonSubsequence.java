@@ -26,22 +26,34 @@ Two strings may have more than one longest common subsequence. When this occurs,
 lcs( string0, string1 ) === lcs( string1, string0 )
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LongestCommonSubsequence {
 
     static String lcs(String a, String b) {
-        char[] charArrayA = a.toCharArray();
-        int[] positionA = new int[a.length()];
-        char[] charArrayB = b.toCharArray();
-        int[] positionB = new int[b.length()];
-        String result = "";
-        for (int i = 0; i < a.length(); i++) {
-            for (int j = 0; j < b.length(); j++) {
-                if (a.charAt(i) == b.charAt(j)) {
 
+        List<String> subsequenceList = new ArrayList<>();
+        int count = a.length();
+
+        while (count != 0) {
+            String subsequence = "";
+            int jump = 0;
+            outLoop:
+            for (int i = (a.length() - count); i < a.length(); i++) {
+                for (int j = 0 + jump; j < b.length(); j++) {
+                    if (a.charAt(i) == b.charAt(j)) {
+                        subsequence += a.charAt(i);
+                        jump = j + 1;
+                        continue outLoop;
+                    }
                 }
             }
+            subsequenceList.add(subsequence);
+            count--;
         }
-        return result;
+
+        return "";
     }
 
     static String lcs2(String a, String b) {
@@ -78,8 +90,8 @@ public class LongestCommonSubsequence {
     }
 
     public static void main(String[] args) {
+        System.out.println(lcs("anothertest", "notatest"));
         System.out.println(lcs("abcdefghijklmnopq", "apcdefghijklmnobq"));
         System.out.println(lcs("nothardlythefinaltest", "zzzfinallyzzz"));
-        System.out.println(lcs("anothertest", "notatest"));
     }
 }
