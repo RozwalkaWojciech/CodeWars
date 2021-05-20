@@ -10,7 +10,9 @@ Input sequence contains minimum two elements and every element is an integer.
  */
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class LargestPairSumInArray {
     public static int largestPairSum(int[] numbers) {
@@ -20,6 +22,15 @@ public class LargestPairSumInArray {
                 .collect(Collectors.toList())
                 .subList(numbers.length - 2, numbers.length)
                 .stream()
+                .mapToInt(Integer::intValue)
+                .sum();
+    }
+
+    public static int largestPairSum2(int[] numbers) {
+        return IntStream.of(numbers)
+                .boxed()
+                .sorted(Comparator.reverseOrder())
+                .limit(2)
                 .mapToInt(Integer::intValue)
                 .sum();
     }
