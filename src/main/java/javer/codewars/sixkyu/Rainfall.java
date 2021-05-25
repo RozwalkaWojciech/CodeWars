@@ -17,6 +17,7 @@ if functions mean or variance have as parameter town a city which has no records
 Don't truncate or round: the tests will pass if abs(your_result - test_result) <= 1e-2 or abs((your_result - test_result) / test_result) <= 1e-6 depending on the language.
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -24,43 +25,53 @@ import java.util.stream.Collectors;
 
 public class Rainfall {
     public static double mean(String town, String strng) {
-
-        String collect = Arrays.stream(strng.split("\n"))
-                .filter(s -> s.startsWith(town))
-                .collect(Collectors.joining());
-
-        System.out.println(collect);
-
-        List<Double> collect2 = Arrays.stream(strng.split("\n"))
-                .filter(s -> s.startsWith(town))
-                .map(s -> s.replace(",", " "))
-                .map(s -> new Scanner(System.in).nextDouble())
-                .collect(Collectors.toList());
-
-        System.out.println(collect2);
-
-        System.out.println(collect2);
-//                .mapToDouble(s1 -> Double.parseDouble(s1.replace(",", " ")))
-//                .average()
-//                .getAsDouble();
-
-        String[] lines = strng.split("\n");
-        String line = null;
-        for (String tempLine : lines) {
-            if (tempLine.startsWith(town)) {
-                line = tempLine;
-                break;
-            }
+        if (town == null || strng == null) {
+            return -0d;
         }
-        System.out.println(line);
-
-        return 0.0;
+        double [] townArr = getTownArr(town, strng);
+        if (townArr.length == 0) {
+            return -1d;
+        }
+        return Arrays.stream(townArr).average().getAsDouble();
     }
 
     public static double variance(String town, String strng) {
-        return 0.0;
+        if (town == null || strng == null) {
+            return -0d;
+        }
+        double [] townArr = getTownArr(town, strng);
+        if (townArr.length == 0) {
+            return -1d;
+        }
+        return Arrays.stream(townArr)
+                .map(o -> (o - mean(town, strng)) * (o - mean(town, strng)))
+                .sum() / townArr.length;
     }
 
+    private static double[] getTownArr(String town, String strng) {
+        String collect = Arrays.stream(strng.split("\n"))
+                .filter(s -> s.startsWith(town))
+                .map(s -> s.replace(",", " "))
+                .collect(Collectors.joining());
+
+        List<Double> doubleList;
+        try (Scanner sc = new Scanner(collect)) {
+            doubleList = new ArrayList<>();
+            while (sc.hasNext()) {
+                if (sc.hasNextDouble()) {
+                    doubleList.add(sc.nextDouble());
+                } else {
+                    sc.next();
+                }
+            }
+        }
+
+        double[] doubleArr = new double[doubleList.size()];
+        for (int i = 0; i < doubleList.size(); i++) {
+            doubleArr[i] = doubleList.get(i);
+        }
+        return doubleArr;
+    }
 
     public static void main(String[] args) {
         mean("Paris", "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" +
