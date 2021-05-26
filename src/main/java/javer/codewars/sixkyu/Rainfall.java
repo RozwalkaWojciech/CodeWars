@@ -22,13 +22,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
+import java.util.stream.Stream;
 
 public class Rainfall {
     public static double mean(String town, String strng) {
         if (town == null || strng == null) {
             return -0d;
         }
-        double [] townArr = getTownArr(town, strng);
+        double[] townArr = getTownArr(town, strng);
         if (townArr.length == 0) {
             return -1d;
         }
@@ -39,7 +41,7 @@ public class Rainfall {
         if (town == null || strng == null) {
             return -0d;
         }
-        double [] townArr = getTownArr(town, strng);
+        double[] townArr = getTownArr(town, strng);
         if (townArr.length == 0) {
             return -1d;
         }
@@ -71,6 +73,19 @@ public class Rainfall {
             doubleArr[i] = doubleList.get(i);
         }
         return doubleArr;
+    }
+
+    static double mean2(String town, String strng) {
+        return stream2(town, strng).average().orElse(-1);
+    }
+
+    static double variance2(String town, String strng) {
+        return stream2(town, strng).map(m -> Math.pow(m - mean(town, strng), 2)).average().orElse(-1);
+    }
+
+    private static DoubleStream stream2(String town, String data) {
+        return Stream.of(data.split("\n")).filter(s -> s.startsWith(town + ":"))
+                .flatMapToDouble(s -> Stream.of(s.replaceAll("[^\\d.]", " ").trim().split("\\s+")).mapToDouble(Double::parseDouble));
     }
 
     public static void main(String[] args) {
