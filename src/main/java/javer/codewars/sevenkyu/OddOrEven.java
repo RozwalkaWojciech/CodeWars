@@ -1,5 +1,7 @@
 package javer.codewars.sevenkyu;
 
+import java.util.Arrays;
+
 /*
 Task:
 Given a list of integers, determine whether the sum of its elements is odd or even.
@@ -21,6 +23,6 @@ Output: "even"
 public class OddOrEven {
 
     public static String oddOrEven(int[] array) {
-        return "";
+        return (Arrays.stream(array).sum()) % 2 == 0 ? "even" : "odd";
     }
 }
