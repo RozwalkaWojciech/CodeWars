@@ -1,6 +1,7 @@
 package javer.codewars.sevenkyu;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /*
 Task:
@@ -24,5 +25,9 @@ public class OddOrEven {
 
     public static String oddOrEven(int[] array) {
         return (Arrays.stream(array).sum()) % 2 == 0 ? "even" : "odd";
+    }
+
+    public static String oddOrEven2(int[] array) {
+        return (IntStream.of(array).sum() & 1) == 1 ? "odd" : "even";
     }
 }
