@@ -30,4 +30,12 @@ public class OddOrEven {
     public static String oddOrEven2(int[] array) {
         return (IntStream.of(array).sum() & 1) == 1 ? "odd" : "even";
     }
+
+    public static String oddOrEven3(int[] array) {
+        int xor = 0;
+        for (int i : array) {
+            xor ^= i;
+        }
+        return (xor & 1) == 1 ? "odd" : "even";
+    }
 }
