@@ -8,8 +8,8 @@ import static org.junit.Assert.assertTrue;
 public class StringEndsWithTest {
     @Test
     public void testSomething() {
-        assertTrue(StringEndsWith.solution("a", "bla"));
-        assertTrue(StringEndsWith.solution("close", "enclose"));
+        assertTrue(StringEndsWith.solution("bla", "a"));
+        assertTrue(StringEndsWith.solution("enclose", "close"));
         assertFalse(StringEndsWith.solution("end", "endclose"));
     }
 }
