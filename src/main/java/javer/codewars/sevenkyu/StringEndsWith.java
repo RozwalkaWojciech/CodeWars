@@ -10,7 +10,7 @@ strEndsWith('abc', 'd') -- returns false
 
 public class StringEndsWith {
     public static boolean solution(String str, String ending) {
-        return ending.endsWith(str);
+        return str.endsWith(ending);
     }
 }
 
