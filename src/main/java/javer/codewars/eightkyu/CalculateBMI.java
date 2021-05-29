@@ -28,6 +28,16 @@ public class CalculateBMI {
         return bmi <= 25.0 ? bmi <= 18.5 ? "Underweight" : "Normal" : bmi <= 30.0 ? "Overweight" : "Obese";
     }
 
+    public static String bmi3(double weight, double height) {
+
+        double bmi = weight / (height * height);
+
+        if (bmi <= 18.5) return "Underweight";
+        if (bmi <= 25) return "Normal";
+        if (bmi <= 30) return "Overweight";
+        return "Obese";
+    }
+
     private static double bmiCalculator(double weight, double height) {
         return weight / Math.pow(height, 2);
     }
