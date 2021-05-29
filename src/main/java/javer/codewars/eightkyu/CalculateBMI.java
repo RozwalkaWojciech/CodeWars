@@ -23,6 +23,11 @@ public class CalculateBMI {
         }
     }
 
+    public static String bmi2(double weight, double height) {
+        double bmi = weight / (height * height);
+        return bmi <= 25.0 ? bmi <= 18.5 ? "Underweight" : "Normal" : bmi <= 30.0 ? "Overweight" : "Obese";
+    }
+
     private static double bmiCalculator(double weight, double height) {
         return weight / Math.pow(height, 2);
     }
