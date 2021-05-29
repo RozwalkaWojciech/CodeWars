@@ -38,6 +38,15 @@ public class GrowthOfPopulation {
         return year;
     }
 
+    public static int nbYear2(int p0, double percent, int aug, int p) {
+        if (p0 >= p) {
+            return 0;
+        }
+        else {
+            return nbYear2((int) (p0 + aug + p0 * (percent / 100)), percent, aug, p) + 1;
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(nbYear(1500, 5, 100, 5000));
         System.out.println(nbYear(1500000, 2.5, 10000, 2000000));
