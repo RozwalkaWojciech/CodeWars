@@ -14,6 +14,10 @@ n = 3, so I expect a 3x3 square back just like below as a string:
 public class BuildSquare {
 
     public static final String generateShape(int n) {
-        return null;
+        return "+".repeat(n).concat("\n").repeat(n).trim();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(generateShape(3));
     }
 }
