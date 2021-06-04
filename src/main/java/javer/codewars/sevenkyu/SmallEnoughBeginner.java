@@ -7,9 +7,12 @@ in the array are below or equal to the limit value. If they are, return true. El
 You can assume all values in the array are numbers.
  */
 
+import java.util.Arrays;
+
 public class SmallEnoughBeginner {
 
     public static boolean smallEnough(int[] a, int limit) {
-        return false;
+        Arrays.sort(a);
+        return a[a.length - 1] <= limit;
     }
 }
