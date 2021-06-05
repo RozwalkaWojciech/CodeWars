@@ -15,4 +15,8 @@ public class SmallEnoughBeginner {
         Arrays.sort(a);
         return a[a.length - 1] <= limit;
     }
+
+    public static boolean smallEnough2(int[] a, int limit) {
+        return Arrays.stream(a).noneMatch(value -> value > limit);
+    }
 }
