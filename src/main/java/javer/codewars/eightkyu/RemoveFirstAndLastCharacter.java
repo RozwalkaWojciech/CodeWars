@@ -16,4 +16,8 @@ public class RemoveFirstAndLastCharacter {
     public static String remove2(String str) {
         return str.replaceAll("^.|.$", "");
     }
+
+    public static String remove3(String str) {
+        return new StringBuilder(str).deleteCharAt(0).deleteCharAt(str.length() - 1).toString();
+    }
 }
