@@ -10,6 +10,6 @@ You don't have to worry with strings with less than two characters.
 public class RemoveFirstAndLastCharacter {
 
     public static String remove(String str) {
-        return "";
+        return str.substring(1, str.length() - 1);
     }
 }
