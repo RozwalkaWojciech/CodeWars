@@ -10,6 +10,6 @@ repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
 public class StringRepeat {
 
     public static String repeatStr(final int repeat, final String string) {
-        return "";
+        return string.repeat(repeat);
     }
 }
