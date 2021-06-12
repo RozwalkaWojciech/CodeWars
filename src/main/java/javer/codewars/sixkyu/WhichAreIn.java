@@ -16,9 +16,23 @@ In Shell bash a1 and a2 are strings. The return is a string where words are sepa
 Beware: r must be without duplicates.
  */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WhichAreIn {
 
     public static String[] inArray(String[] array1, String[] array2) {
-        return new String[]{"arp"};
+
+        List<String> result = new ArrayList<>();
+
+        for (String value : array1) {
+            for (String s : array2) {
+                if (s.contains(value)) {
+                    result.add(value);
+                    break;
+                }
+            }
+        }
+        return result.toArray(new String[0]);
     }
 }
