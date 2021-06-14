@@ -12,6 +12,6 @@ String str will never be null.
 public class FIXMEReplaceAllDots {
 
     public static String replaceDots(final String str) {
-        return str.replaceAll(".", "-");
+        return str.replace(".", "-");
     }
 }
