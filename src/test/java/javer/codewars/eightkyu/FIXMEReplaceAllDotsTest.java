@@ -2,12 +2,12 @@ package javer.codewars.eightkyu;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class FIXMEReplaceAllDotsTest {
 
     @Test
     public void testSomeDots() {
-        assertTrue("Sorry, try again :-(", "one-two-three".equals(FIXMEReplaceAllDots.replaceDots("one.two.three")));
+        assertEquals("Sorry, try again :-(", "one-two-three", FIXMEReplaceAllDots.replaceDots("one.two.three"));
     }
 }
