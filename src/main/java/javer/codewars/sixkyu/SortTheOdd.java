@@ -11,7 +11,9 @@ Examples
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.PrimitiveIterator;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class SortTheOdd {
 
@@ -25,5 +27,18 @@ public class SortTheOdd {
             }
         }
         return array;
+    }
+
+    public static int[] sortArray2(int[] array) {
+        PrimitiveIterator.OfInt sortedOdds = IntStream
+                .of(array)
+                .filter(i -> i % 2 == 1)
+                .sorted()
+                .iterator();
+
+        return IntStream
+                .of(array)
+                .map(i -> i % 2 == 0 ? i : sortedOdds.nextInt())
+                .toArray();
     }
 }
