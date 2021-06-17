@@ -8,6 +8,6 @@ your program should return, "Hello, <name> how are you doing today?".
 public class ReturningStrings {
 
     public static String greet(String name) {
-        return "";
+        return String.format("Hello, %s how are you doing today?", name);
     }
 }
