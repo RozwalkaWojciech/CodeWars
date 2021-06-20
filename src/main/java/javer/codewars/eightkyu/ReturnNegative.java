@@ -14,6 +14,6 @@ Zero (0) is not checked for any specific sign. Negative zeros make no mathematic
 public class ReturnNegative {
 
     public static int makeNegative(final int x) {
-        return 0;
+        return x > 0 ? -x : x;
     }
 }
