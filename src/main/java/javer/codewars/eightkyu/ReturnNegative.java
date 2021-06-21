@@ -11,9 +11,15 @@ The number can be negative already, in which case no change is required.
 Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense.
  */
 
+import static java.lang.Math.abs;
+
 public class ReturnNegative {
 
     public static int makeNegative(final int x) {
         return x > 0 ? -x : x;
+    }
+
+    public static int makeNegative2(final int x) {
+        return -abs(x);
     }
 }
