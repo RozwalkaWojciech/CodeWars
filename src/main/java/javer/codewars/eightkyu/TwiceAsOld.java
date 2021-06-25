@@ -10,6 +10,6 @@ Calculate how many years ago the father was twice as old as his son (or in how m
 public class TwiceAsOld {
 
     public static int TwiceAsOld(int dadYears, int sonYears) {
-        return 0;
+        return Math.abs(dadYears - sonYears * 2);
     }
 }
