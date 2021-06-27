@@ -14,4 +14,9 @@ public class TwiceAsOld {
     public static int TwiceAsOld(int dadYears, int sonYears) {
         return abs(dadYears - sonYears * 2);
     }
+
+    public static int TwiceAsOld2(int dadYears, int sonYears) {
+        int result = dadYears - sonYears * 2;
+        return result > 0 ? result : -result;
+    }
 }
