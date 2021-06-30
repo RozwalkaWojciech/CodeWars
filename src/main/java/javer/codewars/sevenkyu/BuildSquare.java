@@ -26,8 +26,4 @@ public class BuildSquare {
                 .mapToObj(value -> "+".repeat(n))
                 .collect(Collectors.joining("\n"));
     }
-
-    public static void main(String[] args) {
-        System.out.println(generateShape(3));
-    }
 }
