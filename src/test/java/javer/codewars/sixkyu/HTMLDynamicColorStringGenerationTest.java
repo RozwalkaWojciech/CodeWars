@@ -1,0 +1,15 @@
+package javer.codewars.sixkyu;
+
+import org.junit.Test;
+
+import java.util.Random;
+
+import static org.junit.Assert.assertEquals;
+
+public class HTMLDynamicColorStringGenerationTest {
+
+    @Test
+    public void symbolTest() {
+        assertEquals("#", HTMLDynamicColorStringGeneration.generateColor(new Random()).substring(0, 1));
+    }
+}
