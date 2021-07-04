@@ -11,19 +11,24 @@ n = 3, so I expect a 3x3 square back just like below as a string:
 +++
  */
 
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class BuildSquare {
+import static java.util.stream.Collectors.joining;
 
-    public static final String generateShape(int n) {
-        return "+".repeat(n).concat("\n").repeat(n).trim();
+class BuildSquare {
+
+    public static String generateShape(int n) {
+        return "+"
+                .repeat(n)
+                .concat("\n")
+                .repeat(n)
+                .trim();
     }
 
-    public static final String generateShape2(int n) {
+    public static String generateShape2(int n) {
         return IntStream
                 .range(0, n)
                 .mapToObj(value -> "+".repeat(n))
-                .collect(Collectors.joining("\n"));
+                .collect(joining("\n"));
     }
 }
