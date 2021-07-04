@@ -21,6 +21,10 @@ import java.util.Random;
 public class HTMLDynamicColorStringGeneration {
 
     public static String generateColor(Random r) {
-        return "";
+        return String.format("#%06x", r.nextInt(0xffffff + 1));
+    }
+
+    public static void main(String[] args) {
+        System.out.println(generateColor(new Random()));
     }
 }
