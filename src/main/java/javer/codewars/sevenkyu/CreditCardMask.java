@@ -7,10 +7,10 @@ public class CreditCardMask {
         String end = "";
         if (str.length() > 4) {
             for (int i = 0; i < str.length() - 4; i++) {
-                mask = mask.concat("#");
+                mask += "#";
                 end = str.substring(str.length() - 4);
             }
-            return mask.concat(end);
+            return mask + end;
         }
         return str;
     }
