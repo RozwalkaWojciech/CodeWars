@@ -4,12 +4,13 @@ import org.junit.Test;
 
 import java.util.Random;
 
+import static javer.codewars.sixkyu.HTMLDynamicColorStringGeneration.generateColor;
 import static org.junit.Assert.assertEquals;
 
 public class HTMLDynamicColorStringGenerationTest {
 
     @Test
     public void symbolTest() {
-        assertEquals("#", HTMLDynamicColorStringGeneration.generateColor(new Random()).substring(0, 1));
+        assertEquals("#", generateColor(new Random()).substring(0, 1));
     }
 }
