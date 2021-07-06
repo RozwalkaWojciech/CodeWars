@@ -10,4 +10,9 @@ public class ReturnNegativeTest {
     public void test1() {
         assertEquals(-42, ReturnNegative.makeNegative(42));
     }
+
+    @Test
+    public void test2() {
+        assertEquals(-45, ReturnNegative.makeNegative2(45));
+    }
 }
