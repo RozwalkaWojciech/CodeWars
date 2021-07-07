@@ -1,5 +1,7 @@
 package javer.codewars.fivekyu;
 
+import static java.lang.System.out;
+
 public class Scramblies {
     public static boolean scramble(String str1, String str2) {
 
@@ -13,7 +15,7 @@ public class Scramblies {
     }
 
     public static void main(String[] args) {
-        System.out.println(scramble("rkqodlww", "world"));
-        System.out.println(scramble("rkqodl", "world"));
+        out.println(scramble("rkqodlww", "world"));
+        out.println(scramble("rkqodl", "world"));
     }
 }
