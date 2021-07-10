@@ -2,7 +2,10 @@ package javer.codewars.fourkyu;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
+
+import static java.lang.Character.getNumericValue;
+import static java.lang.Long.parseLong;
+import static java.util.Collections.sort;
 
 /*
 Create a function that takes a positive integer and returns the next bigger number that can be formed by rearranging its digits.
@@ -28,13 +31,13 @@ public class NextBiggerNumberWithTheSameDigits {
 
                 sb.append(strNum, 0, i - 1);
 
-                rightDigits.add(Character.getNumericValue(strNum.charAt(i)));
-                rightDigits.add(Character.getNumericValue(strNum.charAt(i - 1)));
+                rightDigits.add(getNumericValue(strNum.charAt(i)));
+                rightDigits.add(getNumericValue(strNum.charAt(i - 1)));
 
-                Collections.sort(rightDigits);
+                sort(rightDigits);
 
                 for (int j = 0; j < rightDigits.size(); j++) {
-                    if (rightDigits.get(j) > Character.getNumericValue(strNum.charAt(i - 1))) {
+                    if (rightDigits.get(j) > getNumericValue(strNum.charAt(i - 1))) {
                         sb.append(rightDigits.get(j));
                         rightDigits.remove(rightDigits.get(j));
                         break;
@@ -43,9 +46,9 @@ public class NextBiggerNumberWithTheSameDigits {
                 for (int digit : rightDigits) {
                     sb.append(digit);
                 }
-                return Long.parseLong(sb.toString());
+                return parseLong(sb.toString());
             } else {
-                rightDigits.add(Character.getNumericValue(strNum.charAt(i)));
+                rightDigits.add(getNumericValue(strNum.charAt(i)));
             }
         }
         return -1;
@@ -60,23 +63,10 @@ public class NextBiggerNumberWithTheSameDigits {
                     s[i] = s[j];
                     s[j] = tmp;
                     Arrays.sort(s, i + 1, s.length);
-                    return Long.parseLong(String.valueOf(s));
+                    return parseLong(String.valueOf(s));
                 }
             }
         }
         return -1;
-    }
-
-    public static void main(String[] args) {
-        //expected:<19009> but was:<10909>
-        System.out.println(nextBiggerNumber(10990));
-        //expected:<154983735> but was:<154983753>
-        System.out.println(nextBiggerNumber(154983573));
-        //expected:<1234567908> but was:<1234568709>
-        System.out.println(nextBiggerNumber(1234567890));
-        //expected:<1640951015> but was:<1640955011>
-        System.out.println(nextBiggerNumber(1640950511));
-        //expected:<598848484 8 3559> but was:<598848484 9 3558>
-        System.out.println(nextBiggerNumber(59884848459853L));
     }
 }
