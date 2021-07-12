@@ -27,14 +27,15 @@ consecutive strings : follow one after another without an interruption
  */
 
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static java.util.Comparator.comparingInt;
+import static java.util.stream.Collectors.joining;
 
 public class ConsecutiveStrings {
 
     public static String longestConsec(String[] strarr, int k) {
-        if (strarr.length == 0 || k > strarr.length || k <= 0) {
+        if (k > strarr.length || k <= 0) {
             return "";
         }
         var longestStr = "";
@@ -60,12 +61,11 @@ public class ConsecutiveStrings {
     }
 
     public static String longestConsec2(String[] strarr, int k) {
-        if (strarr.length == 0 || k > strarr.length || k <= 0)
+        if (k > strarr.length || k <= 0)
             return "";
-
-        String longestStr = "";
+        var longestStr = "";
         for (int index = 0; index < strarr.length - k + 1; index++) {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             for (int i = index; i < index + k; i++) {
                 sb.append(strarr[i]);
             }
@@ -81,8 +81,8 @@ public class ConsecutiveStrings {
             return "";
         }
         return IntStream.rangeClosed(0, strarr.length - k)
-                .mapToObj(i -> Arrays.stream(strarr, i, i + k).collect(Collectors.joining()))
-                .max(Comparator.comparingInt(String::length))
+                .mapToObj(i -> Arrays.stream(strarr, i, i + k).collect(joining()))
+                .max(comparingInt(String::length))
                 .orElse("");
     }
 }
