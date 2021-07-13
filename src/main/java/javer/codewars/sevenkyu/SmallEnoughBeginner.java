@@ -7,16 +7,17 @@ in the array are below or equal to the limit value. If they are, return true. El
 You can assume all values in the array are numbers.
  */
 
-import java.util.Arrays;
+import static java.util.Arrays.sort;
+import static java.util.Arrays.stream;
 
 public class SmallEnoughBeginner {
 
     public static boolean smallEnough(int[] a, int limit) {
-        Arrays.sort(a);
+        sort(a);
         return a[a.length - 1] <= limit;
     }
 
     public static boolean smallEnough2(int[] a, int limit) {
-        return Arrays.stream(a).noneMatch(i -> i > limit);
+        return stream(a).noneMatch(i -> i > limit);
     }
 }
