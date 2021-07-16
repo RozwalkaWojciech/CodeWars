@@ -10,15 +10,14 @@ Output:
 'alpha beta gamma delta'
  */
 
-import java.util.stream.Collectors;
-
 import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.joining;
 
 public class RemoveDuplicateWords {
 
     public static String removeDuplicateWords(String s) {
         return stream(s.split(" "))
                 .distinct()
-                .collect(Collectors.joining(" "));
+                .collect(joining(" "));
     }
 }
