@@ -13,7 +13,6 @@ If the second string isn't a valid rotation of the first string, the method retu
 public class CalculateStringRotation {
 
     public static int shiftedDiff(String first, String second) {
-
         if (first.length() != second.length()) {
             return -1;
         }
