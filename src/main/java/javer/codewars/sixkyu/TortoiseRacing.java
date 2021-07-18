@@ -30,6 +30,8 @@ or Google: "convert decimal time to hours minutes seconds"
 
 import java.util.Arrays;
 
+import static java.lang.System.*;
+
 public class TortoiseRacing {
 
     public static int[] race(int v1, int v2, int g) {
@@ -56,6 +58,6 @@ public class TortoiseRacing {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(race(720, 850, 70)));
+        out.println(Arrays.toString(race(720, 850, 70)));
     }
 }

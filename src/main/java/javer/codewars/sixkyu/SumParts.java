@@ -28,17 +28,17 @@ Some lists can be long.
 Please ask before translating: some translations are already written and published when/if the kata is approved.
 * */
 
-import java.util.Arrays;
+import static java.util.Arrays.stream;
 
 public class SumParts {
     public static int[] sumParts(int[] ls) {
 
-        int[] result = new int[ls.length+1];
-        int sum = Arrays.stream(ls).sum();
+        int[] result = new int[ls.length + 1];
+        int sum = stream(ls).sum();
         result[0] = sum;
 
         for (int i = 1; i < ls.length; i++) {
-            sum -= ls[i-1];
+            sum -= ls[i - 1];
             result[i] = sum;
         }
         return result;
