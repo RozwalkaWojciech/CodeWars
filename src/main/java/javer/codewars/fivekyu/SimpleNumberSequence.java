@@ -13,17 +13,19 @@ missing("8990919395") = -1 -- error in sequence. Both 92 and 94 missing.
 The sequence will always be in ascending order.
  */
 
+import static java.lang.System.out;
+
 public class SimpleNumberSequence {
 
     public static int missing(String s) {
-        int result = 0;
-        for (int i = 1; i < Math.min(8, s.length() / 2); i++) {
+        var result = 0;
+        for (var i = 1; i < Math.min(8, s.length() / 2); i++) {
             int temp = 1;
             int m = Integer.parseInt(s.substring(0, i));
             int hold = i;
             while (hold < s.length()) {
                 m++;
-                String n = String.valueOf(m);
+                var n = String.valueOf(m);
                 if (!n.equals(s.substring(hold, hold + n.length()))) {
                     result = m;
                     temp--;
@@ -36,7 +38,7 @@ public class SimpleNumberSequence {
     }
 
     public static void main(String[] args) {
-        System.out.println(missing("899091939495"));
-        System.out.println(missing("900001900002900004900005900006"));
+        out.println(missing("899091939495"));
+        out.println(missing("900001900002900004900005900006"));
     }
 }
