@@ -12,7 +12,6 @@ public class ConsecutiveStringsTest {
 
     @Test
     public void test() {
-        System.out.println("longestConsec Fixed Tests");
         testing(ConsecutiveStrings.longestConsec(new String[]{"zone", "abigail", "theta", "form", "libe", "zas", "theta", "abigail"}, 2), "abigailtheta");
         testing(ConsecutiveStrings.longestConsec(new String[]{"ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"}, 1), "oocccffuucccjjjkkkjyyyeehh");
         testing(ConsecutiveStrings.longestConsec(new String[]{}, 3), "");
