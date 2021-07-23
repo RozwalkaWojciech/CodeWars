@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 public class CountingDuplicates {
 
     public static int duplicateCount(String text) {
-        int result = 0;
+        var result = 0;
         text = text.toLowerCase();
         while (text.length() > 0) {
-            String firstLetter = text.substring(0, 1);
+            var firstLetter = text.substring(0, 1);
             text = text.substring(1);
             if (text.contains(firstLetter)) {
                 result++;
