@@ -15,10 +15,12 @@ import java.util.PrimitiveIterator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static java.util.Arrays.*;
+
 public class SortTheOdd {
 
     public static int[] sortArray(int[] array) {
-        List<Integer> oddList = Arrays.stream(array).boxed().filter(value -> value % 2 != 0).sorted().collect(Collectors.toList());
+        List<Integer> oddList = stream(array).boxed().filter(value -> value % 2 != 0).sorted().collect(Collectors.toList());
         int position = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0) {

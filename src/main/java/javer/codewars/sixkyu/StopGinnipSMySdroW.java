@@ -15,6 +15,8 @@ spinWords("This is another test") => "This is rehtona test"
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import static java.lang.String.join;
+
 public class StopGinnipSMySdroW {
 
     public String spinWords(String sentence) {
@@ -24,7 +26,8 @@ public class StopGinnipSMySdroW {
                 arr[i] = new StringBuilder(arr[i]).reverse().toString();
             }
         }
-        return String.join(" ", arr);
+        return
+                join(" ", arr);
     }
 
     public String spinWords2(String sentence) {
