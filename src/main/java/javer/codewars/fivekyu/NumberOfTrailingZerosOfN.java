@@ -1,9 +1,11 @@
 package javer.codewars.fivekyu;
 
+import static java.lang.System.out;
+
 public class NumberOfTrailingZerosOfN {
 
     public static int zeros(int n) {
-        int count = 0;
+        var count = 0;
         while (n > 4) {
             count += n / 5;
             n = n / 5;
@@ -12,16 +14,16 @@ public class NumberOfTrailingZerosOfN {
     }
 
     public static long factorialUsingForLoop(int n) {
-        long fact = 1;
-        for (int i = 2; i <= n; i++) {
+        var fact = 1;
+        for (var i = 2; i <= n; i++) {
             fact = fact * i;
         }
         return fact;
     }
 
     public static void main(String[] args) {
-        for (int i = 1; i < 22; i++) {
-            System.out.println(i + ". " + factorialUsingForLoop(i));
+        for (var i = 1; i < 22; i++) {
+            out.println(i + ". " + factorialUsingForLoop(i));
         }
     }
 }
