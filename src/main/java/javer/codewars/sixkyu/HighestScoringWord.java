@@ -15,9 +15,9 @@ public class HighestScoringWord {
 
     public static String high(String s) {
 
-        int wordValue;
-        int maxValue = 0;
-        String result = "";
+        var wordValue = 0;
+        var maxValue = 0;
+        var result = "";
 
         for (String str : s.split(" ")) {
             wordValue = 0;
