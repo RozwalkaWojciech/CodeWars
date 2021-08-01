@@ -4,14 +4,11 @@ import java.util.stream.IntStream;
 
 public class MultiplesOf3or5 {
     public int solution(int number) {
-
         if (number < 0) {
             return -1;
         }
-
-        int result = 0;
-
-        for (int i = 3; i < number; i++) {
+        var result = 0;
+        for (var i = 3; i < number; i++) {
             if (i % 3 == 0 || i % 5 == 0) {
                 result += i;
             }
