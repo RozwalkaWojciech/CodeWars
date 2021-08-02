@@ -17,7 +17,9 @@ It can happen that in two distinct families with the same family name two people
  */
 
 import java.util.*;
-import java.util.stream.Collectors;
+
+import static java.lang.String.join;
+import static java.util.stream.Collectors.joining;
 
 public class Meeting {
 
@@ -58,7 +60,7 @@ public class Meeting {
         return Arrays.stream(s.toUpperCase().split(";"))
                 .map(guest -> guest.replaceAll("(\\w+):(\\w+)", "($2, $1)"))
                 .sorted()
-                .collect(Collectors.joining(""));
+                .collect(joining(""));
     }
 
     public static String meeting3(String s) {
@@ -69,7 +71,7 @@ public class Meeting {
         }
         Arrays.sort(guests);
 
-        return String.join("", guests);
+        return join("", guests);
     }
 
     public static void main(String[] args) {
