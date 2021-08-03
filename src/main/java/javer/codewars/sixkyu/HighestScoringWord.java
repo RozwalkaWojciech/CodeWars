@@ -9,16 +9,15 @@ All letters will be lowercase and all inputs will be valid.
  */
 
 import java.util.Arrays;
-import java.util.Comparator;
+
+import static java.util.Comparator.comparingInt;
 
 public class HighestScoringWord {
 
     public static String high(String s) {
-
         var wordValue = 0;
         var maxValue = 0;
         var result = "";
-
         for (String str : s.split(" ")) {
             wordValue = 0;
             for (char ch : str.toCharArray()) {
@@ -34,8 +33,11 @@ public class HighestScoringWord {
 
     public static String high2(String s) {
         return Arrays.stream(s.split(" "))
-                .max(Comparator.comparingInt(w -> w.chars().map(c -> c - 96).sum()))
-                .get();
+                .max(
+                        comparingInt(w -> w.chars()
+                                .map(c -> c - 96)
+                                .sum()))
+                .orElseGet((() -> ""));
     }
 
     public static void main(String[] args) {
