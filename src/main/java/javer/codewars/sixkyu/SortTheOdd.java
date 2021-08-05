@@ -9,19 +9,22 @@ Examples
 [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  =>  [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
  */
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.PrimitiveIterator;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static java.util.Arrays.*;
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.toList;
 
 public class SortTheOdd {
 
     public static int[] sortArray(int[] array) {
-        List<Integer> oddList = stream(array).boxed().filter(value -> value % 2 != 0).sorted().collect(Collectors.toList());
-        int position = 0;
+        List<Integer> oddList = stream(array)
+                .boxed()
+                .filter(value -> value % 2 != 0)
+                .sorted()
+                .collect(toList());
+        var position = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0) {
                 array[i] = oddList.get(position);
