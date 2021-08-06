@@ -12,10 +12,9 @@ spinWords("This is a test") => "This is a test"
 spinWords("This is another test") => "This is rehtona test"
  */
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 import static java.lang.String.join;
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.joining;
 
 public class StopGinnipSMySdroW {
 
@@ -31,8 +30,9 @@ public class StopGinnipSMySdroW {
     }
 
     public String spinWords2(String sentence) {
-        return Arrays.stream(sentence.split(" "))
-                .map(s -> s.length() > 4 ? new StringBuilder(s).reverse().toString() : s)
-                .collect(Collectors.joining(" "));
+        return stream(sentence.split(" "))
+                .map(s -> s.length() > 4 ?
+                        new StringBuilder(s).reverse().toString() : s)
+                .collect(joining(" "));
     }
 }
