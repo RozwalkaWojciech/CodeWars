@@ -19,6 +19,8 @@ your text: "BORN IN 2015!", shift 1
 With longer passphrases it's better to have a small and easy program. Would you write it?
 */
 
+import static java.lang.Character.*;
+
 public class PlayingWithPassphrases {
 
     public static String playPass(String s, int n) {
@@ -27,21 +29,21 @@ public class PlayingWithPassphrases {
         var sb = new StringBuilder();
 
         for (int i = 0; i < arr.length; i++) {
-            if (Character.isLetter(arr[i])) {
+            if (isLetter(arr[i])) {
                 if (i % 2 == 0) {
                     if ((arr[i] + n) > 122) {
-                        sb.append((char) Character.toUpperCase((97 + (arr[i] - 122) + (n - 1))));
+                        sb.append((char) toUpperCase((97 + (arr[i] - 122) + (n - 1))));
                     } else {
-                        sb.append((char) Character.toUpperCase(arr[i] + n));
+                        sb.append((char) toUpperCase(arr[i] + n));
                     }
                 } else {
                     if ((arr[i] + n) > 122) {
-                        sb.append((char) Character.toLowerCase((97 + (arr[i] - 122) + (n - 1))));
+                        sb.append((char) toLowerCase((97 + (arr[i] - 122) + (n - 1))));
                     } else {
-                        sb.append((char) Character.toLowerCase(arr[i] + n));
+                        sb.append((char) toLowerCase(arr[i] + n));
                     }
                 }
-            } else if (Character.isDigit(s.charAt(i))) {
+            } else if (isDigit(s.charAt(i))) {
                 sb.append((char) (48 + (57 - s.charAt(i))));
             } else {
                 sb.append(arr[i]);
