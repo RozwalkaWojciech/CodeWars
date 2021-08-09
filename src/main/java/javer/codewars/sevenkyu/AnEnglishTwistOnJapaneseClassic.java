@@ -2,16 +2,14 @@ package javer.codewars.sevenkyu;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.IntStream.range;
 
 public class AnEnglishTwistOnJapaneseClassic {
 
     public static List<String> theGame(List<String> words) {
-
         var result = new ArrayList<String>();
-
         if (words.isEmpty() || words.get(0).equals("")) {
             return result;
         }
@@ -32,7 +30,7 @@ public class AnEnglishTwistOnJapaneseClassic {
     }
 
     public static List<String> theGame2(List<String> words) {
-        final List<String> list = new ArrayList<>();
+        var list = new ArrayList<String>();
         var prev = words.isEmpty() || words.get(0).isEmpty() ? "" : "" + words.get(0).charAt(0);
         for (String w : words)
             if (!w.isEmpty() && prev.endsWith("" + w.charAt(0))) list.add(prev = w);
@@ -41,10 +39,8 @@ public class AnEnglishTwistOnJapaneseClassic {
     }
 
     public static List<String> theGame3(List<String> words) {
-
         if (words.isEmpty() || words.get(0).isEmpty())
             return new ArrayList<>();
-
         int x = range(1, words.size())
                 .filter(i -> words.get(i).isEmpty()
                         || words.get(i - 1).charAt(words.get(i - 1).length() - 1) != words.get(i).charAt(0))
@@ -58,6 +54,6 @@ public class AnEnglishTwistOnJapaneseClassic {
                 .takeWhile(i -> !words.get(i).isEmpty() &&
                         (i == 0 || words.get(i).charAt(0) == words.get(i - 1).charAt(words.get(i - 1).length() - 1)))
                 .mapToObj(words::get)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 }
