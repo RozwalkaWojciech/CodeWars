@@ -2,7 +2,8 @@ package javer.codewars.sevenkyu;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 public class DescendingOrder {
 
@@ -21,7 +22,7 @@ public class DescendingOrder {
                 .chars()
                 .mapToObj(value -> String.valueOf(Character.getNumericValue(value)))
                 .sorted(Comparator.reverseOrder())
-                .collect(Collectors.joining())
+                .collect(joining())
         );
     }
 }
