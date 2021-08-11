@@ -32,7 +32,7 @@ Don't forget to convert the percent parameter as a percentage in the body of you
 public class GrowthOfPopulation {
 
     public static int nbYear(int p0, double percent, int aug, int p) {
-        int year = 0;
+        var year = 0;
         while (p0 < p) {
             p0 += p0 * percent / 100 + aug;
             year++;
