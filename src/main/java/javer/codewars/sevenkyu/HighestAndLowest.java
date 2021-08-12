@@ -23,12 +23,12 @@ import static java.lang.System.out;
 public class HighestAndLowest {
 
     public static String highAndLow(String numbers) {
-        int min = Arrays.stream(numbers.split(" "))
+        var min = Arrays.stream(numbers.split(" "))
                 .mapToInt(Integer::parseInt)
                 .min()
                 .getAsInt();
 
-        int max = Arrays.stream(numbers.split(" "))
+        var max = Arrays.stream(numbers.split(" "))
                 .mapToInt(Integer::parseInt)
                 .max()
                 .getAsInt();
@@ -37,7 +37,10 @@ public class HighestAndLowest {
     }
 
     public static String HighAndLow2(String numbers) {
-        IntSummaryStatistics stat = Stream.of(numbers.split(" ")).mapToInt(Integer::parseInt).summaryStatistics();
+        IntSummaryStatistics stat = Stream
+                .of(numbers.split(" "))
+                .mapToInt(Integer::parseInt)
+                .summaryStatistics();
         return stat.getMax() + " " + stat.getMin();
     }
 
