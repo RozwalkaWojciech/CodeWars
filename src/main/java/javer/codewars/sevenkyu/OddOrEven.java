@@ -32,7 +32,7 @@ public class OddOrEven {
     }
 
     public static String oddOrEven3(int[] array) {
-        int xor = 0;
+        var xor = 0;
         for (int i : array) {
             xor ^= i;
         }
