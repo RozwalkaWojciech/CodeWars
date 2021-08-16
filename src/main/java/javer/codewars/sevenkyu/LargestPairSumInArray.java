@@ -9,17 +9,20 @@ For example
 Input sequence contains minimum two elements and every element is an integer.
  */
 
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static java.lang.System.out;
+import static java.util.Arrays.sort;
+import static java.util.Arrays.stream;
+import static java.util.stream.Collectors.toList;
 
 public class LargestPairSumInArray {
     public static int largestPairSum(int[] numbers) {
-        return Arrays.stream(numbers)
+        return stream(numbers)
                 .boxed()
                 .sorted()
-                .collect(Collectors.toList())
+                .collect(toList())
                 .subList(numbers.length - 2, numbers.length)
                 .stream()
                 .mapToInt(Integer::intValue)
@@ -36,11 +39,11 @@ public class LargestPairSumInArray {
     }
 
     public static int largestPairSum3(int[] numbers) {
-        Arrays.sort(numbers);
+        sort(numbers);
         return numbers[numbers.length - 1] + numbers[numbers.length - 2];
     }
 
     public static void main(String[] args) {
-        System.out.println(largestPairSum(new int[]{10, 14, 2, 23, 19}));
+        out.println(largestPairSum(new int[]{10, 14, 2, 23, 19}));
     }
 }
