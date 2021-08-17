@@ -18,12 +18,13 @@ Don't truncate or round: the tests will pass if abs(your_result - test_result) <
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
+
+import static java.util.Arrays.stream;
 
 public class Rainfall {
     public static double mean(String town, String strng) {
@@ -34,7 +35,7 @@ public class Rainfall {
         if (townArr.length == 0) {
             return -1d;
         }
-        return Arrays.stream(townArr).average().getAsDouble();
+        return stream(townArr).average().getAsDouble();
     }
 
     public static double variance(String town, String strng) {
@@ -45,13 +46,13 @@ public class Rainfall {
         if (townArr.length == 0) {
             return -1d;
         }
-        return Arrays.stream(townArr)
+        return stream(townArr)
                 .map(o -> (o - mean(town, strng)) * (o - mean(town, strng)))
                 .sum() / townArr.length;
     }
 
     private static double[] getTownArr(String town, String strng) {
-        String collect = Arrays.stream(strng.split("\n"))
+        var collect = stream(strng.split("\n"))
                 .filter(s -> s.startsWith(town))
                 .map(s -> s.replace(",", " "))
                 .collect(Collectors.joining());
