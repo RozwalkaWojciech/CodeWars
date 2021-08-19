@@ -60,7 +60,7 @@ public class Rainfall {
                 .collect(joining());
 
         List<Double> doubleList;
-        try (Scanner sc = new Scanner(collect)) {
+        try (var sc = new Scanner(collect)) {
             doubleList = new ArrayList<>();
             while (sc.hasNext()) {
                 if (sc.hasNextDouble()) {
