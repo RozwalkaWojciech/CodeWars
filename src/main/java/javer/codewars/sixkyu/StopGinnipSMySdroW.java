@@ -19,14 +19,14 @@ import static java.util.stream.Collectors.joining;
 public class StopGinnipSMySdroW {
 
     public String spinWords(String sentence) {
-        String[] arr = sentence.split(" ");
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].length() > 4) {
-                arr[i] = new StringBuilder(arr[i]).reverse().toString();
+        var stringArr = sentence.split(" ");
+        for (int i = 0; i < stringArr.length; i++) {
+            if (stringArr[i].length() > 4) {
+                stringArr[i] = new StringBuilder(stringArr[i]).reverse().toString();
             }
         }
         return
-                join(" ", arr);
+                join(" ", stringArr);
     }
 
     public String spinWords2(String sentence) {
