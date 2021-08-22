@@ -15,4 +15,8 @@ public class JennysSecretMessage {
         }
         return String.format("Hello, %s!", name);
     }
+
+    public static String greet2(String name) {
+        return "Hello, " + (name == "Johnny" ? "my love" : name) + "!";
+    }
 }
