@@ -40,7 +40,10 @@ public class WhichAreIn {
 
     public static String[] inArray2(String[] array1, String[] array2) {
         return Stream.of(array1)
-                .filter(s1 -> (Arrays.stream(array2)).anyMatch(s2 -> s2.contains(s1)))
+                .filter(s1 ->
+                        (Arrays.stream(array2))
+                                .anyMatch(s2 ->
+                                        s2.contains(s1)))
                 .sorted()
                 .toArray(String[]::new);
     }
