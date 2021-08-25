@@ -19,6 +19,8 @@ import static java.util.Arrays.stream;
 public class RemoveDuplicates {
 
     public static int[] unique(int[] integers) {
-        return stream(integers).distinct().toArray();
+        return stream(integers)
+                .distinct()
+                .toArray();
     }
 }
