@@ -25,14 +25,12 @@ public class Meeting {
 
     public static String meeting(String s) {
 
-        TreeMap<String, List<String>> people = new TreeMap<>();
-        String[] persons = s.split(";");
-        var sb = new StringBuilder();
+        var people = new TreeMap<String, List<String>>();
 
-        for (String person : persons) {
+        for (var person : s.split(";")) {
             String[] fullName = person.split(":");
-            String firstName = fullName[1].toUpperCase();
-            String lastName = fullName[0].toUpperCase();
+            var firstName = fullName[1].toUpperCase();
+            var lastName = fullName[0].toUpperCase();
 
             if (!people.containsKey(firstName)) {
                 List<String> names = new ArrayList<>();
@@ -46,6 +44,8 @@ public class Meeting {
             }
         }
         Set<String> lastNames = people.keySet();
+
+        var sb = new StringBuilder();
 
         for (String secondName : lastNames) {
             List<String> names = people.get(secondName);
