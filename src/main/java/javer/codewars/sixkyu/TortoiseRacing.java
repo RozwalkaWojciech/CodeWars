@@ -30,31 +30,31 @@ or Google: "convert decimal time to hours minutes seconds"
 
 import java.util.Arrays;
 
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 public class TortoiseRacing {
 
     public static int[] race(int v1, int v2, int g) {
 
-        if (v1 >=v2){
+        if (v1 >= v2) {
             return null;
         }
-        int time = g * 3600 / (v2 - v1);
-        int h = time / 3600;
-        int min = (time % 3600) / 60;
-        int sec = time % 60;
+        var time = g * 3600 / (v2 - v1);
+        var h = time / 3600;
+        var min = (time % 3600) / 60;
+        var sec = time % 60;
 
         return new int[]{h, min, sec};
     }
 
     public static int[] race2(int v1, int v2, int g) {
-        int totalSecondsTaken = 0;
-        if (v2 > v1 ) {
-            totalSecondsTaken = (g*3600) / (v2-v1) ;
+        var totalSecondsTaken = 0;
+        if (v2 > v1) {
+            totalSecondsTaken = (g * 3600) / (v2 - v1);
         } else {
             return null;
         }
-        return new int[] {totalSecondsTaken/3600, (totalSecondsTaken % 3600)/60, totalSecondsTaken % 60};
+        return new int[]{totalSecondsTaken / 3600, (totalSecondsTaken % 3600) / 60, totalSecondsTaken % 60};
     }
 
     public static void main(String[] args) {
