@@ -34,7 +34,7 @@ public class OddOrEven {
 
     public static String oddOrEven3(int[] array) {
         var xor = 0;
-        for (int i : array) {
+        for (var i : array) {
             xor ^= i;
         }
         return (xor & 1) == 1 ? "odd" : "even";
