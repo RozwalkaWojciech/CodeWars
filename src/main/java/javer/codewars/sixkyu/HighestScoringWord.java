@@ -10,6 +10,7 @@ All letters will be lowercase and all inputs will be valid.
 
 import java.util.Arrays;
 
+import static java.lang.System.out;
 import static java.util.Comparator.comparingInt;
 
 public class HighestScoringWord {
@@ -18,9 +19,9 @@ public class HighestScoringWord {
         var wordValue = 0;
         var maxValue = 0;
         var result = "";
-        for (String str : s.split(" ")) {
+        for (var str : s.split(" ")) {
             wordValue = 0;
-            for (char ch : str.toCharArray()) {
+            for (var ch : str.toCharArray()) {
                 wordValue += (ch - 96);
             }
             if (wordValue > maxValue) {
@@ -41,6 +42,6 @@ public class HighestScoringWord {
     }
 
     public static void main(String[] args) {
-        System.out.println(high("man i need a taxi up to ubud"));
+        out.println(high("man i need a taxi up to ubud"));
     }
 }
