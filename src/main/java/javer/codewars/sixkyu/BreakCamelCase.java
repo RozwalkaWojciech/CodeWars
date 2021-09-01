@@ -6,13 +6,14 @@ import static java.lang.Character.isUpperCase;
 import static java.lang.System.out;
 
 public class BreakCamelCase {
+
     public static String camelCase(String input) {
         var sb = new StringBuilder();
-        for (char c : input.toCharArray()) {
-            if (isUpperCase(c)) {
-                sb.append(" ").append(c);
+        for (var ch : input.toCharArray()) {
+            if (isUpperCase(ch)) {
+                sb.append(" ").append(ch);
             } else {
-                sb.append(c);
+                sb.append(ch);
             }
         }
         return sb.toString();
