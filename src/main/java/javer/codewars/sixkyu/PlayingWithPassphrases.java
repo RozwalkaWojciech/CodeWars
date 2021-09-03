@@ -20,6 +20,7 @@ With longer passphrases it's better to have a small and easy program. Would you 
 */
 
 import static java.lang.Character.*;
+import static java.lang.System.out;
 
 public class PlayingWithPassphrases {
 
@@ -28,7 +29,7 @@ public class PlayingWithPassphrases {
         char[] arr = s.toLowerCase().toCharArray();
         var sb = new StringBuilder();
 
-        for (int i = 0; i < arr.length; i++) {
+        for (var i = 0; i < arr.length; i++) {
             if (isLetter(arr[i])) {
                 if (i % 2 == 0) {
                     if ((arr[i] + n) > 122) {
@@ -54,8 +55,8 @@ public class PlayingWithPassphrases {
 
 
     public static void main(String[] args) {
-        System.out.println(playPass("I LOVE YOU Z!!!", 1));
-        System.out.println(playPass("APRIL 2015", 2));
+        out.println(playPass("I LOVE YOU Z!!!", 1));
+        out.println(playPass("APRIL 2015", 2));
     }
 }
 
