@@ -26,7 +26,7 @@ public class PlayingWithPassphrases {
 
     public static String playPass(String s, int n) {
 
-        char[] arr = s.toLowerCase().toCharArray();
+        var arr = s.toLowerCase().toCharArray();
         var sb = new StringBuilder();
 
         for (var i = 0; i < arr.length; i++) {
