@@ -35,29 +35,29 @@ public class HumanReadableDurationFormat {
             return "now";
         }
 
-        int oneMinute = 60;
-        int oneHour = 60 * oneMinute;
-        int oneDay = 24 * oneHour;
-        int oneYear = 365 * oneDay;
+        var oneMinute = 60;
+        var oneHour = 60 * oneMinute;
+        var oneDay = 24 * oneHour;
+        var oneYear = 365 * oneDay;
 
         Queue<String> queue = new LinkedList<>();
 
-        int year = seconds / oneYear;
+        var year = seconds / oneYear;
         if (year == 1) queue.add(year + " year");
         else if (year > 1) queue.add(year + " years");
         seconds = seconds - year * oneYear;
 
-        int day = seconds / oneDay;
+        var day = seconds / oneDay;
         if (day == 1) queue.add(day + " day");
         else if (day > 1) queue.add(day + " days");
         seconds = seconds - day * oneDay;
 
-        int hour = seconds / oneHour;
+        var hour = seconds / oneHour;
         if (hour == 1) queue.add(hour + " hour");
         else if (hour > 1) queue.add(hour + " hours");
         seconds = seconds - hour * oneHour;
 
-        int minute = seconds / oneMinute;
+        var minute = seconds / oneMinute;
         if (minute == 1) queue.add(minute + " minute");
         else if (minute > 1) queue.add(minute + " minutes");
         seconds = seconds - minute * oneMinute;
@@ -68,7 +68,7 @@ public class HumanReadableDurationFormat {
         var sb = new StringBuilder();
 
         while (!queue.isEmpty()) {
-            String tmp = queue.poll();
+            var tmp = queue.poll();
             sb.append(tmp);
             if (queue.size() > 1) {
                 sb.append(", ");
@@ -82,12 +82,12 @@ public class HumanReadableDurationFormat {
     public static String formatDuration2(int seconds) {
         return seconds == 0 ? "now" :
                 Arrays.stream(
-                        new String[]{
-                                formatTime("year", (seconds / 31536000)),
-                                formatTime("day", (seconds / 86400) % 365),
-                                formatTime("hour", (seconds / 3600) % 24),
-                                formatTime("minute", (seconds / 60) % 60),
-                                formatTime("second", (seconds % 3600) % 60)})
+                                new String[]{
+                                        formatTime("year", (seconds / 31536000)),
+                                        formatTime("day", (seconds / 86400) % 365),
+                                        formatTime("hour", (seconds / 3600) % 24),
+                                        formatTime("minute", (seconds / 60) % 60),
+                                        formatTime("second", (seconds % 3600) % 60)})
                         .filter(e -> e != "")
                         .collect(Collectors.joining(", "))
                         .replaceAll(", (?!.+,)", " and ");
