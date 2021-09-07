@@ -28,6 +28,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
+import static java.lang.System.out;
+
 public class HumanReadableDurationFormat {
 
     public static String formatDuration(int seconds) {
@@ -98,15 +100,15 @@ public class HumanReadableDurationFormat {
     }
 
     public static String formatDuration3(int seconds) {
-        String res = "";
+        var res = "";
         int[] units = new int[]{31536000, 86400, 3600, 60, 1};
         String[] labels = new String[]{"year", "day", "hour", "minute", "second"};
 
         if (seconds == 0) return "now";
 
-        for (int i = 0; i < 5; i++) {
+        for (var i = 0; i < 5; i++) {
             if (seconds >= units[i]) {
-                int q = seconds / units[i];
+                var q = seconds / units[i];
                 seconds = seconds % units[i];
                 res += (res.equals("") ? "" : (seconds == 0 ? " and " : ", "))
                         + q + " " + labels[i] + (q > 1 ? "s" : "");
@@ -136,9 +138,9 @@ public class HumanReadableDurationFormat {
         int[] maxUnit = {60, 60, 24, 365, 1000};
         String[] units = {"second", "minute", "hour", "day", "year"};
         String result = "";
-        int total = 0;
-        for (int i = 0; i < maxUnit.length; i++) {
-            int val = seconds % maxUnit[i];
+        var total = 0;
+        for (var i = 0; i < maxUnit.length; i++) {
+            var val = seconds % maxUnit[i];
             seconds /= maxUnit[i];
             if (val > 0) {
                 String unit = val > 1 ? units[i] + "s" : units[i];
@@ -160,7 +162,7 @@ public class HumanReadableDurationFormat {
     }
 
     public static void main(String[] args) {
-        System.out.println(formatDuration4(3662));
+        out.println(formatDuration4(3662));
     }
 }
 
