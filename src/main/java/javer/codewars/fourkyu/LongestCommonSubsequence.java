@@ -34,14 +34,14 @@ public class LongestCommonSubsequence {
     static String lcs(String a, String b) {
 
         List<String> subsequenceList = new ArrayList<>();
-        int count = a.length();
+        var count = a.length();
 
         while (count != 0) {
-            String subsequence = "";
-            int jump = 0;
+            var subsequence = "";
+            var jump = 0;
             outLoop:
-            for (int i = (a.length() - count); i < a.length(); i++) {
-                for (int j = 0 + jump; j < b.length(); j++) {
+            for (var i = (a.length() - count); i < a.length(); i++) {
+                for (var j = 0 + jump; j < b.length(); j++) {
                     if (a.charAt(i) == b.charAt(j)) {
                         subsequence += a.charAt(i);
                         jump = j + 1;
@@ -52,7 +52,6 @@ public class LongestCommonSubsequence {
             subsequenceList.add(subsequence);
             count--;
         }
-
         return "";
     }
 
