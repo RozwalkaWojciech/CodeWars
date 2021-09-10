@@ -56,11 +56,11 @@ public class LongestCommonSubsequence {
     }
 
     static String lcs2(String a, String b) {
-        String result = "";
-        int jump = 0;
+        var result = "";
+        var jump = 0;
         outLoop:
-        for (char charB : b.toCharArray()) {
-            for (int i = 0 + jump; i < a.toCharArray().length; i++) {
+        for (var charB : b.toCharArray()) {
+            for (var i = 0 + jump; i < a.toCharArray().length; i++) {
                 if (charB == a.charAt(i)) {
                     result += charB;
                     jump = i + 1;
