@@ -29,6 +29,8 @@ lcs( string0, string1 ) === lcs( string1, string0 )
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.out;
+
 public class LongestCommonSubsequence {
 
     static String lcs(String a, String b) {
@@ -72,10 +74,10 @@ public class LongestCommonSubsequence {
     }
 
     static String lcs3(String a, String b) {
-        String result = "";
-        String temp = "";
-        for (int i = 0; i < a.length(); i++) {
-            for (int j = 0; j < b.length(); j++) {
+        var result = "";
+        var temp = "";
+        for (var i = 0; i < a.length(); i++) {
+            for (var j = 0; j < b.length(); j++) {
                 if (a.charAt(i) == b.charAt(j)) {
                     temp += a.charAt(i);
                 }
@@ -89,8 +91,8 @@ public class LongestCommonSubsequence {
     }
 
     public static void main(String[] args) {
-        System.out.println(lcs("anothertest", "notatest"));
-        System.out.println(lcs("abcdefghijklmnopq", "apcdefghijklmnobq"));
-        System.out.println(lcs("nothardlythefinaltest", "zzzfinallyzzz"));
+        out.println(lcs("anothertest", "notatest"));
+        out.println(lcs("abcdefghijklmnopq", "apcdefghijklmnobq"));
+        out.println(lcs("nothardlythefinaltest", "zzzfinallyzzz"));
     }
 }
