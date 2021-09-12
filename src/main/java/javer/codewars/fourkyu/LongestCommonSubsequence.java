@@ -27,7 +27,6 @@ lcs( string0, string1 ) === lcs( string1, string0 )
  */
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.System.out;
 
@@ -35,7 +34,7 @@ public class LongestCommonSubsequence {
 
     static String lcs(String a, String b) {
 
-        List<String> subsequenceList = new ArrayList<>();
+        var subsequenceList = new ArrayList<>();
         var count = a.length();
 
         while (count != 0) {
