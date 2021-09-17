@@ -14,7 +14,7 @@ public class AnEnglishTwistOnJapaneseClassic {
             return result;
         }
         result.add(words.get(0));
-        for (int i = 1; i < words.size(); i++) {
+        for (var i = 1; i < words.size(); i++) {
             var current = words.get(i);
             var previous = words.get(i - 1);
             if (current.equals("")) {
