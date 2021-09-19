@@ -31,9 +31,9 @@ public class AnEnglishTwistOnJapaneseClassic {
 
     public static List<String> theGame2(List<String> words) {
         var list = new ArrayList<String>();
-        var prev = words.isEmpty() || words.get(0).isEmpty() ? "" : "" + words.get(0).charAt(0);
-        for (String w : words)
-            if (!w.isEmpty() && prev.endsWith("" + w.charAt(0))) list.add(prev = w);
+        var prevWord = words.isEmpty() || words.get(0).isEmpty() ? "" : "" + words.get(0).charAt(0);
+        for (var word : words)
+            if (!word.isEmpty() && prevWord.endsWith("" + word.charAt(0))) list.add(prevWord = word);
             else break;
         return list;
     }
