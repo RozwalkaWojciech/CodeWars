@@ -40,7 +40,7 @@ public class MostFrequentlyUsedWordsInText {
         String toLowerCase = s.replaceAll("[^a-zA-Z']", " ").trim().toLowerCase();
         List<String> result = new ArrayList<>();
 
-        for (String str : toLowerCase.split(" ")) {
+        for (var str : toLowerCase.split(" ")) {
             if (map.containsKey(str)) {
                 map.put(str, map.get(str) + 1);
             } else {
@@ -51,7 +51,7 @@ public class MostFrequentlyUsedWordsInText {
         List<Map.Entry<String, Integer>> collect = map.entrySet().stream()
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(Collectors.toList());
 
-        int count = 3;
+        var count = 3;
 
         for (Map.Entry<String, Integer> entry : collect) {
             if (count == 0) {
