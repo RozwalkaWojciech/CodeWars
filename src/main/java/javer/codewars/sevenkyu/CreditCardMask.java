@@ -6,7 +6,7 @@ public class CreditCardMask {
         var mask = "";
         var end = "";
         if (str.length() > 4) {
-            for (int i = 0; i < str.length() - 4; i++) {
+            for (var i = 0; i < str.length() - 4; i++) {
                 mask += "#";
                 end = str.substring(str.length() - 4);
             }
