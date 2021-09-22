@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.lang.System.out;
 import static java.util.stream.Collectors.groupingBy;
 
 /*
@@ -37,7 +38,7 @@ public class MostFrequentlyUsedWordsInText {
     public static List<String> top3(String s) {
 
         Map<String, Integer> map = new TreeMap<>();
-        String toLowerCase = s.replaceAll("[^a-zA-Z']", " ").trim().toLowerCase();
+        var toLowerCase = s.replaceAll("[^a-zA-Z']", " ").trim().toLowerCase();
         List<String> result = new ArrayList<>();
 
         for (var str : toLowerCase.split(" ")) {
@@ -79,9 +80,9 @@ public class MostFrequentlyUsedWordsInText {
     }
 
     public static void main(String[] args) {
-        System.out.println(top3("  '  "));
-        System.out.println(top3("a a a  b  c c  d d d d  e e e e e"));
-        System.out.println(top3("  //wOnt won't won't "));
+        out.println(top3("  '  "));
+        out.println(top3("a a a  b  c c  d d d d  e e e e e"));
+        out.println(top3("  //wOnt won't won't "));
     }
 }
 
