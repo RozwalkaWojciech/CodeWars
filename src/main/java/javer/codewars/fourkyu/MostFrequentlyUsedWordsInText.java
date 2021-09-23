@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.lang.Character.isLetter;
 import static java.lang.System.out;
 import static java.util.stream.Collectors.groupingBy;
 
@@ -61,7 +62,7 @@ public class MostFrequentlyUsedWordsInText {
             if (entry.getKey().isEmpty()) {
                 continue;
             }
-            if (Character.isLetter(entry.getKey().charAt(0))) {
+            if (isLetter(entry.getKey().charAt(0))) {
                 result.add(entry.getKey());
                 count--;
             }
