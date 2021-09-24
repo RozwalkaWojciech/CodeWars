@@ -25,7 +25,7 @@ public class NextBiggerNumberWithTheSameDigits {
         var sb = new StringBuilder();
         var rightDigits = new ArrayList<Integer>();
 
-        for (int i = strNum.length() - 1; i > 0; i--) {
+        for (var i = strNum.length() - 1; i > 0; i--) {
 
             if (strNum.charAt(i) > strNum.charAt(i - 1)) {
 
