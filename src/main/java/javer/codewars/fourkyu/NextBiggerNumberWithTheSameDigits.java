@@ -36,7 +36,7 @@ public class NextBiggerNumberWithTheSameDigits {
 
                 sort(rightDigits);
 
-                for (int j = 0; j < rightDigits.size(); j++) {
+                for (var j = 0; j < rightDigits.size(); j++) {
                     if (rightDigits.get(j) > getNumericValue(strNum.charAt(i - 1))) {
                         sb.append(rightDigits.get(j));
                         rightDigits.remove(rightDigits.get(j));
