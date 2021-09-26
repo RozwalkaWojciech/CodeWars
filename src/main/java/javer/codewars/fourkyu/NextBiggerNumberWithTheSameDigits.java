@@ -43,7 +43,7 @@ public class NextBiggerNumberWithTheSameDigits {
                         break;
                     }
                 }
-                for (int digit : rightDigits) {
+                for (var digit : rightDigits) {
                     sb.append(digit);
                 }
                 return parseLong(sb.toString());
@@ -56,8 +56,8 @@ public class NextBiggerNumberWithTheSameDigits {
 
     public static long nextBiggerNumber2(long n) {
         char[] s = String.valueOf(n).toCharArray();
-        for (int i = s.length - 2; i >= 0; i--) {
-            for (int j = s.length - 1; j > i; j--) {
+        for (var i = s.length - 2; i >= 0; i--) {
+            for (var j = s.length - 1; j > i; j--) {
                 if (s[i] < s[j]) {
                     char tmp = s[i];
                     s[i] = s[j];
