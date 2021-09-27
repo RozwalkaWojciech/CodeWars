@@ -55,15 +55,15 @@ public class NextBiggerNumberWithTheSameDigits {
     }
 
     public static long nextBiggerNumber2(long n) {
-        char[] s = String.valueOf(n).toCharArray();
-        for (var i = s.length - 2; i >= 0; i--) {
-            for (var j = s.length - 1; j > i; j--) {
-                if (s[i] < s[j]) {
-                    char tmp = s[i];
-                    s[i] = s[j];
-                    s[j] = tmp;
-                    Arrays.sort(s, i + 1, s.length);
-                    return parseLong(String.valueOf(s));
+        var charArray = String.valueOf(n).toCharArray();
+        for (var i = charArray.length - 2; i >= 0; i--) {
+            for (var j = charArray.length - 1; j > i; j--) {
+                if (charArray[i] < charArray[j]) {
+                    var charTmp = charArray[i];
+                    charArray[i] = charArray[j];
+                    charArray[j] = charTmp;
+                    Arrays.sort(charArray, i + 1, charArray.length);
+                    return parseLong(String.valueOf(charArray));
                 }
             }
         }
