@@ -32,7 +32,7 @@ public class NextSmallerNumberWithTheSameDigits {
                 .toArray(Character[]::new);
 
         for (int i = digitArr.length - 2; i >= 0; i--) {
-            for (int j = digitArr.length - 1; j > i; j--) {
+            for (var j = digitArr.length - 1; j > i; j--) {
                 if (digitArr[i] > digitArr[j]) {
                     char tmp = digitArr[i];
                     digitArr[i] = digitArr[j];
