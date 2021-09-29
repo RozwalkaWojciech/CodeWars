@@ -22,6 +22,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
+import static java.lang.System.out;
+
 public class NextSmallerNumberWithTheSameDigits {
 
     public static long nextSmaller(long n) {
@@ -57,7 +59,7 @@ public class NextSmallerNumberWithTheSameDigits {
         if (i == 0) return -1;
         else {
             int x = carr[i - 1], min = i;
-            for (int j = i + 1; j < len; j++) {
+            for (var j = i + 1; j < len; j++) {
                 if (carr[j] < x && carr[j] > carr[min]) {
                     min = j;
                 }
@@ -74,8 +76,8 @@ public class NextSmallerNumberWithTheSameDigits {
 
     public static void main(String[] args) {
 
-        System.out.println(nextSmaller(1027));
-        System.out.println(nextSmaller(907));
-        System.out.println(nextSmaller(123456798));
+        out.println(nextSmaller(1027));
+        out.println(nextSmaller(907));
+        out.println(nextSmaller(123456798));
     }
 }
