@@ -31,7 +31,7 @@ public class NextSmallerNumberWithTheSameDigits {
                 .mapToObj(c -> (char) c)
                 .toArray(Character[]::new);
 
-        for (int i = digitArr.length - 2; i >= 0; i--) {
+        for (var i = digitArr.length - 2; i >= 0; i--) {
             for (var j = digitArr.length - 1; j > i; j--) {
                 if (digitArr[i] > digitArr[j]) {
                     char tmp = digitArr[i];
