@@ -52,7 +52,7 @@ public class NextSmallerNumberWithTheSameDigits {
 
     public static long nextSmaller2(long n) {
         char[] carr = String.valueOf(n).toCharArray();
-        int len = carr.length, i;
+        var len = carr.length, i;
         for (i = len - 1; i > 0; i--) {
             if (carr[i] < carr[i - 1]) break;
         }
