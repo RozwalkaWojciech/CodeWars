@@ -36,9 +36,9 @@ public class NextSmallerNumberWithTheSameDigits {
         for (var i = digitArr.length - 2; i >= 0; i--) {
             for (var j = digitArr.length - 1; j > i; j--) {
                 if (digitArr[i] > digitArr[j]) {
-                    char tmp = digitArr[i];
+                    var character = digitArr[i];
                     digitArr[i] = digitArr[j];
-                    digitArr[j] = tmp;
+                    digitArr[j] = character;
                     if (digitArr[0] == '0') {
                         return -1;
                     }
