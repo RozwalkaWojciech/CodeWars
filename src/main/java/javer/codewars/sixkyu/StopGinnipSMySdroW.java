@@ -20,7 +20,7 @@ public class StopGinnipSMySdroW {
 
     public String spinWords(String sentence) {
         var stringArr = sentence.split(" ");
-        for (int i = 0; i < stringArr.length; i++) {
+        for (var i = 0; i < stringArr.length; i++) {
             if (stringArr[i].length() > 4) {
                 stringArr[i] = new StringBuilder(stringArr[i]).reverse().toString();
             }
