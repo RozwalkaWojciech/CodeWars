@@ -37,7 +37,7 @@ public class SumParts {
         var sum = stream(ls).sum();
         result[0] = sum;
 
-        for (int i = 1; i < ls.length; i++) {
+        for (var i = 1; i < ls.length; i++) {
             sum -= ls[i - 1];
             result[i] = sum;
         }
