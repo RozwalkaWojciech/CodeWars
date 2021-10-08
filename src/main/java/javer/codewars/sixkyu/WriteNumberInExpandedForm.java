@@ -8,7 +8,7 @@ public class WriteNumberInExpandedForm {
         var result = "";
 
         for (var i = 10; i < num; i *= 10) {
-            int remain = num % i;
+            var remain = num % i;
             result = (remain > 0) ? " + " + remain + result : result;
             num -= remain;
         }
