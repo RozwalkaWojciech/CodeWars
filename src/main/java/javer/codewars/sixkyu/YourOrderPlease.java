@@ -25,7 +25,7 @@ public class YourOrderPlease {
         }
         int length = words.split(" ").length;
         var sb = new StringBuilder();
-        for (int i = 1; i <= length; i++) {
+        for (var i = 1; i <= length; i++) {
             for (String str : words.split(" ")) {
                 if (str.contains(Integer.toString(i))) {
                     sb.append(str).append(" ");
