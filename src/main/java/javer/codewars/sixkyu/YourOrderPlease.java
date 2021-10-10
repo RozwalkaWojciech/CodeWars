@@ -23,7 +23,7 @@ public class YourOrderPlease {
         if (words.length() == 0) {
             return "";
         }
-        int length = words.split(" ").length;
+        var length = words.split(" ").length;
         var sb = new StringBuilder();
         for (var i = 1; i <= length; i++) {
             for (String str : words.split(" ")) {
