@@ -38,8 +38,8 @@ public class YourOrderPlease {
     public static String order2(String words) {
         return Arrays.stream(words.split(" "))
                 .sorted((s1, s2) -> {
-                    int num1 = Integer.parseInt(s1.replaceAll("\\D+", ""));
-                    int num2 = Integer.parseInt(s2.replaceAll("\\D+", ""));
+                    var num1 = Integer.parseInt(s1.replaceAll("\\D+", ""));
+                    var num2 = Integer.parseInt(s2.replaceAll("\\D+", ""));
                     return Integer.compare(num1, num2);
                 })
                 .collect(Collectors.joining(" "));
