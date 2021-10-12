@@ -15,7 +15,8 @@ Examples
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.joining;
 
 public class YourOrderPlease {
 
@@ -42,12 +43,12 @@ public class YourOrderPlease {
                     var num2 = Integer.parseInt(s2.replaceAll("\\D+", ""));
                     return Integer.compare(num1, num2);
                 })
-                .collect(Collectors.joining(" "));
+                .collect(joining(" "));
     }
 
     public static String order3(String words) {
         return Arrays.stream(words.split(" "))
                 .sorted(Comparator.comparing(a -> a.replaceAll("\\D+", "")))
-                .collect(Collectors.joining(" "));
+                .collect(joining(" "));
     }
 }
