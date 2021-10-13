@@ -22,7 +22,7 @@ public class Permutations {
             set.add(s);
             return List.copyOf(set);
         }
-        for (int i = 0; i < s.length(); i++) {
+        for (var i = 0; i < s.length(); i++) {
 
             List<String> temp = singlePermutations(s.substring(0, i) + s.substring(i + 1));
 
