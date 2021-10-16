@@ -6,7 +6,7 @@ public class SumOfPositive {
 
     public static int sum(int[] arr) {
 
-        int result = 0;
+        var result = 0;
 
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] > 0) {
