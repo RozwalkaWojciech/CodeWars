@@ -72,7 +72,7 @@ public class Rainfall {
         }
 
         double[] doubleArr = new double[doubleList.size()];
-        for (int i = 0; i < doubleList.size(); i++) {
+        for (var i = 0; i < doubleList.size(); i++) {
             doubleArr[i] = doubleList.get(i);
         }
         return doubleArr;
