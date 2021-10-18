@@ -78,7 +78,7 @@ public class StringsMix {
 
         var temp = new ArrayList<String>();
 
-        for (int i = 1; i <= result.size() - 1; i++) {
+        for (var i = 1; i <= result.size() - 1; i++) {
             if (result.get(i).length() < result.get(i - 1).length() || i == result.size() - 1) {
                 if (temp.isEmpty()) {
                     sb.append(result.get(i - 1));
