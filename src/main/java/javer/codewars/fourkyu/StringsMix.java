@@ -106,7 +106,7 @@ public class StringsMix {
     private static Map<Character, Integer> setMap(String str) {
 
         Map<Character, Integer> map = new TreeMap<>();
-        int count = 1;
+        var count = 1;
 
         for (int i = 1; i < str.length(); i++) {
             if (str.charAt(i) != str.charAt(i - 1)) {
