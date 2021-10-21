@@ -158,8 +158,8 @@ public class StringsMix {
             String s1Char = s1.replaceAll("[^" + c + "]+", "");
             String s2Char = s2.replaceAll("[^" + c + "]+", "");
 
-            int s1Length = s1Char.length();
-            int s2Length = s2Char.length();
+            var s1Length = s1Char.length();
+            var s2Length = s2Char.length();
 
             if (s1Length > 1 || s2Length > 1) {
                 if (s1Length == s2Length) {
