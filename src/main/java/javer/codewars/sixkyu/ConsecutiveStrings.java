@@ -42,7 +42,7 @@ public class ConsecutiveStrings {
         var newStr = "";
         var stop = false;
 
-        for (int i = 0; i <= strarr.length; i++) {
+        for (var i = 0; i <= strarr.length; i++) {
             newStr = "";
             for (int j = 0; j < k; j++) {
                 if (i + j >= strarr.length) {
