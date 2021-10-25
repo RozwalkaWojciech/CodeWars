@@ -21,7 +21,7 @@ public class SimpleNumberSequence {
         var result = 0;
         for (var i = 1; i < Math.min(8, s.length() / 2); i++) {
             var temp = 1;
-            int m = Integer.parseInt(s.substring(0, i));
+            var m = Integer.parseInt(s.substring(0, i));
             int hold = i;
             while (hold < s.length()) {
                 m++;
