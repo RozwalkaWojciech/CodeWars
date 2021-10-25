@@ -22,7 +22,7 @@ public class SimpleNumberSequence {
         for (var i = 1; i < Math.min(8, s.length() / 2); i++) {
             var temp = 1;
             var m = Integer.parseInt(s.substring(0, i));
-            int hold = i;
+            var hold = i;
             while (hold < s.length()) {
                 m++;
                 var n = String.valueOf(m);
