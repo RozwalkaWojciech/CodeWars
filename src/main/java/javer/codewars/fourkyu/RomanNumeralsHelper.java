@@ -52,7 +52,7 @@ public class RomanNumeralsHelper {
         var sb = new StringBuilder();
 
         while (n != 0) {
-            int highestNumb = 0;
+            var highestNumb = 0;
             for (Map.Entry<Integer, String> current : map.entrySet()) {
                 if (current.getKey() <= n) {
                     highestNumb = current.getKey();
