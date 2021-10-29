@@ -68,7 +68,7 @@ public class RomanNumeralsHelper {
 
         Map<Integer, String> reverseMap = new TreeMap<>(Collections.reverseOrder());
         reverseMap.putAll(map);
-        int result = 0;
+        var result = 0;
 
         while (!romanNumeral.isEmpty()) {
             for (Map.Entry<Integer, String> current : reverseMap.entrySet()) {
