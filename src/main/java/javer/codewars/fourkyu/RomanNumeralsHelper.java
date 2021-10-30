@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
+import static java.lang.System.out;
+
 /*
 Create a RomanNumerals class that can convert a roman numeral to and from an integer value.
 It should follow the API demonstrated in the examples below.
@@ -82,7 +84,7 @@ public class RomanNumeralsHelper {
     }
 
     public static void main(String[] args) {
-        System.out.println(fromRoman("MMMCMXLII"));
-        System.out.println(toRoman(3942));
+        out.println(fromRoman("MMMCMXLII"));
+        out.println(toRoman(3942));
     }
 }
