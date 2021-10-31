@@ -12,17 +12,17 @@ public class MultiplesOf3or5Test {
     }
 
     @Test
-    public void shouldReturnCorrectSum(){
+    public void shouldReturnCorrectSum() {
         //given
-        int number = 15;
+        var number = 15;
         //when
-        int sum = new MultiplesOf3or5().solution2(number);
+        var sum = new MultiplesOf3or5().solution2(number);
         //then
         assertEquals(45, sum);
     }
 
     @Test
-    public void shouldReturnZeroWhenIsNegative(){
+    public void shouldReturnZeroWhenIsNegative() {
         //given
         int number = -2;
         //when
