@@ -24,9 +24,9 @@ public class MultiplesOf3or5Test {
     @Test
     public void shouldReturnZeroWhenIsNegative() {
         //given
-        int number = -2;
+        var number = -2;
         //when
-        int sum = new MultiplesOf3or5().solution2(number);
+        var sum = new MultiplesOf3or5().solution2(number);
         //then
         assertEquals(0, sum);
     }
