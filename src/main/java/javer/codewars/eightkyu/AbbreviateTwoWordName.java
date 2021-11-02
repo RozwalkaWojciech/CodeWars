@@ -9,8 +9,8 @@ public class AbbreviateTwoWordName {
 
     public static String abbrevName2(String name) {
         String[] fullName = name.split(" ");
-        String names = fullName[0].toUpperCase();
-        String surname = fullName[1].toUpperCase();
+        var names = fullName[0].toUpperCase();
+        var surname = fullName[1].toUpperCase();
         return names.charAt(0) + "." + surname.charAt(0);
     }
 
