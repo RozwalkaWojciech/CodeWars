@@ -27,10 +27,10 @@ public class WhichAreIn {
 
         List<String> result = new ArrayList<>();
 
-        for (String value : array1) {
-            for (String s : array2) {
-                if (s.contains(value)) {
-                    result.add(value);
+        for (var strArr1 : array1) {
+            for (var strArr2 : array2) {
+                if (strArr2.contains(strArr1)) {
+                    result.add(strArr1);
                     break;
                 }
             }
@@ -40,10 +40,8 @@ public class WhichAreIn {
 
     public static String[] inArray2(String[] array1, String[] array2) {
         return Stream.of(array1)
-                .filter(s1 ->
-                        (Arrays.stream(array2))
-                                .anyMatch(s2 ->
-                                        s2.contains(s1)))
+                .filter(s1 -> (Arrays.stream(array2))
+                        .anyMatch(s2 -> s2.contains(s1)))
                 .sorted()
                 .toArray(String[]::new);
     }
