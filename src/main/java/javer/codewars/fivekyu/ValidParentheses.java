@@ -21,9 +21,7 @@ Do not treat other forms of brackets as parentheses (e.g. [], {}, <>).
 public class ValidParentheses {
 
     public static boolean validParentheses(String parens) {
-
         var stack = new ArrayDeque<Character>();
-
         for (char c : parens.toCharArray()) {
             if (c == '(') {
                 stack.push(c);
