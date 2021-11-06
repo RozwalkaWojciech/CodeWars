@@ -16,13 +16,13 @@ public class VasyaClerk {
         var value25 = 0;
         var value50 = 0;
 
-        for (int i : peopleInLine) {
-            if (i == 25) {
+        for (var money : peopleInLine) {
+            if (money == 25) {
                 value25++;
-            } else if (i == 50 && value25 > 0) {
+            } else if (money == 50 && value25 > 0) {
                 value50++;
                 value25--;
-            } else if (i == 100) {
+            } else if (money == 100) {
                 if (value50 > 0 && value25 > 0) {
                     value25--;
                     value50--;
