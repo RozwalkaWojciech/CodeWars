@@ -24,9 +24,7 @@ import static java.util.stream.Collectors.joining;
 public class Meeting {
 
     public static String meeting(String s) {
-
         var people = new TreeMap<String, List<String>>();
-
         for (var person : s.split(";")) {
             String[] fullName = person.split(":");
             var firstName = fullName[1].toUpperCase();
