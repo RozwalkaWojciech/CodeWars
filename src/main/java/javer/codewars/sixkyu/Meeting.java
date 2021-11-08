@@ -41,11 +41,11 @@ public class Meeting {
                 people.put(firstName, names);
             }
         }
-        Set<String> lastNames = people.keySet();
+        Set<String> fullNameSet = people.keySet();
 
         var sb = new StringBuilder();
 
-        for (String secondName : lastNames) {
+        for (String secondName : fullNameSet) {
             List<String> names = people.get(secondName);
             for (String name : names) {
                 sb.append("(").append(secondName.toUpperCase()).append(", ").append(name.toUpperCase()).append(")");
@@ -68,7 +68,6 @@ public class Meeting {
             guests[i] = "(" + guests[i].substring(index + 1).toUpperCase() + ", " + guests[i].substring(0, index).toUpperCase() + ")";
         }
         Arrays.sort(guests);
-
         return join("", guests);
     }
 
