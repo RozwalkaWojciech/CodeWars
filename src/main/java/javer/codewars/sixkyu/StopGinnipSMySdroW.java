@@ -25,14 +25,12 @@ public class StopGinnipSMySdroW {
                 stringArr[i] = new StringBuilder(stringArr[i]).reverse().toString();
             }
         }
-        return
-                join(" ", stringArr);
+        return join(" ", stringArr);
     }
 
     public String spinWords2(String sentence) {
         return stream(sentence.split(" "))
-                .map(s -> s.length() > 4 ?
-                        new StringBuilder(s).reverse().toString() : s)
+                .map(s -> s.length() > 4 ? new StringBuilder(s).reverse().toString() : s)
                 .collect(joining(" "));
     }
 }
