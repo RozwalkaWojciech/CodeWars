@@ -24,9 +24,7 @@ import java.util.stream.Stream;
 public class WhichAreIn {
 
     public static String[] inArray(String[] array1, String[] array2) {
-
         List<String> result = new ArrayList<>();
-
         for (var strArr1 : array1) {
             for (var strArr2 : array2) {
                 if (strArr2.contains(strArr1)) {
