@@ -11,8 +11,8 @@ public class DescendingOrder {
         var sb = new StringBuilder();
         char[] chars = String.valueOf(num).toCharArray();
         Arrays.sort(chars);
-        for (char n : chars) {
-            sb.append(n);
+        for (var ch : chars) {
+            sb.append(ch);
         }
         return Integer.parseInt(sb.reverse().toString());
     }
