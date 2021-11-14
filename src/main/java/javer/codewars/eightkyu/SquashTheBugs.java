@@ -8,4 +8,14 @@ There will only be one 'longest' word.
 */
 
 public class SquashTheBugs {
+    public static int findLongest(final String str) {
+        String[] spl = str.split(" ");
+        int longest = 0;
+        for (String s : spl) {
+            if (s.length() > longest) {
+                longest = s.length();
+            }
+        }
+        return longest;
+    }
 }
