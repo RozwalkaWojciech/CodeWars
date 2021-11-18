@@ -39,8 +39,9 @@ public class AnEnglishTwistOnJapaneseClassic {
     }
 
     public static List<String> theGame3(List<String> words) {
-        if (words.isEmpty() || words.get(0).isEmpty())
+        if (words.isEmpty() || words.get(0).isEmpty()) {
             return new ArrayList<>();
+        }
         int x = range(1, words.size())
                 .filter(i -> words.get(i).isEmpty()
                         || words.get(i - 1).charAt(words.get(i - 1).length() - 1) != words.get(i).charAt(0))
