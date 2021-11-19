@@ -12,6 +12,7 @@ import static java.lang.System.out;
 
 public class Calculator {
 
+    // TODO solve it
     public static Double evaluate(String expression) {
 
         for (String str : expression.split(" ")) {
