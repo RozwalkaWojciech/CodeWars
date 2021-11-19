@@ -8,27 +8,29 @@ Remember about the order of operations! Multiplications and divisions have a hig
 Additions and subtractions have a lower priority and should also be performed left-to-right.
  */
 
+import static java.lang.System.out;
+
 public class Calculator {
 
     public static Double evaluate(String expression) {
 
         for (String str : expression.split(" ")) {
-            System.out.println(str.contains("("));
-            System.out.println(str);
+            out.println(str.contains("("));
+            out.println(str);
             Integer integer = Integer.valueOf(str);
             Character character = str.charAt(0);
-            System.out.println(integer);
-            System.out.println(character);
+            out.println(integer);
+            out.println(character);
 
             int test3 = 2 + character + 3;
 
-            System.out.println(test3);
+            out.println(test3);
         }
         int test = 2 / (2 + 3) * 4 - 6;
-        System.out.println(test);
+        out.println(test);
 
         int mathTest = Math.addExact(2, 4);
-        System.out.println(mathTest);
+        out.println(mathTest);
 
         return -1.0;
     }
