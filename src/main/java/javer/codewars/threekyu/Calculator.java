@@ -18,8 +18,8 @@ public class Calculator {
         for (String str : expression.split(" ")) {
             out.println(str.contains("("));
             out.println(str);
-            Integer integer = Integer.valueOf(str);
-            Character character = str.charAt(0);
+            var integer = Integer.valueOf(str);
+            var character = str.charAt(0);
             out.println(integer);
             out.println(character);
 
