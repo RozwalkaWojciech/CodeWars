@@ -23,14 +23,14 @@ public class Calculator {
             out.println(integer);
             out.println(character);
 
-            int test3 = 2 + character + 3;
+            var test3 = 2 + character + 3;
 
             out.println(test3);
         }
-        int test = 2 / (2 + 3) * 4 - 6;
+        var test = 2 / (2 + 3) * 4 - 6;
         out.println(test);
 
-        int mathTest = Math.addExact(2, 4);
+        var mathTest = Math.addExact(2, 4);
         out.println(mathTest);
 
         return -1.0;
