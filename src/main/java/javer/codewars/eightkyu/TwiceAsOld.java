@@ -16,7 +16,7 @@ public class TwiceAsOld {
     }
 
     public static int TwiceAsOld2(int dadYears, int sonYears) {
-        int result = dadYears - sonYears * 2;
+        var result = dadYears - sonYears * 2;
         return result > 0 ? result : -result;
     }
 }
