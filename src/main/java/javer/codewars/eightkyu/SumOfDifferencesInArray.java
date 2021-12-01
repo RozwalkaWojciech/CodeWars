@@ -10,8 +10,12 @@ Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
 If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell).
  */
 
+import java.util.Arrays;
+
 public class SumOfDifferencesInArray {
 
     public static int sumOfDifferences(int[] arr) {
+        //your code;
+        Arrays.stream(arr).forEach(System.out::println);
     }
 }
