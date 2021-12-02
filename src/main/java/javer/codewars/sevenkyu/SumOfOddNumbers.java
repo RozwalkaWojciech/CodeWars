@@ -18,6 +18,6 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 public class SumOfOddNumbers {
 
     public static int rowSumOddNumbers(int n) {
-        // TODO
+        return n * n * n;
     }
 }
