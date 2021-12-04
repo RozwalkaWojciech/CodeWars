@@ -12,9 +12,9 @@ import java.util.stream.Stream;
 public class SquashTheBugs {
 
     public static int findLongest(final String str) {
-        String[] spl = str.split(" ");
+        String[] strArr = str.split(" ");
         var longest = 0;
-        for (String s : spl) {
+        for (String s : strArr) {
             if (s.length() > longest) {
                 longest = s.length();
             }
