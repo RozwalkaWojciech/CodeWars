@@ -7,11 +7,13 @@ Return your answer as a number.
 
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 public class SumMixedArray {
     /*
      * Assume input will be only of Integer o String type
      */
     public int sum(List<?> mixed) {
-        return mixed.stream().mapToInt(o -> Integer.parseInt(o.toString())).sum();
+        return mixed.stream().mapToInt(o -> parseInt(o.toString())).sum();
     }
 }
