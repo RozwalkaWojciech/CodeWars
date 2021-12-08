@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class SumArrays {
 
     public static double sum(double[] numbers) {
-        double sum = 0;
-        for (double number : numbers) {
+        var sum = 0;
+        for (var number : numbers) {
             sum += number;
         }
         return sum;
