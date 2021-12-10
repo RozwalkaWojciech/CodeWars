@@ -3,8 +3,8 @@ package javer.codewars.fivekyu;
 import static java.lang.System.out;
 
 public class Scramblies {
-    public static boolean scramble(String str1, String str2) {
 
+    public static boolean scramble(String str1, String str2) {
         for (var s : str2.split("")) {
             if (!str1.contains(s)) {
                 return false;
