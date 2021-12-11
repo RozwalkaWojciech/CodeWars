@@ -22,7 +22,7 @@ public class ValidParentheses {
 
     public static boolean validParentheses(String parens) {
         var stack = new ArrayDeque<Character>();
-        for (char c : parens.toCharArray()) {
+        for (var c : parens.toCharArray()) {
             if (c == '(') {
                 stack.push(c);
             } else if (c == ')') {
