@@ -33,10 +33,8 @@ import static java.lang.System.out;
 public class LongestCommonSubsequence {
 
     static String lcs(String a, String b) {
-
         var subsequenceList = new ArrayList<>();
         var count = a.length();
-
         while (count != 0) {
             var subsequence = "";
             var jump = 0;
