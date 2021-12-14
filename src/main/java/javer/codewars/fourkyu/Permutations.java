@@ -14,18 +14,15 @@ Permutations.singlePermutations("aabb") `shouldBe` ["aabb","abab","abba","baab",
 The order of the permutations doesn't matter.
 */
 public class Permutations {
+
     public static List<String> singlePermutations(String s) {
-
         var set = new HashSet<String>();
-
         if (s.length() == 0) {
             set.add(s);
             return List.copyOf(set);
         }
         for (var i = 0; i < s.length(); i++) {
-
             List<String> temp = singlePermutations(s.substring(0, i) + s.substring(i + 1));
-
             for (String str : temp) {
                 set.add(s.charAt(i) + str);
             }
