@@ -27,12 +27,10 @@ import static java.lang.System.out;
 public class NextSmallerNumberWithTheSameDigits {
 
     public static long nextSmaller(long n) {
-
         Character[] digitArr = String.valueOf(n)
                 .chars()
                 .mapToObj(c -> (char) c)
                 .toArray(Character[]::new);
-
         for (var i = digitArr.length - 2; i >= 0; i--) {
             for (var j = digitArr.length - 1; j > i; j--) {
                 if (digitArr[i] > digitArr[j]) {
