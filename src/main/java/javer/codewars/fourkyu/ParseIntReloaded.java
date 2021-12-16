@@ -23,8 +23,8 @@ public class ParseIntReloaded {
 
     public static int parseInt(String numStr) {
 
-        int result = 0;
-        int temp = 0;
+        var result = 0;
+        var temp = 0;
 
         Map<String, Integer> words = Map.ofEntries(
                 Map.entry("zero", 0),
@@ -73,7 +73,7 @@ public class ParseIntReloaded {
                 }
             }
         }
-        return result +temp;
+        return result + temp;
     }
 
     public static void main(String[] args) {
