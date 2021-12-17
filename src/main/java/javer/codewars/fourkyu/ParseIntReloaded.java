@@ -22,10 +22,8 @@ import java.util.Map;
 public class ParseIntReloaded {
 
     public static int parseInt(String numStr) {
-
         var result = 0;
         var temp = 0;
-
         Map<String, Integer> words = Map.ofEntries(
                 Map.entry("zero", 0),
                 Map.entry("one", 1),
@@ -55,11 +53,8 @@ public class ParseIntReloaded {
                 Map.entry("seventy", 70),
                 Map.entry("eighty", 80),
                 Map.entry("ninety", 90));
-
         Map<String, Integer> mult = Map.of("hundred", 100, "thousand", 1000, "million", 1000000);
-
         String[] arr = numStr.split(" |-");
-
         for (String word : arr) {
             if (words.containsKey(word)) {
                 result += words.get(word);
