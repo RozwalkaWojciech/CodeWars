@@ -19,6 +19,8 @@ All tested numbers are valid, you don't need to validate them
 
 import java.util.Map;
 
+import static java.lang.System.out;
+
 public class ParseIntReloaded {
 
     public static int parseInt(String numStr) {
@@ -55,7 +57,7 @@ public class ParseIntReloaded {
                 Map.entry("ninety", 90));
         Map<String, Integer> mult = Map.of("hundred", 100, "thousand", 1000, "million", 1000000);
         String[] arr = numStr.split(" |-");
-        for (String word : arr) {
+        for (var word : arr) {
             if (words.containsKey(word)) {
                 result += words.get(word);
             }
@@ -72,7 +74,7 @@ public class ParseIntReloaded {
     }
 
     public static void main(String[] args) {
-        System.out.println(parseInt("two hundred forty-six"));
+        out.println(parseInt("two hundred forty-six"));
     }
 }
 
