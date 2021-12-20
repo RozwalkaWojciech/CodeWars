@@ -3,6 +3,7 @@ package javer.codewars.sixkyu;
 import java.util.stream.IntStream;
 
 public class MultiplesOf3or5 {
+
     public int solution(int number) {
         if (number < 0) {
             return -1;
