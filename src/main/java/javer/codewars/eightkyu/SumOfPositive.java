@@ -14,9 +14,9 @@ public class SumOfPositive {
 
     public static int sum(int[] arr) {
         var result = 0;
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i] > 0) {
-                result += arr[i];
+        for (int i : arr) {
+            if (i > 0) {
+                result += i;
             }
         }
         return result;
