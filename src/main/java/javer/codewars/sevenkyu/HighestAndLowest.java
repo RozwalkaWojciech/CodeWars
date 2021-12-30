@@ -27,12 +27,10 @@ public class HighestAndLowest {
                 .mapToInt(Integer::parseInt)
                 .min()
                 .getAsInt();
-
         var max = Arrays.stream(numbers.split(" "))
                 .mapToInt(Integer::parseInt)
                 .max()
                 .getAsInt();
-
         return String.format("%d %d", max, min);
     }
 
