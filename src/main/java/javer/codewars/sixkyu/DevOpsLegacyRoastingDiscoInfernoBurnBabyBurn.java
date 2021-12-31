@@ -66,9 +66,25 @@ https://www.youtube.com/watch?v=A_sY2rjxq6M
 Disclaimer - this should only be attempted by trained professionals and in accordance with local ordinances. EX: Disco may be outlawed in certain countries.
 */
 
-public class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
+class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
     public static String roastLegacy(String workloads) {
+        System.out.println(search(workloads));
         return null;
+    }
+
+    private static int search(String phrase) {
+        int points = 0;
+        if (phrase.contains("COBOL")) {
+            points += 1000;
+        }
+        if (phrase.contains("nonobject")) {
+            points += 500;
+        }
+        return points;
+    }
+
+    public static void main(String[] args) {
+        DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn.roastLegacy("COBOLnonobject");
     }
 }
