@@ -5,9 +5,10 @@ DevOps legacy roasting!
 Save the business from technological purgatory.
 Convert IT to DevOps, modernize application workloads, take it all to the Cloud…….
 
-You will receive a string of workloads represented by words….some legacy and some modern mixed in with complaints from the business….your job is to burn the legacy in a disco inferno and count the value of each roasting and the number of complaints resolved.
+You will receive a string of workloads represented by words….some legacy and some modern mixed in with complaints from the business….
+Your job is to burn the legacy in a disco inferno and count the value of each roasting and the number of complaints resolved.
 
-complaints (in this format, case-insensitive) -> "slow!", "expensive!", "manual!", "down!", "hostage!", "security!"
+Complaints (in this format, case-insensitive) -> "slow!", "expensive!", "manual!", "down!", "hostage!", "security!"
 The value is based on real or perceived pain by the business and the expense of keeping it all running.
 
 Pull the values from the list below...
@@ -55,9 +56,9 @@ Return a string in the following format
 If there are no complaints and no legacy from above return
 
 ->'These guys are already DevOps and in the Cloud and the business is happy!'
-If you have any doubt COBOL should be burned.. just look at this quote from Dijkstra.
+If you have any doubt COBOL should be burned... just look at this quote from Dijkstra.
 
-The use of COBOL cripples the mind; its teaching should, therefore, be regarded as a criminal offense. Edsger Dijkstra
+The use of COBOL cripples the mind; its teaching should, therefore, be regarded as a criminal offense. Edger Dijkstra
 
 For more information on how to have a disco inferno
 
@@ -66,11 +67,17 @@ https://www.youtube.com/watch?v=A_sY2rjxq6M
 Disclaimer - this should only be attempted by trained professionals and in accordance with local ordinances. EX: Disco may be outlawed in certain countries.
 */
 
+import java.util.List;
+
 class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
+
+    private static final List<String> MODERN_WORD = List.of("slow!", "expensive!", "manual!", "down!", "hostage!", "security!");
+    private static final List<String> LEGACY_WORD = List.of("COBOL", "nonobject", "monolithic", "fax", "modem", "thickclient", "tape", "floppy", "oldschoolIT");
 
     public static String roastLegacy(String workloads) {
         System.out.println(search(workloads));
-        return null;
+
+        return "These guys are already DevOps and in the Cloud and the business is happy!";
     }
 
     private static int search(String phrase) {
