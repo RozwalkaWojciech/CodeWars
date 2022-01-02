@@ -68,15 +68,23 @@ Disclaimer - this should only be attempted by trained professionals and in accor
 */
 
 import java.util.List;
+import java.util.Map;
 
 class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
     private static final List<String> MODERN_WORD = List.of("slow!", "expensive!", "manual!", "down!", "hostage!", "security!");
-    private static final List<String> LEGACY_WORD = List.of("COBOL", "nonobject", "monolithic", "fax", "modem", "thickclient", "tape", "floppy", "oldschoolIT");
+    private static final Map<String, Integer> LEGACY_WORD = Map.of(
+            "COBOL", 1000,
+            "nonobject", 500,
+            "monolithic", 500,
+            "fax", 100,
+            "modem", 100,
+            "thickclient", 50,
+            "tape", 50,
+            "floppy", 50,
+            "oldschoolIT", 50);
 
     public static String roastLegacy(String workloads) {
-        System.out.println(search(workloads));
-
         return "These guys are already DevOps and in the Cloud and the business is happy!";
     }
 
