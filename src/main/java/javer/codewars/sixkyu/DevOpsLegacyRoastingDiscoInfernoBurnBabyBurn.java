@@ -85,6 +85,12 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
             "oldschoolIT", 50);
 
     public static String roastLegacy(String workloads) {
+        int legacyCount = 0;
+        for (String word : MODERN_WORD) {
+            if (workloads.contains(word)) {
+                legacyCount++;
+            }
+        }
         return "These guys are already DevOps and in the Cloud and the business is happy!";
     }
 
