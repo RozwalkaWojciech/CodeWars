@@ -91,16 +91,19 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
                 legacyCount++;
             }
         }
+        int points = search(workloads);
+        if (points != 0) {
+            return String.format("Burn baby burn disco inferno %s points earned in this roasting and %s complaints resolved!", points, legacyCount);
+        }
         return "These guys are already DevOps and in the Cloud and the business is happy!";
     }
 
     private static int search(String phrase) {
         int points = 0;
-        if (phrase.contains("COBOL")) {
-            points += 1000;
-        }
-        if (phrase.contains("nonobject")) {
-            points += 500;
+        for (String key : LEGACY_WORD.keySet()) {
+            if (phrase.contains(key)) {
+                points += LEGACY_WORD.get(key);
+            }
         }
         return points;
     }
