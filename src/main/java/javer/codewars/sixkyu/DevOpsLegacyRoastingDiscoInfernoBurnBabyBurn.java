@@ -93,7 +93,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
         }
         int points = search(workloads);
         if (points != 0) {
-            return String.format("Burn baby burn disco inferno %s points earned in this roasting and %s complaints resolved!", points, legacyCount);
+            return String.format("Burn baby burn disco inferno %d points earned in this roasting and %d complaints resolved!", points, legacyCount);
         }
         return "These guys are already DevOps and in the Cloud and the business is happy!";
     }
@@ -109,6 +109,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
     }
 
     public static void main(String[] args) {
-        DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn.roastLegacy("COBOLnonobject");
+        String coboLnonobject = DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn.roastLegacy("COBOLnonobject");
+        System.out.println(coboLnonobject);
     }
 }
