@@ -85,23 +85,23 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
             "oldschoolIT", 50);
 
     public static String roastLegacy(String workloads) {
-        int legacyCount = 0;
+        int modernCount = 0;
         for (String word : MODERN_WORD) {
-            if (workloads.contains(word)) {
-                legacyCount++;
+            if (workloads.toLowerCase().contains(word.toLowerCase())) {
+                modernCount++;
             }
         }
         int points = search(workloads);
-        if (points != 0) {
-            return String.format("Burn baby burn disco inferno %d points earned in this roasting and %d complaints resolved!", points, legacyCount);
+        if (points == 0 && modernCount == 0) {
+            return "These guys are already DevOps and in the Cloud and the business is happy!";
         }
-        return "These guys are already DevOps and in the Cloud and the business is happy!";
+        return String.format("Burn baby burn disco inferno %d points earned in this roasting and %d complaints resolved!", points, modernCount);
     }
 
     private static int search(String phrase) {
         int points = 0;
         for (String key : LEGACY_WORD.keySet()) {
-            if (phrase.contains(key)) {
+            if (phrase.toLowerCase().contains(key.toLowerCase())) {
                 points += LEGACY_WORD.get(key);
             }
         }
