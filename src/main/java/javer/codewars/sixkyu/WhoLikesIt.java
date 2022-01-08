@@ -11,7 +11,6 @@ likes {"Alex", "Jacob", "Mark", "Max"} // must be "Alex, Jacob and 2 others like
 
 public class WhoLikesIt {
     public static String whoLikesIt(String... names) {
-
         if (names.length == 1) {
             return names[0] + " likes this";
         }
