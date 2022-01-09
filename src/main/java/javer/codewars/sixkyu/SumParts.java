@@ -32,11 +32,9 @@ import static java.util.Arrays.stream;
 
 public class SumParts {
     public static int[] sumParts(int[] ls) {
-
         var result = new int[ls.length + 1];
         var sum = stream(ls).sum();
         result[0] = sum;
-
         for (var i = 1; i < ls.length; i++) {
             sum -= ls[i - 1];
             result[i] = sum;
