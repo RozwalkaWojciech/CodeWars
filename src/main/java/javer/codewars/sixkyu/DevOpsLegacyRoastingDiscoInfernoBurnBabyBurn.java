@@ -95,7 +95,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
         return String.format("Burn baby burn disco inferno %d points earned in this roasting and %d complaints resolved!", points, modernCount);
     }
 
-    private static var getModernCount(String workloads) {
+    private static int getModernCount(String workloads) {
         var modernCount = 0;
         for (String word : MODERN_WORD) {
             Pattern p = Pattern.compile(word.toLowerCase());
@@ -107,7 +107,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
         return modernCount;
     }
 
-    private static var getLegacyPoints(String phrase) {
+    private static int getLegacyPoints(String phrase) {
         var points = 0;
         for (String key : LEGACY_WORD.keySet()) {
             Pattern p = Pattern.compile(key.toLowerCase());
