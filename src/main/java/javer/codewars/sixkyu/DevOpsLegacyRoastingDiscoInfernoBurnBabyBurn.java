@@ -97,7 +97,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
     private static int getModernCount(String workloads) {
         var modernCount = 0;
-        for (String word : MODERN_WORD) {
+        for (var word : MODERN_WORD) {
             Pattern p = Pattern.compile(word.toLowerCase());
             Matcher m = p.matcher(workloads.toLowerCase());
             while (m.find()) {
@@ -109,7 +109,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
     private static int getLegacyPoints(String phrase) {
         var points = 0;
-        for (String key : LEGACY_WORD.keySet()) {
+        for (var key : LEGACY_WORD.keySet()) {
             Pattern p = Pattern.compile(key.toLowerCase());
             Matcher m = p.matcher(phrase.toLowerCase());
             while (m.find()) {
