@@ -69,7 +69,6 @@ Disclaimer - this should only be attempted by trained professionals and in accor
 
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
@@ -98,8 +97,8 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
     private static int getModernCount(String workloads) {
         var modernCount = 0;
         for (var word : MODERN_WORD) {
-            Pattern p = Pattern.compile(word.toLowerCase());
-            Matcher m = p.matcher(workloads.toLowerCase());
+            var p = Pattern.compile(word.toLowerCase());
+            var m = p.matcher(workloads.toLowerCase());
             while (m.find()) {
                 modernCount++;
             }
@@ -110,8 +109,8 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
     private static int getLegacyPoints(String phrase) {
         var points = 0;
         for (var key : LEGACY_WORD.keySet()) {
-            Pattern p = Pattern.compile(key.toLowerCase());
-            Matcher m = p.matcher(phrase.toLowerCase());
+            var p = Pattern.compile(key.toLowerCase());
+            var m = p.matcher(phrase.toLowerCase());
             while (m.find()) {
                 points += LEGACY_WORD.get(key);
             }
