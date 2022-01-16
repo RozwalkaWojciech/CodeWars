@@ -73,7 +73,13 @@ import java.util.regex.Pattern;
 
 class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
-    private static final List<String> MODERN_WORD = List.of("slow!", "expensive!", "manual!", "down!", "hostage!", "security!");
+    private static final List<String> MODERN_WORD = List.of(
+            "slow!",
+            "expensive!",
+            "manual!",
+            "down!",
+            "hostage!",
+            "security!");
     private static final Map<String, Integer> LEGACY_WORD = Map.of(
             "COBOL", 1000,
             "nonobject", 500,
