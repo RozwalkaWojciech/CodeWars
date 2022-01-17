@@ -67,8 +67,11 @@ https://www.youtube.com/watch?v=A_sY2rjxq6M
 Disclaimer - this should only be attempted by trained professionals and in accordance with local ordinances. EX: Disco may be outlawed in certain countries.
 */
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
@@ -122,5 +125,49 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
             }
         }
         return points;
+    }
+
+    public static String roastLegacy2(String workloads) {
+        Map<String, Integer> keywords = new HashMap<>();
+        keywords.put("COBOL", 1000);
+        keywords.put("nonobject", 500);
+        keywords.put("monolithic", 500);
+        keywords.put("fax", 100);
+        keywords.put("modem", 100);
+        keywords.put("thickclient", 50);
+        keywords.put("tape", 50);
+        keywords.put("floppy", 50);
+        keywords.put("oldschoolIT", 50);
+        List<String> complaints = Arrays.asList("slow!", "expensive!", "manual!", "down!", "hostage!", "security!");
+
+        String toLowerCase = workloads.toLowerCase();
+        if (keywords.keySet().stream().map(String::toLowerCase).anyMatch(toLowerCase::contains) || complaints.stream().anyMatch(toLowerCase::contains)) {
+            int nbComplaints = 0;
+            int points = 0;
+            String regexFormat = "(?i)%s";
+            String newWorkloads = workloads;
+            for (Map.Entry<String, Integer> entry : keywords.entrySet()) {
+                String regex = String.format(regexFormat, entry.getKey());
+                points += entry.getValue() * countMatching(regex, newWorkloads);
+                newWorkloads = newWorkloads.replaceAll(regex, "");
+            }
+            for (String complaint : complaints) {
+                String regex = String.format(regexFormat, complaint);
+                nbComplaints += countMatching(regex, newWorkloads);
+                newWorkloads = newWorkloads.replaceAll(regex, "");
+            }
+            return String.format("Burn baby burn disco inferno %s points earned in this roasting and %s complaints resolved!", points, nbComplaints);
+        } else {
+            return "These guys are already DevOps and in the Cloud and the business is happy!";
+        }
+    }
+
+    private static int countMatching(String regex, String sample) {
+        Matcher matcher = Pattern.compile(regex, Pattern.CASE_INSENSITIVE).matcher(sample);
+        int cpt = 0;
+        while (matcher.find()) {
+            cpt++;
+        }
+        return cpt;
     }
 }
