@@ -142,8 +142,8 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
         String toLowerCase = workloads.toLowerCase();
         if (keywords.keySet().stream().map(String::toLowerCase).anyMatch(toLowerCase::contains) || complaints.stream().anyMatch(toLowerCase::contains)) {
-            int nbComplaints = 0;
-            int points = 0;
+            var nbComplaints = 0;
+            var points = 0;
             String regexFormat = "(?i)%s";
             String newWorkloads = workloads;
             for (Map.Entry<String, Integer> entry : keywords.entrySet()) {
@@ -164,7 +164,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
     private static int countMatching(String regex, String sample) {
         Matcher matcher = Pattern.compile(regex, Pattern.CASE_INSENSITIVE).matcher(sample);
-        int cpt = 0;
+        var cpt = 0;
         while (matcher.find()) {
             cpt++;
         }
