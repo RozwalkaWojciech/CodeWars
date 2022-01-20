@@ -144,15 +144,15 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
         if (keywords.keySet().stream().map(String::toLowerCase).anyMatch(toLowerCase::contains) || complaints.stream().anyMatch(toLowerCase::contains)) {
             var nbComplaints = 0;
             var points = 0;
-            String regexFormat = "(?i)%s";
-            String newWorkloads = workloads;
+            var regexFormat = "(?i)%s";
+            var newWorkloads = workloads;
             for (Map.Entry<String, Integer> entry : keywords.entrySet()) {
-                String regex = String.format(regexFormat, entry.getKey());
+                var regex = String.format(regexFormat, entry.getKey());
                 points += entry.getValue() * countMatching(regex, newWorkloads);
                 newWorkloads = newWorkloads.replaceAll(regex, "");
             }
-            for (String complaint : complaints) {
-                String regex = String.format(regexFormat, complaint);
+            for (var complaint : complaints) {
+                var regex = String.format(regexFormat, complaint);
                 nbComplaints += countMatching(regex, newWorkloads);
                 newWorkloads = newWorkloads.replaceAll(regex, "");
             }
