@@ -74,6 +74,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.lang.String.format;
+
 class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
     private static final List<String> MODERN_WORD = List.of(
@@ -100,7 +102,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
         if (points == 0 && modernCount == 0) {
             return "These guys are already DevOps and in the Cloud and the business is happy!";
         }
-        return String.format("Burn baby burn disco inferno %d points earned in this roasting and %d complaints resolved!", points, modernCount);
+        return format("Burn baby burn disco inferno %d points earned in this roasting and %d complaints resolved!", points, modernCount);
     }
 
     private static int getModernCount(String workloads) {
@@ -147,16 +149,16 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
             var regexFormat = "(?i)%s";
             var newWorkloads = workloads;
             for (Map.Entry<String, Integer> entry : keywords.entrySet()) {
-                var regex = String.format(regexFormat, entry.getKey());
+                var regex = format(regexFormat, entry.getKey());
                 points += entry.getValue() * countMatching(regex, newWorkloads);
                 newWorkloads = newWorkloads.replaceAll(regex, "");
             }
             for (var complaint : complaints) {
-                var regex = String.format(regexFormat, complaint);
+                var regex = format(regexFormat, complaint);
                 nbComplaints += countMatching(regex, newWorkloads);
                 newWorkloads = newWorkloads.replaceAll(regex, "");
             }
-            return String.format("Burn baby burn disco inferno %s points earned in this roasting and %s complaints resolved!", points, nbComplaints);
+            return format("Burn baby burn disco inferno %s points earned in this roasting and %s complaints resolved!", points, nbComplaints);
         } else {
             return "These guys are already DevOps and in the Cloud and the business is happy!";
         }
