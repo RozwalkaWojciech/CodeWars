@@ -71,10 +71,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static java.lang.String.format;
+import static java.util.regex.Pattern.CASE_INSENSITIVE;
+import static java.util.regex.Pattern.compile;
 
 class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
 
@@ -108,7 +108,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
     private static int getModernCount(String workloads) {
         var modernCount = 0;
         for (var word : MODERN_WORD) {
-            var p = Pattern.compile(word.toLowerCase());
+            var p = compile(word.toLowerCase());
             var m = p.matcher(workloads.toLowerCase());
             while (m.find()) {
                 modernCount++;
@@ -120,7 +120,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
     private static int getLegacyPoints(String phrase) {
         var points = 0;
         for (var key : LEGACY_WORD.keySet()) {
-            var p = Pattern.compile(key.toLowerCase());
+            var p = compile(key.toLowerCase());
             var m = p.matcher(phrase.toLowerCase());
             while (m.find()) {
                 points += LEGACY_WORD.get(key);
@@ -142,7 +142,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
         keywords.put("oldschoolIT", 50);
         List<String> complaints = Arrays.asList("slow!", "expensive!", "manual!", "down!", "hostage!", "security!");
 
-        String toLowerCase = workloads.toLowerCase();
+        var toLowerCase = workloads.toLowerCase();
         if (keywords.keySet().stream().map(String::toLowerCase).anyMatch(toLowerCase::contains) || complaints.stream().anyMatch(toLowerCase::contains)) {
             var nbComplaints = 0;
             var points = 0;
@@ -165,7 +165,7 @@ class DevOpsLegacyRoastingDiscoInfernoBurnBabyBurn {
     }
 
     private static int countMatching(String regex, String sample) {
-        Matcher matcher = Pattern.compile(regex, Pattern.CASE_INSENSITIVE).matcher(sample);
+        var matcher = compile(regex, CASE_INSENSITIVE).matcher(sample);
         var cpt = 0;
         while (matcher.find()) {
             cpt++;
