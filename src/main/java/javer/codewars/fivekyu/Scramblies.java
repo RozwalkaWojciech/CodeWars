@@ -14,8 +14,6 @@ scramble('cedewaraaossoqqyt', 'codewars') ==> True
 scramble('katas', 'steak') ==> False
  */
 
-import static java.lang.System.out;
-
 public class Scramblies {
 
     public static boolean scramble(String str1, String str2) {
@@ -26,10 +24,5 @@ public class Scramblies {
             str1 = str1.replaceFirst(s, "");
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        out.println(scramble("rkqodlww", "world"));
-        out.println(scramble("rkqodl", "world"));
     }
 }
