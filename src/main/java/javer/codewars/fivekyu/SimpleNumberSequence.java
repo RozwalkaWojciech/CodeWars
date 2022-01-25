@@ -13,8 +13,6 @@ missing("8990919395") = -1 -- error in sequence. Both 92 and 94 missing.
 The sequence will always be in ascending order.
  */
 
-import static java.lang.System.out;
-
 public class SimpleNumberSequence {
 
     public static int missing(String s) {
@@ -35,10 +33,5 @@ public class SimpleNumberSequence {
             if (temp == 0 && hold == s.length()) return result;
         }
         return -1;
-    }
-
-    public static void main(String[] args) {
-        out.println(missing("899091939495"));
-        out.println(missing("900001900002900004900005900006"));
     }
 }
