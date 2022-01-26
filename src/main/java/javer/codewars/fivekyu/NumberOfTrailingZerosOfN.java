@@ -1,7 +1,5 @@
 package javer.codewars.fivekyu;
 
-import static java.lang.System.out;
-
 public class NumberOfTrailingZerosOfN {
 
     public static int zeros(int n) {
@@ -19,11 +17,5 @@ public class NumberOfTrailingZerosOfN {
             fact = fact * i;
         }
         return fact;
-    }
-
-    public static void main(String[] args) {
-        for (var i = 1; i < 22; i++) {
-            out.println(i + ". " + factorialUsingForLoop(i));
-        }
     }
 }
