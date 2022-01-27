@@ -28,8 +28,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
-import static java.lang.System.out;
-
 public class HumanReadableDurationFormat {
 
     public static String formatDuration(int seconds) {
@@ -159,10 +157,6 @@ public class HumanReadableDurationFormat {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        out.println(formatDuration4(3662));
     }
 }
 
