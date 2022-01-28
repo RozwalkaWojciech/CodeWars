@@ -10,7 +10,6 @@ All letters will be lowercase and all inputs will be valid.
 
 import java.util.Arrays;
 
-import static java.lang.System.out;
 import static java.util.Comparator.comparingInt;
 
 public class HighestScoringWord {
@@ -34,14 +33,9 @@ public class HighestScoringWord {
 
     public static String high2(String s) {
         return Arrays.stream(s.split(" "))
-                .max(
-                        comparingInt(w -> w.chars()
-                                .map(c -> c - 96)
-                                .sum()))
+                .max(comparingInt(w -> w.chars()
+                        .map(c -> c - 96)
+                        .sum()))
                 .orElseGet((() -> ""));
-    }
-
-    public static void main(String[] args) {
-        out.println(high("man i need a taxi up to ubud"));
     }
 }
