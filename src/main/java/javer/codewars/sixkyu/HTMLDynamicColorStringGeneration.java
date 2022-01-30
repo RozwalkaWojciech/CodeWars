@@ -18,15 +18,9 @@ cafebabe
 
 import java.util.Random;
 
-import static java.lang.System.out;
-
 public class HTMLDynamicColorStringGeneration {
 
     public static String generateColor(Random r) {
         return String.format("#%06x", r.nextInt(0xffffff + 1));
-    }
-
-    public static void main(String[] args) {
-        out.println(generateColor(new Random()));
     }
 }
