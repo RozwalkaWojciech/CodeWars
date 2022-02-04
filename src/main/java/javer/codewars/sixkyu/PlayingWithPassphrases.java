@@ -20,7 +20,6 @@ With longer passphrases it's better to have a small and easy program. Would you 
 */
 
 import static java.lang.Character.*;
-import static java.lang.System.out;
 
 public class PlayingWithPassphrases {
 
@@ -49,12 +48,6 @@ public class PlayingWithPassphrases {
             }
         }
         return sb.reverse().toString();
-    }
-
-
-    public static void main(String[] args) {
-        out.println(playPass("I LOVE YOU Z!!!", 1));
-        out.println(playPass("APRIL 2015", 2));
     }
 }
 
