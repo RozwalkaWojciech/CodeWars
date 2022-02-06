@@ -28,10 +28,6 @@ Think of calculation by hand using only integers (in your code use or simulate i
 or Google: "convert decimal time to hours minutes seconds"
 */
 
-import java.util.Arrays;
-
-import static java.lang.System.out;
-
 public class TortoiseRacing {
 
     public static int[] race(int v1, int v2, int g) {
@@ -55,9 +51,5 @@ public class TortoiseRacing {
             return null;
         }
         return new int[]{totalSecondsTaken / 3600, (totalSecondsTaken % 3600) / 60, totalSecondsTaken % 60};
-    }
-
-    public static void main(String[] args) {
-        out.println(Arrays.toString(race(720, 850, 70)));
     }
 }
