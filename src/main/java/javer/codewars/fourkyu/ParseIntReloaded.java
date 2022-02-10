@@ -72,10 +72,6 @@ public class ParseIntReloaded {
         }
         return result + temp;
     }
-
-    public static void main(String[] args) {
-        out.println(parseInt("two hundred forty-six"));
-    }
 }
 
 /*
