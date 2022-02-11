@@ -79,11 +79,5 @@ public class MostFrequentlyUsedWordsInText {
                 .limit(3)
                 .collect(Collectors.toList());
     }
-
-    public static void main(String[] args) {
-        out.println(top3("  '  "));
-        out.println(top3("a a a  b  c c  d d d d  e e e e e"));
-        out.println(top3("  //wOnt won't won't "));
-    }
 }
 
