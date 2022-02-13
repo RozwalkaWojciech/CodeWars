@@ -22,8 +22,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-import static java.lang.System.out;
-
 public class NextSmallerNumberWithTheSameDigits {
 
     public static long nextSmaller(long n) {
@@ -70,12 +68,5 @@ public class NextSmallerNumberWithTheSameDigits {
             long r = Long.parseLong(String.join("", sarr));
             return String.valueOf(r).length() == len ? r : -1;
         }
-    }
-
-    public static void main(String[] args) {
-
-        out.println(nextSmaller(1027));
-        out.println(nextSmaller(907));
-        out.println(nextSmaller(123456798));
     }
 }
