@@ -178,11 +178,4 @@ public class StringsMix {
 
         return finalStr.stream().sorted(length.thenComparing(typeValue)).collect(Collectors.joining("/"));
     }
-
-    public static void main(String[] args) {
-
-        System.out.println(mix("Are they here", "yes, they are here"));
-        System.out.println(mix("aaaabbbcccccc", "aacccffggggg"));
-        System.out.println(mix("bbaabbccaa", "bbaabbacca"));
-    }
 }
