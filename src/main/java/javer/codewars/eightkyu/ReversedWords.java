@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static java.lang.String.*;
+import static java.lang.String.join;
 import static java.util.Arrays.stream;
 
 public class ReversedWords {
