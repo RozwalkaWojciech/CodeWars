@@ -7,11 +7,11 @@ Example:
  */
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static java.lang.String.join;
 import static java.util.Arrays.stream;
+import static java.util.Collections.reverse;
 
 public class ReversedWords {
 
@@ -21,7 +21,7 @@ public class ReversedWords {
 
     public static String reverseWords2(String str) {
         List<String> list = Arrays.asList(str.split(" "));
-        Collections.reverse(list);
+        reverse(list);
         return join(" ", list);
     }
 }
