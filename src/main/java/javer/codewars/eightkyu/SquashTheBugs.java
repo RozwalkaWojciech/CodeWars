@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class SquashTheBugs {
 
     public static int findLongest(final String str) {
-        String[] strArr = str.split(" ");
+        var strArr = str.split(" ");
         var longest = 0;
         for (var s : strArr) {
             if (s.length() > longest) {
