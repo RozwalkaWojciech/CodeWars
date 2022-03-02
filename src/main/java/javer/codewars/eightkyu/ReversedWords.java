@@ -6,11 +6,8 @@ Example:
 "The greatest victory is that which requires no battle" --> "battle no requires which that is victory greatest The"
  */
 
-import java.util.Arrays;
-import java.util.List;
-
 import static java.lang.String.join;
-import static java.util.Arrays.*;
+import static java.util.Arrays.asList;
 import static java.util.Arrays.stream;
 import static java.util.Collections.reverse;
 
@@ -21,7 +18,7 @@ public class ReversedWords {
     }
 
     public static String reverseWords2(String str) {
-        List<String> list = asList(str.split(" "));
+        var list = asList(str.split(" "));
         reverse(list);
         return join(" ", list);
     }
