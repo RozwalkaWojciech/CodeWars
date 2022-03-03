@@ -10,15 +10,19 @@ max({5}) returns 5
 min({42, 54, 65, 87, 0}) returns 0
  */
 
-import java.util.Arrays;
+import static java.util.Arrays.stream;
 
 public class FindMaximumAndMinimumValuesOfList {
 
     public int min(int[] list) {
-        return Arrays.stream(list).min().orElseThrow();
+        return stream(list)
+                .min()
+                .orElseThrow();
     }
 
     public int max(int[] list) {
-        return Arrays.stream(list).max().orElseThrow();
+        return stream(list)
+                .max()
+                .orElseThrow();
     }
 }
