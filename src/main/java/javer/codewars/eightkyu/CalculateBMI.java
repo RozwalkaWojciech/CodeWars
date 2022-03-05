@@ -11,7 +11,7 @@ if bmi > 30 return "Obese"
 
 public class CalculateBMI {
     public static String bmi(double weight, double height) {
-        double bmiResult = bmiCalculator(weight, height);
+        var bmiResult = bmiCalculator(weight, height);
         if (bmiResult <= 18.5) {
             return "Underweight";
         } else if (bmiResult <= 25.0) {
