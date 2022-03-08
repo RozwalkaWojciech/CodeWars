@@ -29,7 +29,7 @@ public class CalculateBMI {
     }
 
     public static String bmi3(double weight, double height) {
-        double bmi = weight / (height * height);
+        var bmi = weight / (height * height);
         if (bmi <= 18.5) {
             return "Underweight";
         }
