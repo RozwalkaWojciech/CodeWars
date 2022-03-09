@@ -9,6 +9,8 @@ if bmi <= 30.0 return "Overweight"
 if bmi > 30 return "Obese"
  */
 
+import static java.lang.Math.*;
+
 public class CalculateBMI {
     public static String bmi(double weight, double height) {
         var bmiResult = bmiCalculator(weight, height);
@@ -43,6 +45,6 @@ public class CalculateBMI {
     }
 
     private static double bmiCalculator(double weight, double height) {
-        return weight / Math.pow(height, 2);
+        return weight / pow(height, 2);
     }
 }
