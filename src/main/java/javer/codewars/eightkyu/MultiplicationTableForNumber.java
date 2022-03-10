@@ -1,8 +1,7 @@
 package javer.codewars.eightkyu;
 
-import java.util.stream.IntStream;
-
 import static java.util.stream.Collectors.joining;
+import static java.util.stream.IntStream.rangeClosed;
 
 /*
 Your goal is to return multiplication table for number that is always an integer from 1 to 10.
@@ -31,7 +30,7 @@ public class MultiplicationTableForNumber {
     }
 
     public static String multiTable2(int num) {
-        return IntStream.rangeClosed(1, 10)
+        return rangeClosed(1, 10)
                 .mapToObj(i -> i + " * " + num + " = " + i * num)
                 .collect(joining("\n"));
     }
