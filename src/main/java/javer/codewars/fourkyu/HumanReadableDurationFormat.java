@@ -23,10 +23,11 @@ A unit of time must be used "as much as possible". It means that the function sh
  Formally, the duration specified by of a component must not be greater than any valid more significant unit of time.
  */
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
 
 public class HumanReadableDurationFormat {
 
@@ -34,7 +35,6 @@ public class HumanReadableDurationFormat {
         if (seconds == 0) {
             return "now";
         }
-
         var oneMinute = 60;
         var oneHour = 60 * oneMinute;
         var oneDay = 24 * oneHour;
@@ -81,13 +81,13 @@ public class HumanReadableDurationFormat {
 
     public static String formatDuration2(int seconds) {
         return seconds == 0 ? "now" :
-                Arrays.stream(
-                                new String[]{
-                                        formatTime("year", (seconds / 31536000)),
-                                        formatTime("day", (seconds / 86400) % 365),
-                                        formatTime("hour", (seconds / 3600) % 24),
-                                        formatTime("minute", (seconds / 60) % 60),
-                                        formatTime("second", (seconds % 3600) % 60)})
+                stream(
+                        new String[]{
+                                formatTime("year", (seconds / 31536000)),
+                                formatTime("day", (seconds / 86400) % 365),
+                                formatTime("hour", (seconds / 3600) % 24),
+                                formatTime("minute", (seconds / 60) % 60),
+                                formatTime("second", (seconds % 3600) % 60)})
                         .filter(e -> !e.equals(""))
                         .collect(Collectors.joining(", "))
                         .replaceAll(", (?!.+,)", " and ");
