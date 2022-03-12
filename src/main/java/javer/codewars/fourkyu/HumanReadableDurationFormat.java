@@ -27,6 +27,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
+import static java.time.Duration.*;
 import static java.util.Arrays.stream;
 
 public class HumanReadableDurationFormat {
@@ -118,10 +119,10 @@ public class HumanReadableDurationFormat {
     public static String formatDuration4(int seconds) {
         return seconds == 0 ? "now" :
                 (
-                        java.time.Duration.ofSeconds(seconds).toDays() / 365 + " years, " +
-                                java.time.Duration.ofSeconds(seconds).toDays() % 365 + " days, " +
-                                java.time.Duration.ofSeconds(seconds).toHours() % 24 + " hours, " +
-                                java.time.Duration.ofSeconds(seconds).toMinutes() % 60 + " minutes, " +
+                        ofSeconds(seconds).toDays() / 365 + " years, " +
+                                ofSeconds(seconds).toDays() % 365 + " days, " +
+                                ofSeconds(seconds).toHours() % 24 + " hours, " +
+                                ofSeconds(seconds).toMinutes() % 60 + " minutes, " +
                                 seconds % 60 + " seconds"
                 )
                         .replaceAll("\\b0 \\w+\\, \\b", "")
