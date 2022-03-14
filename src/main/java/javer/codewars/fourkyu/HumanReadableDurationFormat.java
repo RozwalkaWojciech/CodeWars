@@ -27,7 +27,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
-import static java.time.Duration.*;
+import static java.time.Duration.ofSeconds;
 import static java.util.Arrays.stream;
 
 public class HumanReadableDurationFormat {
@@ -117,19 +117,15 @@ public class HumanReadableDurationFormat {
     }
 
     public static String formatDuration4(int seconds) {
-        return seconds == 0 ? "now" :
-                (
-                        ofSeconds(seconds).toDays() / 365 + " years, " +
-                                ofSeconds(seconds).toDays() % 365 + " days, " +
-                                ofSeconds(seconds).toHours() % 24 + " hours, " +
-                                ofSeconds(seconds).toMinutes() % 60 + " minutes, " +
-                                seconds % 60 + " seconds"
-                )
-                        .replaceAll("\\b0 \\w+\\, \\b", "")
-                        .replaceAll("\\, 0 \\w+$", "")
-                        .replaceAll("\\b1 (\\w+)s\\b", "1 $1")
-                        .replaceFirst("(\\, (\\d+) (\\w+))$", " and $2 $3")
-                ;
+        return seconds == 0 ? "now" : ofSeconds(seconds).toDays() / 365 + " years, " +
+                ofSeconds(seconds).toDays() % 365 + " days, " +
+                ofSeconds(seconds).toHours() % 24 + " hours, " +
+                ofSeconds(seconds).toMinutes() % 60 + " minutes, " +
+                seconds % 60 + " seconds"
+                .replaceAll("\\b0 \\w+\\, \\b", "")
+                .replaceAll("\\, 0 \\w+$", "")
+                .replaceAll("\\b1 (\\w+)s\\b", "1 $1")
+                .replaceFirst("(\\, (\\d+) (\\w+))$", " and $2 $3");
     }
 
     public static String formatDuration5(int seconds) {
