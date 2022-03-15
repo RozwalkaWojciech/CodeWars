@@ -7,7 +7,7 @@ Output should be the length of the longest word, as a number.
 There will only be one 'longest' word.
 */
 
-import java.util.stream.Stream;
+import static java.util.stream.Stream.of;
 
 public class SquashTheBugs {
 
@@ -23,7 +23,7 @@ public class SquashTheBugs {
     }
 
     public static int findLongest2(final String str) {
-        return Stream.of(str.split(" "))
+        return of(str.split(" "))
                 .mapToInt(String::length)
                 .max()
                 .orElse(0);
