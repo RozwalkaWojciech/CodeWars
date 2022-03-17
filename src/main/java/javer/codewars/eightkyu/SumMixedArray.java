@@ -13,6 +13,8 @@ Return your answer as a number.
 public class SumMixedArray {
 
     public int sum(List<?> mixed) {
-        return mixed.stream().mapToInt(o -> parseInt(o.toString())).sum();
+        return mixed.stream()
+                .mapToInt(o -> parseInt(o.toString()))
+                .sum();
     }
 }
