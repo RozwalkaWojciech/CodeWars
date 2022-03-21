@@ -1,10 +1,12 @@
 package javer.codewars.eightkyu;
 
-import java.util.Arrays;
+import static java.util.Arrays.stream;
 
 public class InvertValues {
 
     public static int[] invert(int[] array) {
-        return Arrays.stream(array).map(operand -> operand * (-1)).toArray();
+        return stream(array)
+                .map(operand -> operand * (-1))
+                .toArray();
     }
 }
