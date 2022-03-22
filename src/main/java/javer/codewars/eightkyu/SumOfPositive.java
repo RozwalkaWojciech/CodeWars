@@ -1,6 +1,6 @@
 package javer.codewars.eightkyu;
 
-import java.util.Arrays;
+import static java.util.Arrays.stream;
 
 /*
 You get an array of numbers, return the sum of all of the positives ones.
@@ -23,6 +23,8 @@ public class SumOfPositive {
     }
 
     public static int sum2(int[] arr) {
-        return Arrays.stream(arr).filter(number -> number > 0).sum();
+        return stream(arr)
+                .filter(number -> number > 0)
+                .sum();
     }
 }
