@@ -18,12 +18,13 @@ test data only employs positive integers.
 The function you write for this challenge is the inverse of this kata: "Next bigger number with the same digits."
  */
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.stream.Collectors;
-
+import static java.lang.Long.parseLong;
 import static java.lang.String.join;
 import static java.lang.String.valueOf;
+import static java.util.Arrays.sort;
+import static java.util.Arrays.stream;
+import static java.util.Collections.reverseOrder;
+import static java.util.stream.Collectors.joining;
 
 public class NextSmallerNumberWithTheSameDigits {
 
@@ -41,8 +42,8 @@ public class NextSmallerNumberWithTheSameDigits {
                     if (digitArr[0] == '0') {
                         return -1;
                     }
-                    Arrays.sort(digitArr, i + 1, digitArr.length, Collections.reverseOrder());
-                    return Long.parseLong(Arrays.stream(digitArr).map(String::valueOf).collect(Collectors.joining()));
+                    sort(digitArr, i + 1, digitArr.length, reverseOrder());
+                    return parseLong(stream(digitArr).map(String::valueOf).collect(joining()));
                 }
             }
         }
@@ -67,8 +68,8 @@ public class NextSmallerNumberWithTheSameDigits {
             carr[i - 1] = carr[min];
             carr[min] = temp;
             String[] sarr = valueOf(carr).split("");
-            java.util.Arrays.sort(sarr, i, len, java.util.Collections.reverseOrder());
-            long r = Long.parseLong(join("", sarr));
+            sort(sarr, i, len, reverseOrder());
+            long r = parseLong(join("", sarr));
             return valueOf(r).length() == len ? r : -1;
         }
     }
