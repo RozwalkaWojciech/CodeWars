@@ -54,7 +54,9 @@ public class NextSmallerNumberWithTheSameDigits {
         char[] carr = valueOf(n).toCharArray();
         int len = carr.length, i;
         for (i = len - 1; i > 0; i--) {
-            if (carr[i] < carr[i - 1]) break;
+            if (carr[i] < carr[i - 1]) {
+                break;
+            }
         }
         if (i == 0) return -1;
         else {
