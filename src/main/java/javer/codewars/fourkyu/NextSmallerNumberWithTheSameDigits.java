@@ -58,7 +58,9 @@ public class NextSmallerNumberWithTheSameDigits {
                 break;
             }
         }
-        if (i == 0) return -1;
+        if (i == 0) {
+            return -1;
+        }
         else {
             int x = carr[i - 1], min = i;
             for (var j = i + 1; j < len; j++) {
