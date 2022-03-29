@@ -1,6 +1,6 @@
 package javer.codewars.eightkyu;
 
-import java.util.Arrays;
+import static java.util.Arrays.stream;
 
 public class SumArrays {
 
@@ -13,6 +13,7 @@ public class SumArrays {
     }
 
     public static double sum2(double[] numbers) {
-        return Arrays.stream(numbers).sum();
+        return stream(numbers)
+                .sum();
     }
 }
