@@ -8,8 +8,7 @@ If two words score the same, return the word that appears earliest in the origin
 All letters will be lowercase and all inputs will be valid.
  */
 
-import java.util.Arrays;
-
+import static java.util.Arrays.stream;
 import static java.util.Comparator.comparingInt;
 
 public class HighestScoringWord {
@@ -32,7 +31,7 @@ public class HighestScoringWord {
     }
 
     public static String high2(String s) {
-        return Arrays.stream(s.split(" "))
+        return stream(s.split(" "))
                 .max(comparingInt(w -> w.chars()
                         .map(c -> c - 96)
                         .sum()))
