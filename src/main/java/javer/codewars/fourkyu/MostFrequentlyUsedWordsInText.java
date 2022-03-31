@@ -2,11 +2,10 @@ package javer.codewars.fourkyu;
 
 import java.util.*;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import static java.lang.Character.isLetter;
-import static java.lang.System.out;
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.Collections.reverseOrder;
+import static java.util.stream.Collectors.*;
 
 /*
 Write a function that, given a string of text (possibly with punctuation and line-breaks),
@@ -51,7 +50,7 @@ public class MostFrequentlyUsedWordsInText {
         }
 
         List<Map.Entry<String, Integer>> collect = map.entrySet().stream()
-                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(Collectors.toList());
+                .sorted(reverseOrder(Map.Entry.comparingByValue())).collect(toList());
 
         var count = 3;
 
@@ -73,11 +72,11 @@ public class MostFrequentlyUsedWordsInText {
     public static List<String> top3bis(String s) {
         return Arrays.stream(s.toLowerCase().split("[^a-z*|']"))
                 .filter(o -> !o.isEmpty() && !o.replace("'", "").isEmpty())
-                .collect(groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
-                .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(groupingBy(Function.identity(), counting())).entrySet().stream()
+                .sorted(reverseOrder(Map.Entry.comparingByValue()))
                 .map(Map.Entry::getKey)
                 .limit(3)
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 }
 
