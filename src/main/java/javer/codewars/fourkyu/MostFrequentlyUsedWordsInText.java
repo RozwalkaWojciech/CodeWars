@@ -1,9 +1,13 @@
 package javer.codewars.fourkyu;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.function.Function;
 
 import static java.lang.Character.isLetter;
+import static java.util.Arrays.stream;
 import static java.util.Collections.reverseOrder;
 import static java.util.stream.Collectors.*;
 
@@ -70,7 +74,7 @@ public class MostFrequentlyUsedWordsInText {
     }
 
     public static List<String> top3bis(String s) {
-        return Arrays.stream(s.toLowerCase().split("[^a-z*|']"))
+        return stream(s.toLowerCase().split("[^a-z*|']"))
                 .filter(o -> !o.isEmpty() && !o.replace("'", "").isEmpty())
                 .collect(groupingBy(Function.identity(), counting())).entrySet().stream()
                 .sorted(reverseOrder(Map.Entry.comparingByValue()))
