@@ -40,7 +40,6 @@ For java users, the calls will actually be in the form: TopWords.top3(String s),
 public class MostFrequentlyUsedWordsInText {
 
     public static List<String> top3(String s) {
-
         Map<String, Integer> map = new TreeMap<>();
         var toLowerCase = s.replaceAll("[^a-zA-Z']", " ").trim().toLowerCase();
         List<String> result = new ArrayList<>();
@@ -52,12 +51,10 @@ public class MostFrequentlyUsedWordsInText {
                 map.put(str, 1);
             }
         }
-
         List<Map.Entry<String, Integer>> collect = map.entrySet().stream()
                 .sorted(reverseOrder(Map.Entry.comparingByValue())).collect(toList());
 
         var count = 3;
-
         for (Map.Entry<String, Integer> entry : collect) {
             if (count == 0) {
                 break;
