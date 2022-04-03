@@ -19,16 +19,14 @@ If the digits can't be rearranged to form a bigger number, return -1 (or nil in 
 531 ==> -1
 */
 public class NextBiggerNumberWithTheSameDigits {
-    public static long nextBiggerNumber(long n) {
 
+    public static long nextBiggerNumber(long n) {
         var strNum = String.valueOf(n);
         var sb = new StringBuilder();
         var rightDigits = new ArrayList<Integer>();
 
         for (var i = strNum.length() - 1; i > 0; i--) {
-
             if (strNum.charAt(i) > strNum.charAt(i - 1)) {
-
                 sb.append(strNum, 0, i - 1);
 
                 rightDigits.add(getNumericValue(strNum.charAt(i)));
