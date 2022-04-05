@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import static java.lang.Character.getNumericValue;
 import static java.lang.Long.parseLong;
+import static java.lang.String.*;
 import static java.util.Arrays.*;
 import static java.util.Collections.sort;
 
@@ -22,7 +23,7 @@ If the digits can't be rearranged to form a bigger number, return -1 (or nil in 
 public class NextBiggerNumberWithTheSameDigits {
 
     public static long nextBiggerNumber(long n) {
-        var strNum = String.valueOf(n);
+        var strNum = valueOf(n);
         var sb = new StringBuilder();
         var rightDigits = new ArrayList<Integer>();
 
@@ -54,7 +55,7 @@ public class NextBiggerNumberWithTheSameDigits {
     }
 
     public static long nextBiggerNumber2(long n) {
-        var charArray = String.valueOf(n).toCharArray();
+        var charArray = valueOf(n).toCharArray();
         for (var i = charArray.length - 2; i >= 0; i--) {
             for (var j = charArray.length - 1; j > i; j--) {
                 if (charArray[i] < charArray[j]) {
@@ -62,7 +63,7 @@ public class NextBiggerNumberWithTheSameDigits {
                     charArray[i] = charArray[j];
                     charArray[j] = charTmp;
                     Arrays.sort(charArray, i + 1, charArray.length);
-                    return parseLong(String.valueOf(charArray));
+                    return parseLong(valueOf(charArray));
                 }
             }
         }
