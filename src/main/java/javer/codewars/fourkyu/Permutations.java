@@ -3,6 +3,8 @@ package javer.codewars.fourkyu;
 import java.util.HashSet;
 import java.util.List;
 
+import static java.util.List.*;
+
 /*
 In this kata you have to create all permutations of an input string and remove duplicates, if present.
 This means, you have to shuffle all letters from the input in all possible orders.
@@ -19,7 +21,7 @@ public class Permutations {
         var set = new HashSet<String>();
         if (s.length() == 0) {
             set.add(s);
-            return List.copyOf(set);
+            return copyOf(set);
         }
         for (var i = 0; i < s.length(); i++) {
             List<String> temp = singlePermutations(s.substring(0, i) + s.substring(i + 1));
@@ -27,6 +29,6 @@ public class Permutations {
                 set.add(s.charAt(i) + str);
             }
         }
-        return List.copyOf(set);
+        return copyOf(set);
     }
 }
