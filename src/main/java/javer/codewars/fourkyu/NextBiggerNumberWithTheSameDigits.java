@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import static java.lang.Character.getNumericValue;
 import static java.lang.Long.parseLong;
-import static java.lang.String.*;
+import static java.lang.String.valueOf;
 import static java.util.Arrays.*;
 import static java.util.Collections.sort;
 
@@ -30,12 +30,9 @@ public class NextBiggerNumberWithTheSameDigits {
         for (var i = strNum.length() - 1; i > 0; i--) {
             if (strNum.charAt(i) > strNum.charAt(i - 1)) {
                 sb.append(strNum, 0, i - 1);
-
                 rightDigits.add(getNumericValue(strNum.charAt(i)));
                 rightDigits.add(getNumericValue(strNum.charAt(i - 1)));
-
                 sort(rightDigits);
-
                 for (var j = 0; j < rightDigits.size(); j++) {
                     if (rightDigits.get(j) > getNumericValue(strNum.charAt(i - 1))) {
                         sb.append(rightDigits.get(j));
