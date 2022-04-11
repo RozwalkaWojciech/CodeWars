@@ -43,7 +43,9 @@ public class NextSmallerNumberWithTheSameDigits {
                         return -1;
                     }
                     sort(digitArr, i + 1, digitArr.length, reverseOrder());
-                    return parseLong(stream(digitArr).map(String::valueOf).collect(joining()));
+                    return parseLong(stream(digitArr)
+                            .map(String::valueOf)
+                            .collect(joining()));
                 }
             }
         }
