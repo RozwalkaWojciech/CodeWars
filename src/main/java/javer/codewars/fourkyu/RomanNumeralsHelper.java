@@ -29,22 +29,22 @@ M	1000
  */
 public class RomanNumeralsHelper {
 
-    private static final Map<Integer, String> map = new TreeMap<>();
+    private static final Map<Integer, String> MAP = new TreeMap<>();
 
     static {
-        map.put(1000, "M");
-        map.put(900, "CM");
-        map.put(500, "D");
-        map.put(400, "CD");
-        map.put(100, "C");
-        map.put(90, "XC");
-        map.put(50, "L");
-        map.put(40, "XL");
-        map.put(10, "X");
-        map.put(9, "IX");
-        map.put(5, "V");
-        map.put(4, "IV");
-        map.put(1, "I");
+        MAP.put(1000, "M");
+        MAP.put(900, "CM");
+        MAP.put(500, "D");
+        MAP.put(400, "CD");
+        MAP.put(100, "C");
+        MAP.put(90, "XC");
+        MAP.put(50, "L");
+        MAP.put(40, "XL");
+        MAP.put(10, "X");
+        MAP.put(9, "IX");
+        MAP.put(5, "V");
+        MAP.put(4, "IV");
+        MAP.put(1, "I");
     }
 
     public static String toRoman(int n) {
@@ -53,12 +53,12 @@ public class RomanNumeralsHelper {
 
         while (n != 0) {
             var highestNumb = 0;
-            for (Map.Entry<Integer, String> current : map.entrySet()) {
+            for (Map.Entry<Integer, String> current : MAP.entrySet()) {
                 if (current.getKey() <= n) {
                     highestNumb = current.getKey();
                 }
             }
-            sb.append(map.get(highestNumb));
+            sb.append(MAP.get(highestNumb));
             n -= highestNumb;
         }
         return sb.toString();
@@ -67,7 +67,7 @@ public class RomanNumeralsHelper {
     public static int fromRoman(String romanNumeral) {
 
         Map<Integer, String> reverseMap = new TreeMap<>(Collections.reverseOrder());
-        reverseMap.putAll(map);
+        reverseMap.putAll(MAP);
         var result = 0;
 
         while (!romanNumeral.isEmpty()) {
