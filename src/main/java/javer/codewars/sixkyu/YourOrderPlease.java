@@ -16,6 +16,8 @@ Examples
 import java.util.Arrays;
 import java.util.Comparator;
 
+import static java.lang.Integer.*;
+import static java.util.Arrays.*;
 import static java.util.stream.Collectors.joining;
 
 public class YourOrderPlease {
@@ -37,17 +39,17 @@ public class YourOrderPlease {
     }
 
     public static String order2(String words) {
-        return Arrays.stream(words.split(" "))
+        return stream(words.split(" "))
                 .sorted((s1, s2) -> {
-                    var num1 = Integer.parseInt(s1.replaceAll("\\D+", ""));
-                    var num2 = Integer.parseInt(s2.replaceAll("\\D+", ""));
-                    return Integer.compare(num1, num2);
+                    var num1 = parseInt(s1.replaceAll("\\D+", ""));
+                    var num2 = parseInt(s2.replaceAll("\\D+", ""));
+                    return compare(num1, num2);
                 })
                 .collect(joining(" "));
     }
 
     public static String order3(String words) {
-        return Arrays.stream(words.split(" "))
+        return stream(words.split(" "))
                 .sorted(Comparator.comparing(a -> a.replaceAll("\\D+", "")))
                 .collect(joining(" "));
     }
