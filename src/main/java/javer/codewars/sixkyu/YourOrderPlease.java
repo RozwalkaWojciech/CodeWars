@@ -18,6 +18,7 @@ import java.util.Comparator;
 
 import static java.lang.Integer.*;
 import static java.util.Arrays.*;
+import static java.util.Comparator.*;
 import static java.util.stream.Collectors.joining;
 
 public class YourOrderPlease {
@@ -50,7 +51,7 @@ public class YourOrderPlease {
 
     public static String order3(String words) {
         return stream(words.split(" "))
-                .sorted(Comparator.comparing(a -> a.replaceAll("\\D+", "")))
+                .sorted(comparing(a -> a.replaceAll("\\D+", "")))
                 .collect(joining(" "));
     }
 }
