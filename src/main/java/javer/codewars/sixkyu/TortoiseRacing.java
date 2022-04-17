@@ -31,7 +31,6 @@ or Google: "convert decimal time to hours minutes seconds"
 public class TortoiseRacing {
 
     public static int[] race(int v1, int v2, int g) {
-
         if (v1 >= v2) {
             return null;
         }
