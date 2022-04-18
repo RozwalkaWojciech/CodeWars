@@ -14,7 +14,8 @@ Example
 "ABBA" -> 2 # 'A' and 'B' each occur twice
  */
 
-import java.util.stream.Collectors;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 public class CountingDuplicates {
 
@@ -36,7 +37,7 @@ public class CountingDuplicates {
         return (int) text.toLowerCase()
                 .chars()
                 .boxed()
-                .collect(Collectors.groupingBy(k -> k, Collectors.counting()))
+                .collect(groupingBy(k -> k, counting()))
                 .values()
                 .stream()
                 .filter(e -> e > 1)
