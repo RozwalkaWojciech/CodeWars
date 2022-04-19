@@ -3,6 +3,7 @@ package javer.codewars.sevenkyu;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import static java.lang.Integer.parseInt;
 import static java.util.stream.Collectors.joining;
 
 public class DescendingOrder {
@@ -14,11 +15,11 @@ public class DescendingOrder {
         for (var ch : chars) {
             sb.append(ch);
         }
-        return Integer.parseInt(sb.reverse().toString());
+        return parseInt(sb.reverse().toString());
     }
 
     public static int sortDecsFunctional(final int num) {
-        return Integer.parseInt(String.valueOf(num)
+        return parseInt(String.valueOf(num)
                 .chars()
                 .mapToObj(value -> String.valueOf(Character.getNumericValue(value)))
                 .sorted(Comparator.reverseOrder())
