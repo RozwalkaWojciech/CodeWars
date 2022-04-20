@@ -2,7 +2,7 @@ package javer.codewars.eightkyu;
 
 public class RemoveStringSpaces {
 
-    static String noSpace(final String x) {
+    static String noSpace(String x) {
         return x.replace(" ", "");
     }
 }
