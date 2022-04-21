@@ -51,8 +51,11 @@ public class MostFrequentlyUsedWordsInText {
                 map.put(str, 1);
             }
         }
-        List<Map.Entry<String, Integer>> collect = map.entrySet().stream()
-                .sorted(reverseOrder(Map.Entry.comparingByValue())).collect(toList());
+        List<Map.Entry<String, Integer>> collect = map
+                .entrySet()
+                .stream()
+                .sorted(reverseOrder(Map.Entry.comparingByValue()))
+                .collect(toList());
 
         var count = 3;
         for (Map.Entry<String, Integer> entry : collect) {
