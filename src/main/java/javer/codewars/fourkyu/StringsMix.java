@@ -75,9 +75,7 @@ public class StringsMix {
             }
         }
         result.sort((str1, str2) -> str2.length() - str1.length());
-
         var temp = new ArrayList<String>();
-
         for (var i = 1; i <= result.size() - 1; i++) {
             if (result.get(i).length() < result.get(i - 1).length() || i == result.size() - 1) {
                 if (temp.isEmpty()) {
@@ -104,10 +102,8 @@ public class StringsMix {
     }
 
     private static Map<Character, Integer> setMap(String str) {
-
         Map<Character, Integer> map = new TreeMap<>();
         var count = 1;
-
         for (var i = 1; i < str.length(); i++) {
             if (str.charAt(i) != str.charAt(i - 1)) {
                 map.put(str.charAt(i - 1), count);
@@ -123,10 +119,8 @@ public class StringsMix {
     }
 
     private static Map<Character, Integer> concatenateMaps(Map<Character, Integer> map1, Map<Character, Integer> map2) {
-
         Map<Character, Integer> concatMap = new HashMap<>();
         Map<Character, Integer> smallerMap;
-
         if (map1.size() > map2.size()) {
             smallerMap = map2;
             concatMap.putAll(map1);
@@ -151,16 +145,12 @@ public class StringsMix {
     }
 
     public static String mix2(String s1, String s2) {
-
         List<String> finalStr = new ArrayList();
-
         for (char c = 'a'; c <= 'z'; c++) {
             String s1Char = s1.replaceAll("[^" + c + "]+", "");
             String s2Char = s2.replaceAll("[^" + c + "]+", "");
-
             var s1Length = s1Char.length();
             var s2Length = s2Char.length();
-
             if (s1Length > 1 || s2Length > 1) {
                 if (s1Length == s2Length) {
                     finalStr.add("=:" + s1Char);
@@ -175,7 +165,6 @@ public class StringsMix {
         }
         Comparator<String> length = (x, y) -> y.length() - x.length();
         Comparator<String> typeValue = (x, y) -> Character.compare(x.charAt(0), y.charAt(0));
-
         return finalStr.stream().sorted(length.thenComparing(typeValue)).collect(Collectors.joining("/"));
     }
 }
