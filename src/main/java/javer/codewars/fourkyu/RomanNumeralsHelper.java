@@ -48,9 +48,7 @@ public class RomanNumeralsHelper {
     }
 
     public static String toRoman(int n) {
-
         var sb = new StringBuilder();
-
         while (n != 0) {
             var highestNumb = 0;
             for (Map.Entry<Integer, String> current : MAP.entrySet()) {
