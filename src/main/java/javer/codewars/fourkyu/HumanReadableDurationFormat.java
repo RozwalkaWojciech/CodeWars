@@ -103,7 +103,9 @@ public class HumanReadableDurationFormat {
         int[] units = new int[]{31536000, 86400, 3600, 60, 1};
         String[] labels = new String[]{"year", "day", "hour", "minute", "second"};
 
-        if (seconds == 0) return "now";
+        if (seconds == 0) {
+            return "now";
+        }
 
         for (var i = 0; i < 5; i++) {
             if (seconds >= units[i]) {
