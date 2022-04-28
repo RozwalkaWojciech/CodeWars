@@ -3,6 +3,7 @@ package javer.codewars.sevenkyu;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import static java.lang.Character.getNumericValue;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 import static java.util.stream.Collectors.joining;
@@ -22,7 +23,7 @@ public class DescendingOrder {
     public static int sortDecsFunctional(final int num) {
         return parseInt(valueOf(num)
                 .chars()
-                .mapToObj(value -> valueOf(Character.getNumericValue(value)))
+                .mapToObj(value -> valueOf(getNumericValue(value)))
                 .sorted(Comparator.reverseOrder())
                 .collect(joining())
         );
