@@ -18,6 +18,7 @@ public class SmallEnoughBeginner {
     }
 
     public static boolean smallEnough2(int[] a, int limit) {
-        return stream(a).noneMatch(i -> i > limit);
+        return stream(a)
+                .noneMatch(i -> i > limit);
     }
 }
