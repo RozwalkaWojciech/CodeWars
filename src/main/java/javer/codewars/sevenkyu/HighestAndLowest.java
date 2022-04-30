@@ -18,6 +18,8 @@ import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.stream.Stream;
 
+import static java.lang.String.format;
+
 public class HighestAndLowest {
 
     public static String highAndLow(String numbers) {
@@ -29,7 +31,7 @@ public class HighestAndLowest {
                 .mapToInt(Integer::parseInt)
                 .max()
                 .getAsInt();
-        return String.format("%d %d", max, min);
+        return format("%d %d", max, min);
     }
 
     public static String HighAndLow2(String numbers) {
