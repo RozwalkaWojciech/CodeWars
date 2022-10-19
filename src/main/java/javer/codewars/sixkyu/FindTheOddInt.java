@@ -13,10 +13,22 @@ Examples
 [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
  */
 
+import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 public class FindTheOddInt {
 
     public static int findIt(int[] a) {
-        return 0;
+        return Arrays.stream(a)
+                .boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(v -> v.getValue() % 2 != 0)
+                .findFirst()
+                .get()
+                .getKey();
     }
 
 }
