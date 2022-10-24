@@ -31,4 +31,12 @@ public class FindTheOddInt {
                 .getKey();
     }
 
+    public static int findIt2(int[] a) {
+        int xor = 0;
+        for (int i = 0; i < a.length; i++) {
+            xor ^= a[i];
+        }
+        return xor;
+    }
+
 }
