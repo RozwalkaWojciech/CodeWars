@@ -13,14 +13,15 @@ Examples
 [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
  */
 
-import java.util.Arrays;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
 
 public class FindTheOddInt {
 
     public static int findIt(int[] a) {
-        return Arrays.stream(a)
+        return stream(a)
                 .boxed()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet()
@@ -37,6 +38,10 @@ public class FindTheOddInt {
             xor ^= a[i];
         }
         return xor;
+    }
+
+    public static int findIt3(int[] arr) {
+        return stream(arr).reduce(0, (x, y) -> x ^ y);
     }
 
 }
